@@ -244,7 +244,7 @@
     "lodash": "^4.17.21",
     "mini-css-extract-plugin": "^2.6.0",
     "node-fetch": "3.2.6",
-    "npm": "^8.12.1",
+    "npm": "^8.12.2",
     "prettier": "^2.7.0",
     "react-hot-loader": "^4.13.0",
     "redux-saga": "^1.1.3",
