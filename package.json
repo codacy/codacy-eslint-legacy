@@ -92,7 +92,7 @@
     "@next/eslint-plugin-next": "^12.1.4",
     "@nodelib/fs.walk": "^1.2.8",
     "@prodigy/eslint-config-prodigy": "0.0.7",
-    "@react-native-community/eslint-config": "^3.0.2",
+    "@react-native-community/eslint-config": "^3.0.3",
     "@salesforce/eslint-config-lwc": "^3.0.0",
     "@salesforce/eslint-plugin-aura": "^2.1.0",
     "@salesforce/eslint-plugin-lightning": "^0.1.1",
