@@ -252,7 +252,7 @@
     "standard": "^17.0.0",
     "stylelint-config-idiomatic-order": "^8.1.0",
     "typescript": "^4.8.3",
-    "vue-eslint-parser": "^9.0.3",
+    "vue-eslint-parser": "^9.1.0",
     "vue-template-compiler": "^2.7.10",
     "webpack": "^5.74.0",
     "webpack-manifest-plugin": "^5.0.0",
