@@ -266,7 +266,7 @@
     "@types/node": "^18.11.9",
     "@types/node-fetch": "^2.6.2",
     "@types/simple-mock": "^0.8.2",
-    "chai": "^4.3.6",
+    "chai": "^4.3.7",
     "eslint-plugin-simple-import-sort": "^8.0.0",
     "eslint-plugin-unused-imports": "^1.1.5",
     "husky": "^8.0.1",
