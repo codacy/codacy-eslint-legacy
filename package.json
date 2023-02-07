@@ -243,7 +243,7 @@
     "jstransformer-babel": "^2.1.0",
     "lodash": "^4.17.21",
     "mini-css-extract-plugin": "^2.7.2",
-    "node-fetch": "3.3.0",
+    "node-fetch": "2.6.9",
     "npm": "^9.4.0",
     "prettier": "^2.8.3",
     "react-hot-loader": "^4.13.1",
