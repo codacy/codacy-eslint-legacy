@@ -4,6 +4,7 @@ import { EOL } from "os"
 import { isBlacklisted, isBlacklistedOnlyFromDocumentation } from "./blacklist"
 import { DocGenerator } from "./docGenerator"
 import { defaultEngine } from "./eslintDefaultOptions"
+import { toolVersion } from "./toolMetadata"
 
 main()
 
@@ -76,7 +77,7 @@ async function main() {
   console.log("Generate eslint description files")
   await docGenerator.downloadDocs(
     (pattern) =>
-      `${githubBaseUrl}/eslint/archive-website/master/docs/rules/${pattern}.md`
+      `${githubBaseUrl}/eslint/v${toolVersion}/master/docs/rules/${pattern}.md`
   )
 
   console.log("Generate functional description files")
