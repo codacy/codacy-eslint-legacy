@@ -4,6 +4,8 @@ import { EOL } from "os"
 import { isBlacklisted, isBlacklistedOnlyFromDocumentation } from "./blacklist"
 import { DocGenerator } from "./docGenerator"
 import { defaultEngine } from "./eslintDefaultOptions"
+import { toolVersion } from "./toolMetadata"
+import { dependencies } from "./toolMetadata"
 
 main()
 
@@ -76,7 +78,7 @@ async function main() {
   console.log("Generate eslint description files")
   await docGenerator.downloadDocs(
     (pattern) =>
-      `${githubBaseUrl}/eslint/eslint/master/docs/rules/${pattern}.md`
+      `${githubBaseUrl}/eslint/eslint/v${toolVersion}/docs/rules/${pattern}.md`
   )
 
   console.log("Generate functional description files")
@@ -103,9 +105,10 @@ async function main() {
   )
 
   console.log("Generate jest description files")
+  const jestVersion = dependencies["eslint-plugin-jest"].replace("^", "")
   await docGenerator.downloadDocs(
     (pattern) =>
-      `${githubBaseUrl}/jest-community/eslint-plugin-jest/master/docs/rules/${pattern}.md`,
+      `${githubBaseUrl}/jest-community/eslint-plugin-jest/v${jestVersion}/docs/rules/${pattern}.md`,
     "jest"
   )
 
