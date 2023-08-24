@@ -1,4 +1,6 @@
-# Prevent usage of setState in componentWillUpdate (react/no-will-update-set-state)
+# Disallow usage of setState in componentWillUpdate (`react/no-will-update-set-state`)
+
+<!-- end auto-generated rule header -->
 
 Updating the state during the componentWillUpdate step can lead to indeterminate component state and is not allowed.
 

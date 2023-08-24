@@ -1,6 +1,9 @@
-# no-dupe-class-members
+---
+title: no-dupe-class-members
+rule_type: problem
+---
 
-Disallows duplicate name in class members.
+
 
 If there are declarations of the same name in class members, the last declaration overwrites other declarations silently.
 It can cause unexpected behaviors.
@@ -24,6 +27,8 @@ This rule is aimed to flag the use of duplicate names in class members.
 ## Examples
 
 Examples of **incorrect** code for this rule:
+
+::: incorrect
 
 ```js
 /*eslint no-dupe-class-members: "error"*/
@@ -54,7 +59,11 @@ class Foo {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-dupe-class-members: "error"*/
@@ -85,10 +94,12 @@ class Foo {
 }
 ```
 
+:::
+
 ## When Not To Use It
 
 This rule should not be used in ES3/5 environments.
 
 In ES2015 (ES6) or later, if you don't want to be notified about duplicate names in class members, you can safely disable this rule.
 
-It's also safe to disable this rule when using TypeScript because TypeScript's compiler already checks for duplicate function implementations.
+It is safe to disable this rule when using TypeScript because TypeScript's compiler enforces this check (`ts(2300) & ts(2393)`).

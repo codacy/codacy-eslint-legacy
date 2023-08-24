@@ -1,6 +1,15 @@
-# no-nonoctal-decimal-escape
+---
+title: no-nonoctal-decimal-escape
+rule_type: suggestion
+related_rules:
+- no-octal-escape
+further_reading:
+- https://tc39.es/ecma262/#prod-annexB-NonOctalDecimalEscapeSequence
+---
 
-Disallows `\8` and `\9` escape sequences in string literals.
+
+
+
 
 Although not being specified in the language until ECMAScript 2021, `\8` and `\9` escape sequences in string literals were allowed in most JavaScript engines, and treated as "useless" escapes:
 
@@ -21,6 +30,8 @@ This rule disallows `\8` and `\9` escape sequences in string literals.
 
 Examples of **incorrect** code for this rule:
 
+::: incorrect
+
 ```js
 /*eslint no-nonoctal-decimal-escape: "error"*/
 
@@ -37,7 +48,11 @@ var baz = "Don't use \8 and \9 escapes.";
 var quux = "\0\8";
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-nonoctal-decimal-escape: "error"*/
@@ -55,10 +70,4 @@ var baz = "Don't use \\8 and \\9 escapes.";
 var quux = "\0\u0038";
 ```
 
-## Related Rules
-
-* [no-octal-escape](no-octal-escape.md)
-
-## Further Reading
-
-* [NonOctalDecimalEscapeSequence](https://tc39.es/ecma262/#prod-annexB-NonOctalDecimalEscapeSequence) in ECMAScript specification
+:::

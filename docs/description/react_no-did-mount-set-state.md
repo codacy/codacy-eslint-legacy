@@ -1,4 +1,6 @@
-# Prevent usage of setState in componentDidMount (react/no-did-mount-set-state)
+# Disallow usage of setState in componentDidMount (`react/no-did-mount-set-state`)
+
+<!-- end auto-generated rule header -->
 
 Updating the state after a component mount will trigger a second `render()` call and can lead to property/layout thrashing.
 

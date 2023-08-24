@@ -1,6 +1,8 @@
-# no-negated-condition
+---
+title: no-negated-condition
+rule_type: suggestion
+---
 
-Disallows negated conditions.
 
 Negated conditions are more difficult to understand. Code can be made more readable by inverting the condition instead.
 
@@ -12,6 +14,8 @@ This rule disallows negated conditions in either of the following:
 * ternary expressions
 
 Examples of **incorrect** code for this rule:
+
+::: incorrect
 
 ```js
 /*eslint no-negated-condition: "error"*/
@@ -37,7 +41,11 @@ if (a !== b) {
 !a ? c : b
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-negated-condition: "error"*/
@@ -58,3 +66,5 @@ if (a != b) {
 
 a ? b : c
 ```
+
+:::

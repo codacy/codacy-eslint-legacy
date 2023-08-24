@@ -1,6 +1,11 @@
-# no-new-object
+---
+title: no-new-object
+rule_type: suggestion
+related_rules:
+- no-array-constructor
+- no-new-wrappers
+---
 
-Disallows `new` operators with the `Object` object.
 
 The `Object` constructor is used to create new generic objects in JavaScript, such as:
 
@@ -24,6 +29,8 @@ This rule disallows `Object` constructors.
 
 Examples of **incorrect** code for this rule:
 
+::: incorrect
+
 ```js
 /*eslint no-new-object: "error"*/
 
@@ -32,7 +39,11 @@ var myObject = new Object();
 new Object();
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-new-object: "error"*/
@@ -45,11 +56,8 @@ var Object = function Object() {};
 new Object();
 ```
 
+:::
+
 ## When Not To Use It
 
 If you wish to allow the use of the `Object` constructor, you can safely turn this rule off.
-
-## Related Rules
-
-* [no-array-constructor](no-array-constructor.md)
-* [no-new-wrappers](no-new-wrappers.md)

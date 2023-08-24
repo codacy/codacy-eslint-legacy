@@ -1,6 +1,9 @@
-# no-const-assign
+---
+title: no-const-assign
+rule_type: problem
+---
 
-Disallows modifying variables that are declared using `const`.
+
 
 We cannot modify variables that are declared using `const` keyword.
 It will raise a runtime error.
@@ -13,6 +16,8 @@ This rule is aimed to flag modifying variables that are declared using `const` k
 
 Examples of **incorrect** code for this rule:
 
+::: incorrect
+
 ```js
 /*eslint no-const-assign: "error"*/
 /*eslint-env es6*/
@@ -20,6 +25,10 @@ Examples of **incorrect** code for this rule:
 const a = 0;
 a = 1;
 ```
+
+:::
+
+::: incorrect
 
 ```js
 /*eslint no-const-assign: "error"*/
@@ -29,6 +38,10 @@ const a = 0;
 a += 1;
 ```
 
+:::
+
+::: incorrect
+
 ```js
 /*eslint no-const-assign: "error"*/
 /*eslint-env es6*/
@@ -37,7 +50,11 @@ const a = 0;
 ++a;
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-const-assign: "error"*/
@@ -46,6 +63,10 @@ Examples of **correct** code for this rule:
 const a = 0;
 console.log(a);
 ```
+
+:::
+
+::: correct
 
 ```js
 /*eslint no-const-assign: "error"*/
@@ -56,6 +77,10 @@ for (const a in [1, 2, 3]) { // `a` is re-defined (not modified) on each loop st
 }
 ```
 
+:::
+
+::: correct
+
 ```js
 /*eslint no-const-assign: "error"*/
 /*eslint-env es6*/
@@ -64,6 +89,8 @@ for (const a of [1, 2, 3]) { // `a` is re-defined (not modified) on each loop st
     console.log(a);
 }
 ```
+
+:::
 
 ## When Not To Use It
 

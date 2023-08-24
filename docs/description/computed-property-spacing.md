@@ -1,6 +1,13 @@
-# computed-property-spacing
+---
+title: computed-property-spacing
+rule_type: layout
+related_rules:
+- array-bracket-spacing
+- comma-spacing
+- space-in-parens
+---
 
-Disallows or enforces spaces inside of computed properties.
+
 
 While formatting preferences are very personal, a number of style guides require
 or disallow spaces between computed properties in the following situations:
@@ -46,6 +53,8 @@ Object option:
 
 Examples of **incorrect** code for this rule with the default `"never"` option:
 
+::: incorrect
+
 ```js
 /*eslint computed-property-spacing: ["error", "never"]*/
 /*eslint-env es6*/
@@ -59,7 +68,11 @@ const { [ a ]: someProp } = obj;
 ({ [ b ]: anotherProp } = anotherObj);
 ```
 
+:::
+
 Examples of **correct** code for this rule with the default `"never"` option:
+
+::: correct
 
 ```js
 /*eslint computed-property-spacing: ["error", "never"]*/
@@ -74,9 +87,13 @@ const { [a]: someProp } = obj;
 ({ [b]: anotherProp } = anotherObj);
 ```
 
+:::
+
 ### always
 
 Examples of **incorrect** code for this rule with the `"always"` option:
+
+::: incorrect
 
 ```js
 /*eslint computed-property-spacing: ["error", "always"]*/
@@ -92,7 +109,11 @@ const { [a]: someProp } = obj;
 ({ [b ]: anotherProp } = anotherObj);
 ```
 
+:::
+
 Examples of **correct** code for this rule with the `"always"` option:
+
+::: correct
 
 ```js
 /*eslint computed-property-spacing: ["error", "always"]*/
@@ -106,11 +127,15 @@ const { [ a ]: someProp } = obj;
 ({ [ b ]: anotherProp } = anotherObj);
 ```
 
+:::
+
 #### enforceForClassMembers
 
 With `enforceForClassMembers` set to `true` (default), the rule also disallows/enforces spaces inside of computed keys of class methods, getters and setters.
 
 Examples of **incorrect** code for this rule with `"never"` and `{ "enforceForClassMembers": true }` (default):
+
+::: incorrect
 
 ```js
 /*eslint computed-property-spacing: ["error", "never", { "enforceForClassMembers": true }]*/
@@ -130,7 +155,11 @@ const Bar = class {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule with `"never"` and `{ "enforceForClassMembers": true }` (default):
+
+::: correct
 
 ```js
 /*eslint computed-property-spacing: ["error", "never", { "enforceForClassMembers": true }]*/
@@ -150,7 +179,11 @@ const Bar = class {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule with `"never"` and `{ "enforceForClassMembers": false }`:
+
+::: correct
 
 ```js
 /*eslint computed-property-spacing: ["error", "never", { "enforceForClassMembers": false }]*/
@@ -170,12 +203,8 @@ const Bar = class {
 }
 ```
 
+:::
+
 ## When Not To Use It
 
 You can turn this rule off if you are not concerned with the consistency of computed properties.
-
-## Related Rules
-
-* [array-bracket-spacing](array-bracket-spacing.md)
-* [comma-spacing](comma-spacing.md)
-* [space-in-parens](space-in-parens.md)

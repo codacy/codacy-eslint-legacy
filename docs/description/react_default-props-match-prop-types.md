@@ -1,4 +1,6 @@
-# Enforce all defaultProps have a corresponding non-required PropType (react/default-props-match-prop-types)
+# Enforce all defaultProps have a corresponding non-required PropType (`react/default-props-match-prop-types`)
+
+<!-- end auto-generated rule header -->
 
 This rule aims to ensure that any prop in `defaultProps` has a non-required type
 definition.
@@ -127,7 +129,7 @@ MyStatelessComponent.propTypes = {
 };
 
 MyStatelessComponent.defaultProps = {
-    bar: 'some default'
+  bar: 'some default'
 };
 ```
 
@@ -192,7 +194,8 @@ If you don't care about stray `defaultsProps` in your components, you can disabl
 
 - [require-default-props](./require-default-props.md)
 
-# Resources
+## Resources
+
 - [Official React documentation on defaultProps](https://facebook.github.io/react/docs/typechecking-with-proptypes.html#default-prop-values)
 
 [PropTypes]: https://reactjs.org/docs/typechecking-with-proptypes.html

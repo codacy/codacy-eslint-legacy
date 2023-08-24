@@ -1,6 +1,8 @@
-# no-controller-access-in-routes
+# ember/no-controller-access-in-routes
 
-✅ The `"extends": "plugin:ember/recommended"` property in a configuration file enables this rule.
+💼 This rule is enabled in the ✅ `recommended` [config](https://github.com/ember-cli/eslint-plugin-ember#-configurations).
+
+<!-- end auto-generated rule header -->
 
 Accessing the controller in a route outside of `setupController`/`resetController` hooks (where it is passed as an argument) is discouraged.
 
@@ -64,5 +66,5 @@ export default class MyRoute extends Route {
 
 ## Configuration
 
-* object -- containing the following properties:
-  * boolean -- `allowControllerFor` -- whether the rule should allow or disallow routes from accessing the controller outside of `setupController`/`resetController` via `controllerFor` (default: `false`)
+- object -- containing the following properties:
+  - boolean -- `allowControllerFor` -- whether the rule should allow or disallow routes from accessing the controller outside of `setupController`/`resetController` via `controllerFor` (default: `false`)

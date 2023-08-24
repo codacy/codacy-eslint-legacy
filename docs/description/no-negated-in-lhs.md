@@ -1,8 +1,10 @@
-# no-negated-in-lhs
+---
+title: no-negated-in-lhs
+rule_type: problem
+---
 
-Disallows negating the left operand in `in` expressions.
 
-This rule was **deprecated** in ESLint v3.3.0 and replaced by the [no-unsafe-negation](no-unsafe-negation.md) rule.
+This rule was **deprecated** in ESLint v3.3.0 and replaced by the [no-unsafe-negation](no-unsafe-negation) rule.
 
 Just as developers might type `-a + b` when they mean `-(a + b)` for the negative of a sum, they might type `!key in object` by mistake when they almost certainly mean `!(key in object)` to test that a key is not in an object.
 
@@ -11,6 +13,8 @@ Just as developers might type `-a + b` when they mean `-(a + b)` for the negativ
 This rule disallows negating the left operand in `in` expressions.
 
 Examples of **incorrect** code for this rule:
+
+::: incorrect
 
 ```js
 /*eslint no-negated-in-lhs: "error"*/
@@ -21,7 +25,11 @@ if(!key in object) {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-negated-in-lhs: "error"*/
@@ -35,6 +43,8 @@ if(('' + !key) in object) {
     // in a rare situation when that is the intended meaning
 }
 ```
+
+:::
 
 ## When Not To Use It
 

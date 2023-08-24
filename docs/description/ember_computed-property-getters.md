@@ -1,4 +1,6 @@
-# computed-property-getters
+# ember/computed-property-getters
+
+<!-- end auto-generated rule header -->
 
 Enforce the consistent use of getters in computed properties.
 
@@ -11,9 +13,9 @@ This rule takes a single string option.
 
 String option:
 
-* `"always-with-setter"` (default) getters are *required* when computed property has a setter
-* `"always"` getters are *required* in computed properties
-* `"never"`  getters are *never allowed* in computed properties
+- `"always-with-setter"` (default) getters are *required* when computed property has a setter
+- `"always"` getters are *required* in computed properties
+- `"never"`  getters are *never allowed* in computed properties
 
 ## Examples
 

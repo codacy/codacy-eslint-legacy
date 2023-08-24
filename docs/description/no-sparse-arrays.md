@@ -1,6 +1,11 @@
-# no-sparse-arrays
+---
+title: no-sparse-arrays
+rule_type: problem
+further_reading:
+- https://www.nczonline.net/blog/2007/09/09/inconsistent-array-literals/
+---
 
-Disallows sparse arrays.
+
 
 Sparse arrays contain empty slots, most frequently due to multiple commas being used in an array literal, such as:
 
@@ -24,6 +29,8 @@ This rule disallows sparse array literals which have "holes" where commas are no
 
 Examples of **incorrect** code for this rule:
 
+::: incorrect
+
 ```js
 /*eslint no-sparse-arrays: "error"*/
 
@@ -31,7 +38,11 @@ var items = [,];
 var colors = [ "red",, "blue" ];
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-sparse-arrays: "error"*/
@@ -43,10 +54,8 @@ var items = new Array(23);
 var colors = [ "red", "blue", ];
 ```
 
+:::
+
 ## When Not To Use It
 
 If you want to use sparse arrays, then it is safe to disable this rule.
-
-## Further Reading
-
-* [Inconsistent array literals](https://www.nczonline.net/blog/2007/09/09/inconsistent-array-literals/)

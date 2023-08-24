@@ -1,6 +1,9 @@
-# no-dupe-keys
+---
+title: no-dupe-keys
+rule_type: problem
+---
 
-Disallows duplicate keys in object literals.
+
 
 Multiple properties with the same key in object literals can cause unexpected behavior in your application.
 
@@ -16,6 +19,8 @@ var foo = {
 This rule disallows duplicate keys in object literals.
 
 Examples of **incorrect** code for this rule:
+
+::: incorrect
 
 ```js
 /*eslint no-dupe-keys: "error"*/
@@ -36,7 +41,11 @@ var foo = {
 };
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-dupe-keys: "error"*/
@@ -46,3 +55,5 @@ var foo = {
     quxx: "qux"
 };
 ```
+
+:::

@@ -1,6 +1,11 @@
-# implicit-arrow-linebreak
+---
+title: implicit-arrow-linebreak
+rule_type: layout
+related_rules:
+- brace-style
+---
 
-Enforces the location of arrow function bodies with implicit returns.
+
 
 An arrow function body can contain an implicit return as an expression instead of a block body. It can be useful to enforce a consistent location for the implicitly returned expression.
 
@@ -16,6 +21,8 @@ This rule accepts a string option:
 * `"below"` requires a newline before an arrow function body.
 
 Examples of **incorrect** code for this rule with the default `"beside"` option:
+
+::: incorrect
 
 ```js
 /* eslint implicit-arrow-linebreak: ["error", "beside"] */
@@ -36,7 +43,11 @@ Examples of **incorrect** code for this rule with the default `"beside"` option:
 );
 ```
 
+:::
+
 Examples of **correct** code for this rule with the default `"beside"` option:
+
+::: correct
 
 ```js
 /* eslint implicit-arrow-linebreak: ["error", "beside"] */
@@ -63,7 +74,11 @@ Examples of **correct** code for this rule with the default `"beside"` option:
 }
 ```
 
+:::
+
 Examples of **incorrect** code for this rule with the `"below"` option:
+
+::: incorrect
 
 ```js
 /* eslint implicit-arrow-linebreak: ["error", "below"] */
@@ -75,11 +90,14 @@ Examples of **incorrect** code for this rule with the `"below"` option:
 (foo) => bar => baz;
 ```
 
+:::
+
 Examples of **correct** code for this rule with the `"below"` option:
+
+::: correct
 
 ```js
 /* eslint implicit-arrow-linebreak: ["error", "below"] */
-
 
 (foo) =>
   bar;
@@ -92,12 +110,10 @@ Examples of **correct** code for this rule with the `"below"` option:
     baz;
 ```
 
+:::
+
 ## When Not To Use It
 
 If you're not concerned about consistent locations of implicitly returned arrow function expressions, you should not turn on this rule.
 
-You can also disable this rule if you are using the `"always"` option for the [`arrow-body-style`](arrow-body-style.md), since this will disable the use of implicit returns in arrow functions.
-
-## Related Rules
-
-* [`brace-style`](brace-style.md) which enforces this behavior for arrow functions with block bodies.
+You can also disable this rule if you are using the `"always"` option for the [`arrow-body-style`](arrow-body-style), since this will disable the use of implicit returns in arrow functions.

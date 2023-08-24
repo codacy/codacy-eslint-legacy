@@ -1,6 +1,22 @@
-# comma-spacing
+---
+title: comma-spacing
+rule_type: layout
+related_rules:
+- array-bracket-spacing
+- comma-style
+- object-curly-spacing
+- space-in-brackets
+- space-in-parens
+- space-infix-ops
+- space-after-keywords
+- space-unary-ops
+- space-return-throw-case
+further_reading:
+- https://www.crockford.com/code.html
+- https://dojotoolkit.org/reference-guide/1.9/developer/styleguide.html
+---
 
-Enforces spacing around commas.
+
 
 Spacing around commas improves readability of a list of items. Although most of the style guidelines for languages prescribe adding a space after a comma and not before it, it is subjective to the preferences of a project.
 
@@ -13,10 +29,13 @@ var foo = 1 ,bar = 2;
 
 This rule enforces consistent spacing before and after commas in variable declarations, array literals, object literals, function parameters, and sequences.
 
-This rule does not apply in an `ArrayExpression` or `ArrayPattern` in either of the following cases:
+This rule does not apply in either of the following cases:
 
-* adjacent null elements
-* an initial null element, to avoid conflicts with the [`array-bracket-spacing`](array-bracket-spacing.md) rule
+* between two commas
+* between opening bracket `[` and comma, to avoid conflicts with the [`array-bracket-spacing`](array-bracket-spacing) rule
+* between comma and closing bracket `]`, to avoid conflicts with the [`array-bracket-spacing`](array-bracket-spacing) rule
+* between comma and closing brace `}`, to avoid conflicts with the [`object-curly-spacing`](object-curly-spacing) rule
+* between comma and closing parentheses `)`, to avoid conflicts with the [`space-in-parens`](space-in-parens) rule
 
 ## Options
 
@@ -31,6 +50,8 @@ This rule has an object option:
 
 Examples of **incorrect** code for this rule with the default `{ "before": false, "after": true }` options:
 
+:::incorrect
+
 ```js
 /*eslint comma-spacing: ["error", { "before": false, "after": true }]*/
 
@@ -43,7 +64,11 @@ function foo(a ,b){}
 a ,b
 ```
 
+:::
+
 Examples of **correct** code for this rule with the default `{ "before": false, "after": true }` options:
+
+:::correct
 
 ```js
 /*eslint comma-spacing: ["error", { "before": false, "after": true }]*/
@@ -59,18 +84,45 @@ function foo(a, b){}
 a, b
 ```
 
-Example of **correct** code for this rule with initial null element for the default `{ "before": false, "after": true }` options:
+:::
+
+Additional examples of **correct** code for this rule with the default `{ "before": false, "after": true }` options:
+
+:::correct
 
 ```js
 /*eslint comma-spacing: ["error", { "before": false, "after": true }]*/
-/*eslint array-bracket-spacing: ["error", "always"]*/
 
-var arr = [ , 2, 3 ]
+// this rule does not enforce spacing between two commas
+var arr = [
+    ,,
+    , ,
+];
+
+// this rule does not enforce spacing after `[` and before `]`
+var arr = [,];
+var arr = [ , ];
+var arr = [a, b,];
+[,] = arr;
+[ , ] = arr;
+[a, b,] = arr;
+
+// this rule does not enforce spacing before `}`
+var obj = {x, y,};
+var {z, q,} = obj;
+import {foo, bar,} from "mod";
+
+// this rule does not enforce spacing before `)`
+foo(a, b,)
 ```
+
+:::
 
 ### before
 
 Examples of **incorrect** code for this rule with the `{ "before": true, "after": false }` options:
+
+:::incorrect
 
 ```js
 /*eslint comma-spacing: ["error", { "before": true, "after": false }]*/
@@ -83,7 +135,11 @@ function foo(a,b){}
 a, b
 ```
 
+:::
+
 Examples of **correct** code for this rule with the `{ "before": true, "after": false }` options:
+
+:::correct
 
 ```js
 /*eslint comma-spacing: ["error", { "before": true, "after": false }]*/
@@ -99,31 +155,8 @@ function foo(a ,b){}
 a ,b
 ```
 
-Examples of **correct** code for this rule with initial null element for the `{ "before": true, "after": false }` options:
-
-```js
-/*eslint comma-spacing: ["error", { "before": true, "after": false }]*/
-/*eslint array-bracket-spacing: ["error", "never"]*/
-
-var arr = [,2 ,3]
-```
+:::
 
 ## When Not To Use It
 
 If your project will not be following a consistent comma-spacing pattern, turn this rule off.
-
-## Related Rules
-
-* [array-bracket-spacing](array-bracket-spacing.md)
-* [comma-style](comma-style.md)
-* [space-in-brackets](space-in-brackets.md) (deprecated)
-* [space-in-parens](space-in-parens.md)
-* [space-infix-ops](space-infix-ops.md)
-* [space-after-keywords](space-after-keywords.md)
-* [space-unary-ops](space-unary-ops.md)
-* [space-return-throw-case](space-return-throw-case.md)
-
-## Further Reading
-
-* [JavaScript](http://javascript.crockford.com/code.html)
-* [Dojo Style Guide](https://dojotoolkit.org/reference-guide/1.9/developer/styleguide.html)

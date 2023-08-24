@@ -1,6 +1,8 @@
-# no-unused-expressions
+---
+title: no-unused-expressions
+rule_type: suggestion
+---
 
-Disallows unused expressions.
 
 An unused expression which has no effect on the state of the program indicates a logic error.
 
@@ -39,6 +41,8 @@ These options allow unused expressions *only if all* of the code paths either di
 
 Examples of **incorrect** code for the default `{ "allowShortCircuit": false, "allowTernary": false }` options:
 
+::: incorrect
+
 ```js
 /*eslint no-unused-expressions: "error"*/
 
@@ -64,7 +68,11 @@ injectGlobal`body{ color: red; }`
 
 ```
 
+:::
+
 Examples of **correct** code for the default `{ "allowShortCircuit": false, "allowTernary": false }` options:
+
+::: correct
 
 ```js
 /*eslint no-unused-expressions: "error"*/
@@ -88,9 +96,13 @@ delete a.b
 void a
 ```
 
+:::
+
 Note that one or more string expression statements (with or without semi-colons) will only be considered as unused if they are not in the beginning of a script, module, or function (alone and uninterrupted by other statements). Otherwise, they will be treated as part of a "directive prologue", a section potentially usable by JavaScript engines. This includes "strict mode" directives.
 
 Examples of **correct** code for this rule in regard to directives:
+
+::: correct
 
 ```js
 /*eslint no-unused-expressions: "error"*/
@@ -113,7 +125,11 @@ class Foo {
 }
 ```
 
+:::
+
 Examples of **incorrect** code for this rule in regard to directives:
+
+::: incorrect
 
 ```js
 /*eslint no-unused-expressions: "error"*/
@@ -132,9 +148,13 @@ class Foo {
 }
 ```
 
+:::
+
 ### allowShortCircuit
 
 Examples of **incorrect** code for the `{ "allowShortCircuit": true }` option:
+
+::: incorrect
 
 ```js
 /*eslint no-unused-expressions: ["error", { "allowShortCircuit": true }]*/
@@ -142,7 +162,11 @@ Examples of **incorrect** code for the `{ "allowShortCircuit": true }` option:
 a || b
 ```
 
+:::
+
 Examples of **correct** code for the `{ "allowShortCircuit": true }` option:
+
+::: correct
 
 ```js
 /*eslint no-unused-expressions: ["error", { "allowShortCircuit": true }]*/
@@ -151,9 +175,13 @@ a && b()
 a() || (b = c)
 ```
 
+:::
+
 ### allowTernary
 
 Examples of **incorrect** code for the `{ "allowTernary": true }` option:
+
+::: incorrect
 
 ```js
 /*eslint no-unused-expressions: ["error", { "allowTernary": true }]*/
@@ -162,7 +190,11 @@ a ? b : 0
 a ? b : c()
 ```
 
+:::
+
 Examples of **correct** code for the `{ "allowTernary": true }` option:
+
+::: correct
 
 ```js
 /*eslint no-unused-expressions: ["error", { "allowTernary": true }]*/
@@ -171,9 +203,13 @@ a ? b() : c()
 a ? (b = c) : d()
 ```
 
+:::
+
 ### allowShortCircuit and allowTernary
 
 Examples of **correct** code for the `{ "allowShortCircuit": true, "allowTernary": true }` options:
+
+::: correct
 
 ```js
 /*eslint no-unused-expressions: ["error", { "allowShortCircuit": true, "allowTernary": true }]*/
@@ -181,9 +217,13 @@ Examples of **correct** code for the `{ "allowShortCircuit": true, "allowTernary
 a ? b() || (c = d) : e()
 ```
 
+:::
+
 ### allowTaggedTemplates
 
 Examples of **incorrect** code for the `{ "allowTaggedTemplates": true }` option:
+
+::: incorrect
 
 ```js
 /*eslint no-unused-expressions: ["error", { "allowTaggedTemplates": true }]*/
@@ -191,7 +231,11 @@ Examples of **incorrect** code for the `{ "allowTaggedTemplates": true }` option
 `some untagged template string`;
 ```
 
+:::
+
 Examples of **correct** code for the `{ "allowTaggedTemplates": true }` option:
+
+::: correct
 
 ```js
 /*eslint no-unused-expressions: ["error", { "allowTaggedTemplates": true }]*/
@@ -199,11 +243,15 @@ Examples of **correct** code for the `{ "allowTaggedTemplates": true }` option:
 tag`some tagged template string`;
 ```
 
+:::
+
 ### enforceForJSX
 
 JSX is most-commonly used in the React ecosystem, where it is compiled to `React.createElement` expressions. Though free from side-effects, these calls are not automatically flagged by the `no-unused-expression` rule. If you're using React, or any other side-effect-free JSX pragma, this option can be enabled to flag these expressions.
 
 Examples of **incorrect** code for the `{ "enforceForJSX": true }` option:
+
+::: incorrect
 
 ```jsx
 /*eslint no-unused-expressions: ["error", { "enforceForJSX": true }]*/
@@ -213,7 +261,11 @@ Examples of **incorrect** code for the `{ "enforceForJSX": true }` option:
 <></>;
 ```
 
+:::
+
 Examples of **correct** code for the `{ "enforceForJSX": true }` option:
+
+::: correct
 
 ```jsx
 /*eslint no-unused-expressions: ["error", { "enforceForJSX": true }]*/
@@ -222,3 +274,5 @@ var myComponentPartial = <MyComponent />;
 
 var myFragment = <></>;
 ```
+
+:::

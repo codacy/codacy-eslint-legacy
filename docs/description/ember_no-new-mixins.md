@@ -1,6 +1,8 @@
-# no-new-mixins
+# ember/no-new-mixins
 
-✅ The `"extends": "plugin:ember/recommended"` property in a configuration file enables this rule.
+💼 This rule is enabled in the ✅ `recommended` [config](https://github.com/ember-cli/eslint-plugin-ember#-configurations).
+
+<!-- end auto-generated rule header -->
 
 Using mixins to share code appears easy at first. But they add significant complexity as a project grows. Furthermore, the [Octane programming model](https://guides.emberjs.com/release/upgrading/current-edition/) eliminates the need to use them in favor of native class semantics and other primitives.
 
@@ -8,8 +10,8 @@ For practical strategies on removing mixins see [this discourse thread](https://
 
 For more details and examples of how mixins create problems down-the-line, see these excellent blog posts:
 
-* [Mixins Considered Harmful](https://reactjs.org/blog/2016/07/13/mixins-considered-harmful.html)
-* [Why Are Mixins Considered Harmful?](https://raganwald.com/2016/07/16/why-are-mixins-considered-harmful.html)
+- [Mixins Considered Harmful](https://reactjs.org/blog/2016/07/13/mixins-considered-harmful.html)
+- [Why Are Mixins Considered Harmful?](https://raganwald.com/2016/07/16/why-are-mixins-considered-harmful.html)
 
 ## Examples
 
@@ -65,4 +67,4 @@ export default Component.extend({
 
 ## Related Rules
 
-* [no-mixins](no-mixins.md)
+- [no-mixins](no-mixins.md)

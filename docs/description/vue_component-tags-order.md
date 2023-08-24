@@ -9,12 +9,13 @@ since: v6.1.0
 
 > enforce order of component top-level elements
 
+- :no_entry_sign: This rule was **deprecated** and replaced by [vue/block-order](block-order.md) rule.
 - :gear: This rule is included in `"plugin:vue/vue3-recommended"` and `"plugin:vue/recommended"`.
 - :wrench: The `--fix` option on the [command line](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
 ## :book: Rule Details
 
-This rule warns about the order of the `<script>`, `<template>` & `<style>` tags.
+This rule warns about the order of the top-level tags, such as `<script>`, `<template>` & `<style>`.
 
 ## :wrench: Options
 
@@ -26,7 +27,7 @@ This rule warns about the order of the `<script>`, `<template>` & `<style>` tags
 }
 ```
 
-- `order` (`(string|string[])[]`) ... The order of top-level element names. default `[ [ "script", "template" ], "style" ]`.
+- `order` (`(string|string[])[]`) ... The order of top-level element names. default `[ [ "script", "template" ], "style" ]`. May also be CSS selectors, such as `script[setup]` and `i18n:not([locale=en])`.
 
 ### `{ "order": [ [ "script", "template" ], "style" ] }` (default)
 
@@ -109,6 +110,78 @@ This rule warns about the order of the `<script>`, `<template>` & `<style>` tags
 <script>/* ... */</script>
 <docs> documentation </docs>
 <style>/* ... */</style>
+```
+
+</eslint-code-block>
+
+### `{ 'order': ['template', 'script:not([setup])', 'script[setup]'] }`
+
+<eslint-code-block fix :rules="{'vue/component-tags-order': ['error', { 'order': ['template', 'script:not([setup])', 'script[setup]'] }]}">
+
+```vue
+<!-- ✓ GOOD -->
+<template>...</template>
+<script>/* ... */</script>
+<script setup>/* ... */</script>
+```
+
+</eslint-code-block>
+
+<eslint-code-block fix :rules="{'vue/component-tags-order': ['error', { 'order': ['template', 'script:not([setup])', 'script[setup]'] }]}">
+
+```vue
+<!-- ✗ BAD -->
+<template>...</template>
+<script setup>/* ... */</script>
+<script>/* ... */</script>
+```
+
+</eslint-code-block>
+
+### `{ 'order': ['template', 'style:not([scoped])', 'style[scoped]'] }`
+
+<eslint-code-block fix :rules="{'vue/component-tags-order': ['error', { 'order': ['template', 'style:not([scoped])', 'style[scoped]'] }]}">
+
+```vue
+<!-- ✓ GOOD -->
+<template>...</template>
+<style>/* ... */</style>
+<style scoped>/* ... */</style>
+```
+
+</eslint-code-block>
+
+<eslint-code-block fix :rules="{'vue/component-tags-order': ['error', { 'order': ['template', 'style:not([scoped])', 'style[scoped]'] }]}">
+
+```vue
+<!-- ✗ BAD -->
+<template>...</template>
+<style scoped>/* ... */</style>
+<style>/* ... */</style>
+```
+
+</eslint-code-block>
+
+### `{ 'order': ['template', 'i18n:not([locale=en])', 'i18n[locale=en]'] }`
+
+<eslint-code-block fix :rules="{'vue/component-tags-order': ['error', { 'order': ['template', 'i18n:not([locale=en])', 'i18n[locale=en]'] }]}">
+
+```vue
+<!-- ✓ GOOD -->
+<template>...</template>
+<i18n locale="ja">/* ... */</i18n>
+<i18n locale="en">/* ... */</i18n>
+```
+
+</eslint-code-block>
+
+<eslint-code-block fix :rules="{'vue/component-tags-order': ['error', { 'order': ['template', 'i18n:not([locale=en])', 'i18n[locale=en]'] }]}">
+
+```vue
+<!-- ✗ BAD -->
+<template>...</template>
+<i18n locale="en">/* ... */</i18n>
+<i18n locale="ja">/* ... */</i18n>
 ```
 
 </eslint-code-block>

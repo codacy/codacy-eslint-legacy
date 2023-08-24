@@ -1,6 +1,13 @@
-# object-shorthand
+---
+title: object-shorthand
+rule_type: suggestion
+related_rules:
+- no-useless-rename
+further_reading:
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer
+---
 
-Requires or disallows method and property shorthand syntax for object literals.
+
 
 ECMAScript 6 provides a concise form for defining object literal methods and properties. This
 syntax can make defining complex object literals much cleaner.
@@ -106,6 +113,7 @@ Additionally, the rule takes an optional object configuration:
 
 * `"avoidQuotes": true` indicates that long-form syntax is preferred whenever the object key is a string literal (default: `false`). Note that this option can only be enabled when the string option is set to `"always"`, `"methods"`, or `"properties"`.
 * `"ignoreConstructors": true` can be used to prevent the rule from reporting errors for constructor functions. (By default, the rule treats constructors the same way as other functions.) Note that this option can only be enabled when the string option is set to `"always"` or `"methods"`.
+* `"methodsIgnorePattern"` (`string`) for methods whose names match this regex pattern, the method shorthand will not be enforced. Note that this option can only be used when the string option is set to `"always"` or `"methods"`.
 * `"avoidExplicitReturnArrows": true` indicates that methods are preferred over explicit-return arrow functions for function properties. (By default, the rule allows either of these.) Note that this option can only be enabled when the string option is set to `"always"` or `"methods"`.
 
 ### `avoidQuotes`
@@ -118,6 +126,8 @@ Additionally, the rule takes an optional object configuration:
 
 Example of **incorrect** code for this rule with the `"always", { "avoidQuotes": true }` option:
 
+::: incorrect
+
 ```js
 /*eslint object-shorthand: ["error", "always", { "avoidQuotes": true }]*/
 /*eslint-env es6*/
@@ -127,7 +137,11 @@ var foo = {
 };
 ```
 
+:::
+
 Example of **correct** code for this rule with the `"always", { "avoidQuotes": true }` option:
+
+::: correct
 
 ```js
 /*eslint object-shorthand: ["error", "always", { "avoidQuotes": true }]*/
@@ -139,6 +153,8 @@ var foo = {
 };
 ```
 
+:::
+
 ### `ignoreConstructors`
 
 ```json
@@ -149,6 +165,8 @@ var foo = {
 
 Example of **correct** code for this rule with the `"always", { "ignoreConstructors": true }` option:
 
+::: correct
+
 ```js
 /*eslint object-shorthand: ["error", "always", { "ignoreConstructors": true }]*/
 /*eslint-env es6*/
@@ -157,6 +175,24 @@ var foo = {
     ConstructorFunction: function() {}
 };
 ```
+
+:::
+
+### `methodsIgnorePattern`
+
+Example of **correct** code for this rule with the `"always", { "methodsIgnorePattern": "^bar$" }` option:
+
+::: correct
+
+```js
+/*eslint object-shorthand: ["error", "always", { "methodsIgnorePattern": "^bar$" }]*/
+
+var foo = {
+    bar: function() {}
+};
+```
+
+:::
 
 ### `avoidExplicitReturnArrows`
 
@@ -167,6 +203,8 @@ var foo = {
 ```
 
 Example of **incorrect** code for this rule with the `"always", { "avoidExplicitReturnArrows": true }` option:
+
+::: incorrect
 
 ```js
 /*eslint object-shorthand: ["error", "always", { "avoidExplicitReturnArrows": true }]*/
@@ -183,7 +221,11 @@ var foo = {
 };
 ```
 
+:::
+
 Example of **correct** code for this rule with the `"always", { "avoidExplicitReturnArrows": true }` option:
+
+::: correct
 
 ```js
 /*eslint object-shorthand: ["error", "always", { "avoidExplicitReturnArrows": true }]*/
@@ -198,7 +240,11 @@ var foo = {
 };
 ```
 
+:::
+
 Example of **incorrect** code for this rule with the `"consistent"` option:
+
+::: incorrect
 
 ```js
 /*eslint object-shorthand: [2, "consistent"]*/
@@ -210,7 +256,11 @@ var foo = {
 };
 ```
 
+:::
+
 Examples of **correct** code for this rule with the `"consistent"` option:
+
+::: correct
 
 ```js
 /*eslint object-shorthand: [2, "consistent"]*/
@@ -227,7 +277,11 @@ var bar = {
 };
 ```
 
+:::
+
 Example of **incorrect** code with the `"consistent-as-needed"` option, which is very similar to `"consistent"`:
+
+::: incorrect
 
 ```js
 /*eslint object-shorthand: [2, "consistent-as-needed"]*/
@@ -239,15 +293,9 @@ var foo = {
 };
 ```
 
+:::
+
 ## When Not To Use It
 
 Anyone not yet in an ES6 environment would not want to apply this rule. Others may find the terseness of the shorthand
 syntax harder to read and may not want to encourage it with this rule.
-
-## Related Rules
-
-* [`no-useless-rename`](no-useless-rename.md) which disallows renaming import, export, and destructured assignments to the same name.
-
-## Further Reading
-
-[Object initializer - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer)

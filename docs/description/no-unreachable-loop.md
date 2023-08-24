@@ -1,6 +1,13 @@
-# no-unreachable-loop
+---
+title: no-unreachable-loop
+rule_type: problem
+related_rules:
+- no-unreachable
+- no-constant-condition
+- no-unmodified-loop-condition
+- for-direction
+---
 
-Disallows loops with a body that allows only one iteration.
 
 A loop that can never reach the second iteration is a possible error in the code.
 
@@ -25,6 +32,8 @@ In particular, this rule will disallow a loop with a body that exits the loop in
 This rule checks `while`, `do-while`, `for`, `for-in` and `for-of` loops. You can optionally disable checks for each of these constructs.
 
 Examples of **incorrect** code for this rule:
+
+::: incorrect
 
 ```js
 /*eslint no-unreachable-loop: "error"*/
@@ -73,7 +82,11 @@ for (foo of bar) {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-unreachable-loop: "error"*/
@@ -122,9 +135,13 @@ for (foo of bar) {
 }
 ```
 
+:::
+
 Please note that this rule is not designed to check loop conditions, and will not warn in cases such as the following examples.
 
 Examples of additional **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-unreachable-loop: "error"*/
@@ -141,6 +158,8 @@ for (const a of [1]) {
     doSomething(a);
 }
 ```
+
+:::
 
 ## Options
 
@@ -160,6 +179,8 @@ You can specify up to 5 different elements in the `"ignore"` array:
 
 Examples of **correct** code for this rule with the `"ignore"` option:
 
+::: correct
+
 ```js
 /*eslint no-unreachable-loop: ["error", { "ignore": ["ForInStatement", "ForOfStatement"] }]*/
 
@@ -170,6 +191,8 @@ for (var key in obj) {
 
 for (const a of b) break;
 ```
+
+:::
 
 ## Known Limitations
 
@@ -183,10 +206,3 @@ for (let i = 0; i < 10; i++) {
     }
 }
 ```
-
-## Related Rules
-
-* [no-unreachable](no-unreachable.md)
-* [no-constant-condition](no-constant-condition.md)
-* [no-unmodified-loop-condition](no-unmodified-loop-condition.md)
-* [for-direction](for-direction.md)

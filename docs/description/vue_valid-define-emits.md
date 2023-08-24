@@ -9,7 +9,7 @@ since: v7.13.0
 
 > enforce valid `defineEmits` compiler macro
 
-- :gear: This rule is included in all of `"plugin:vue/vue3-essential"`, `"plugin:vue/vue3-strongly-recommended"` and `"plugin:vue/vue3-recommended"`.
+- :gear: This rule is included in all of `"plugin:vue/vue3-essential"`, `"plugin:vue/essential"`, `"plugin:vue/vue3-strongly-recommended"`, `"plugin:vue/strongly-recommended"`, `"plugin:vue/vue3-recommended"` and `"plugin:vue/recommended"`.
 
 This rule checks whether `defineEmits` compiler macro is valid.
 
@@ -17,7 +17,7 @@ This rule checks whether `defineEmits` compiler macro is valid.
 
 This rule reports `defineEmits` compiler macros in the following cases:
 
-- `defineEmits` are referencing locally declared variables.
+- `defineEmits` is referencing locally declared variables.
 - `defineEmits` has both a literal type and an argument. e.g. `defineEmits<(e: 'foo')=>void>(['bar'])`
 - `defineEmits` has been called multiple times.
 - Custom events are defined in both `defineEmits` and `export default {}`.
@@ -27,8 +27,8 @@ This rule reports `defineEmits` compiler macros in the following cases:
 
 ```vue
 <script setup>
-  /* ✓ GOOD */
-  defineEmits({ notify: null })
+/* ✓ GOOD */
+defineEmits({ notify: null })
 </script>
 ```
 
@@ -38,60 +38,19 @@ This rule reports `defineEmits` compiler macros in the following cases:
 
 ```vue
 <script setup>
-  /* ✓ GOOD */
-  defineEmits(['notify'])
+/* ✓ GOOD */
+defineEmits(['notify'])
 </script>
 ```
 
 </eslint-code-block>
+
+<eslint-code-block :rules="{'vue/valid-define-emits': ['error']}">
 
 ```vue
 <script setup lang="ts">
-  /* ✓ GOOD */
-  defineEmits<(e: 'notify')=>void>()
-</script>
-```
-
-<eslint-code-block :rules="{'vue/valid-define-emits': ['error']}">
-
-```vue
-<script>
-  const def = { notify: null }
-</script>
-<script setup>
-  /* ✓ GOOD */
-  defineEmits(def)
-</script>
-```
-
-</eslint-code-block>
-
-<eslint-code-block :rules="{'vue/valid-define-emits': ['error']}">
-
-```vue
-<script setup>
-  /* ✗ BAD */
-  const def = { notify: null }
-  defineEmits(def)
-</script>
-```
-
-</eslint-code-block>
-
-```vue
-<script setup lang="ts">
-  /* ✗ BAD */
-  defineEmits<(e: 'notify')=>void>({ submit: null })
-</script>
-```
-
-<eslint-code-block :rules="{'vue/valid-define-emits': ['error']}">
-
-```vue
-<script setup>
-  /* ✗ BAD */
-  defineEmits({ notify: null })
-  defineEmits({ submit: null })
+/* ✓ GOOD */
+defineEmits<(e: 'notify') => void>()
 </script>
 ```
 
@@ -101,13 +60,11 @@ This rule reports `defineEmits` compiler macros in the following cases:
 
 ```vue
 <script>
-  export default {
-    emits: { notify: null }
-  }
+const def = { notify: null }
 </script>
 <script setup>
-  /* ✗ BAD */
-  defineEmits({ submit: null })
+/* ✓ GOOD */
+defineEmits(def)
 </script>
 ```
 
@@ -117,8 +74,59 @@ This rule reports `defineEmits` compiler macros in the following cases:
 
 ```vue
 <script setup>
-  /* ✗ BAD */
-  defineEmits()
+/* ✗ BAD */
+const def = { notify: null }
+defineEmits(def)
+</script>
+```
+
+</eslint-code-block>
+
+<eslint-code-block :rules="{'vue/valid-define-emits': ['error']}">
+
+```vue
+<script setup lang="ts">
+/* ✗ BAD */
+defineEmits<(e: 'notify') => void>({ submit: null })
+</script>
+```
+
+</eslint-code-block>
+
+<eslint-code-block :rules="{'vue/valid-define-emits': ['error']}">
+
+```vue
+<script setup>
+/* ✗ BAD */
+defineEmits({ notify: null })
+defineEmits({ submit: null })
+</script>
+```
+
+</eslint-code-block>
+
+<eslint-code-block :rules="{'vue/valid-define-emits': ['error']}">
+
+```vue
+<script>
+export default {
+  emits: { notify: null }
+}
+</script>
+<script setup>
+/* ✗ BAD */
+defineEmits({ submit: null })
+</script>
+```
+
+</eslint-code-block>
+
+<eslint-code-block :rules="{'vue/valid-define-emits': ['error']}">
+
+```vue
+<script setup>
+/* ✗ BAD */
+defineEmits()
 </script>
 ```
 
@@ -127,6 +135,12 @@ This rule reports `defineEmits` compiler macros in the following cases:
 ## :wrench: Options
 
 Nothing.
+
+## :couple: Related Rules
+
+- [vue/define-emits-declaration](./define-emits-declaration.md)
+- [vue/valid-define-options](./valid-define-options.md)
+- [vue/valid-define-props](./valid-define-props.md)
 
 ## :rocket: Version
 

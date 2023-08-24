@@ -1,8 +1,10 @@
-# Prevent creating unstable components inside components (react/no-unstable-nested-components)
+# Disallow creating unstable components inside components (`react/no-unstable-nested-components`)
 
-Creating components inside components without memoization leads to unstable components. The nested component and all its children are recreated during each re-render. Given stateful children of the nested component will lose their state on each re-render.
+<!-- end auto-generated rule header -->
 
-React reconcilation performs element type comparison with [reference equality](https://github.com/facebook/react/blob/v16.13.1/packages/react-reconciler/src/ReactChildFiber.js#L407). The reference to the same element changes on each re-render when defining components inside the render block. This leads to complete recreation of the current node and all its children. As a result the virtual DOM has to do extra unnecessary work and [possible bugs are introduced](https://codepen.io/ariperkkio/pen/vYLodLB).
+Creating components inside components (nested components) will cause React to throw away the state of those nested components on each re-render of their parent.
+
+React reconciliation performs element type comparison with [reference equality](https://reactjs.org/docs/reconciliation.html#elements-of-different-types). The reference to the same element changes on each re-render when defining components inside the render block. This leads to complete recreation of the current node and all its children. As a result the virtual DOM has to do extra unnecessary work and [possible bugs are introduced](https://codepen.io/ariperkkio/pen/vYLodLB).
 
 ## Rule Details
 
@@ -74,6 +76,20 @@ function Component() {
 
 ```jsx
 function Component() {
+  return <SomeComponent footer={<div />} />;
+}
+```
+
+⚠️ WARNING ⚠️:
+
+Creating nested but memoized components is currently not detected by this rule but should also be avoided.
+If the `useCallback` or `useMemo` hook has no dependency, you can safely move the component definition out of the render function.
+If the hook does have dependencies, you should refactor the code so that you're able to move the component definition out of the render function.
+If you want React to throw away the state of the nested component, use a [`key`](https://reactjs.org/docs/lists-and-keys.html#keys) instead.
+
+```jsx
+function Component() {
+  // No ESLint warning but `MemoizedNestedComponent` should be moved outside of `Component`.
   const MemoizedNestedComponent = React.useCallback(() => <div />, []);
 
   return (
@@ -81,14 +97,6 @@ function Component() {
       <MemoizedNestedComponent />
     </div>
   );
-}
-```
-
-```jsx
-function Component() {
-  return (
-    <SomeComponent footer={<div />} />
-  )
 }
 ```
 
@@ -114,7 +122,10 @@ function Component() {
 ...
 "react/no-unstable-nested-components": [
   "off" | "warn" | "error",
-  { "allowAsProps": true | false }
+  {
+    "allowAsProps": true | false,
+    "customValidators": [] /* optional array of validators used for propTypes validation */
+  }
 ]
 ...
 ```

@@ -7,15 +7,17 @@ since: "v1.2.0"
 ---
 # regexp/require-unicode-regexp
 
-> enforce the use of the `u` flag
+🔧 This rule is automatically fixable by the [`--fix` CLI option](https://eslint.org/docs/latest/user-guide/command-line-interface#--fix).
 
-- :wrench: The `--fix` option on the [command line](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+<!-- end auto-generated rule header -->
+
+> enforce the use of the `u` flag
 
 ## :book: Rule Details
 
 This rule reports regular expressions without the `u` flag.
 
-It will automatically add the `u` flag to regular expression where it is statically guaranteed to be safe to do so. In all other cases, the developer has to check that adding the `u` flag doesn't cause the regex to behave incorrectly.
+It will automatically add the `u` flag to regular expressions where it is statically guaranteed to be safe to do so. In all other cases, the developer has to check that adding the `u` flag doesn't cause the regex to behave incorrectly.
 
 This rule is inspired by the [require-unicode-regexp] rule. The position of the report is improved over the core rule and arguments of `new RegExp()` are also checked.
 

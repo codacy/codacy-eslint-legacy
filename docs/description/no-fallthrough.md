@@ -1,6 +1,11 @@
-# no-fallthrough
+---
+title: no-fallthrough
+rule_type: problem
+related_rules:
+- default-case
+---
 
-Disallows case statement fallthroughs.
+
 
 The `switch` statement in JavaScript is one of the more error-prone constructs of the language thanks in part to the ability to "fall through" from one `case` to the next. For example:
 
@@ -27,7 +32,7 @@ switch(foo) {
 }
 ```
 
-That works fine when you don't want a fallthrough, but what if the fallthrough is intentional, there is no way to indicate that in the language. It's considered a best practice to always indicate when a fallthrough is intentional using a comment which matches the `/falls?\s?through/i` regular expression:
+That works fine when you don't want a fallthrough, but what if the fallthrough is intentional, there is no way to indicate that in the language. It's considered a best practice to always indicate when a fallthrough is intentional using a comment which matches the `/falls?\s?through/i` regular expression but isn't a directive:
 
 ```js
 switch(foo) {
@@ -77,6 +82,8 @@ This rule is aimed at eliminating unintentional fallthrough of one case to the o
 
 Examples of **incorrect** code for this rule:
 
+::: incorrect
+
 ```js
 /*eslint no-fallthrough: "error"*/
 
@@ -89,7 +96,11 @@ switch(foo) {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-fallthrough: "error"*/
@@ -150,17 +161,23 @@ switch(foo) {
 }
 ```
 
+:::
+
 Note that the last `case` statement in these examples does not cause a warning because there is nothing to fall through into.
 
 ## Options
 
-This rule accepts a single options argument:
+This rule has an object option:
 
-* Set the `commentPattern` option to a regular expression string to change the test for intentional fallthrough comment
+* Set the `commentPattern` option to a regular expression string to change the test for intentional fallthrough comment. If the fallthrough comment matches a directive, that takes precedence over `commentPattern`.
+
+* Set the `allowEmptyCase` option to `true` to allow empty cases regardless of the layout. By default, this rule does not require a fallthrough comment after an empty `case` only if the empty `case` and the next `case` are on the same line or on consecutive lines.
 
 ### commentPattern
 
 Examples of **correct** code for the `{ "commentPattern": "break[\\s\\w]*omitted" }` option:
+
+::: correct
 
 ```js
 /*eslint no-fallthrough: ["error", { "commentPattern": "break[\\s\\w]*omitted" }]*/
@@ -184,10 +201,35 @@ switch(foo) {
 }
 ```
 
+:::
+
+### allowEmptyCase
+
+Examples of **correct** code for the `{ "allowEmptyCase": true }` option:
+
+::: correct
+
+```js
+/* eslint no-fallthrough: ["error", { "allowEmptyCase": true }] */
+
+switch(foo){
+    case 1:
+
+    case 2: doSomething();
+}
+
+switch(foo){
+    case 1:
+    /*
+    Put a message here 
+    */
+    case 2: doSomething();
+}
+
+```
+
+:::
+
 ## When Not To Use It
 
 If you don't want to enforce that each `case` statement should end with a `throw`, `return`, `break`, or comment, then you can safely turn this rule off.
-
-## Related Rules
-
-* [default-case](default-case.md)

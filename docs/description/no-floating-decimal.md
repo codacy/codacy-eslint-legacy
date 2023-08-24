@@ -1,6 +1,9 @@
-# no-floating-decimal
+---
+title: no-floating-decimal
+rule_type: suggestion
+---
 
-Disallows leading or trailing decimal points in numeric literals.
+
 
 Float values in JavaScript contain a decimal point, and there is no requirement that the decimal point be preceded or followed by a number. For example, the following are all valid JavaScript numbers:
 
@@ -18,6 +21,8 @@ This rule is aimed at eliminating floating decimal points and will warn whenever
 
 Examples of **incorrect** code for this rule:
 
+::: incorrect
+
 ```js
 /*eslint no-floating-decimal: "error"*/
 
@@ -26,7 +31,11 @@ var num = 2.;
 var num = -.7;
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-floating-decimal: "error"*/
@@ -35,6 +44,8 @@ var num = 0.5;
 var num = 2.0;
 var num = -0.7;
 ```
+
+:::
 
 ## When Not To Use It
 

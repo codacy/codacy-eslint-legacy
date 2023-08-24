@@ -7,16 +7,18 @@ since: "v0.8.0"
 ---
 # regexp/confusing-quantifier
 
-> disallow confusing quantifiers
+⚠️ This rule _warns_ in the ✅ `plugin:regexp/recommended` config.
 
-- :gear: This rule is included in `"plugin:regexp/recommended"`.
+<!-- end auto-generated rule header -->
+
+> disallow confusing quantifiers
 
 ## :book: Rule Details
 
 Confusing quantifiers are ones which imply one thing but don't deliver on that.
 
 An example of this is `(?:a?b*|c+){4}`. The group is quantified with `{4}` which
-implies that at least 4 characters will be matched but this is not the case. The
+implies that at least 4 characters will be matched, but this is not the case. The
 whole pattern will match the empty string. It does that because in the `a?b*`
 alternative, it's possible to choose 0 many `a` and `b`. So rather than `{4}`,
 `{0,4}` should be used to reflect the fact that the empty string can be matched.
@@ -44,7 +46,7 @@ Nothing.
 
 ## :heart: Compatibility
 
-This rule was taken from [eslint-plugin-clean-regex].  
+This rule was taken from [eslint-plugin-clean-regex].\
 This rule is compatible with [clean-regex/confusing-quantifier] rule.
 
 [eslint-plugin-clean-regex]: https://github.com/RunDevelopment/eslint-plugin-clean-regex

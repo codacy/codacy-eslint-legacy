@@ -7,6 +7,12 @@ since: "v1.2.0"
 ---
 # regexp/no-contradiction-with-assertion
 
+💼 This rule is enabled in the ✅ `plugin:regexp/recommended` config.
+
+💡 This rule is manually fixable by [editor suggestions](https://eslint.org/docs/developer-guide/working-with-rules#providing-suggestions).
+
+<!-- end auto-generated rule header -->
+
 > disallow elements that contradict assertions
 
 ## :book: Rule Details
@@ -44,7 +50,6 @@ This rule reports elements that contradict an assertion. All elements reported b
     </eslint-code-block>
 
 This rule is quite similar to [regexp/no-useless-assertions]. While [regexp/no-useless-assertions] tries to find assertions that contradict the pattern, this rule tries to find parts of the pattern that contradict assertions.
-
 
 <eslint-code-block>
 

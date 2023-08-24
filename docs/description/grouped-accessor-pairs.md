@@ -1,6 +1,16 @@
-# grouped-accessor-pairs
+---
+title: grouped-accessor-pairs
+rule_type: suggestion
+related_rules:
+- accessor-pairs
+- no-dupe-keys
+- no-dupe-class-members
+further_reading:
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes
+---
 
-Requires grouped accessor pairs in object literals and classes.
 
 A getter and setter for the same property don't necessarily have to be defined adjacent to each other.
 
@@ -38,9 +48,11 @@ This rule requires grouped definitions of accessor functions for the same proper
 
 Optionally, this rule can also enforce consistent order (`getBeforeSet` or `setBeforeGet`).
 
-This rule does not enforce the existence of the pair for a getter or a setter. See [accessor-pairs](accessor-pairs.md) if you also want to enforce getter/setter pairs.
+This rule does not enforce the existence of the pair for a getter or a setter. See [accessor-pairs](accessor-pairs) if you also want to enforce getter/setter pairs.
 
 Examples of **incorrect** code for this rule:
+
+::: incorrect
 
 ```js
 /*eslint grouped-accessor-pairs: "error"*/
@@ -86,7 +98,11 @@ const Bar = class {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint grouped-accessor-pairs: "error"*/
@@ -132,6 +148,8 @@ const Bar = class {
 }
 ```
 
+:::
+
 ## Options
 
 This rule has a string option:
@@ -144,6 +162,8 @@ This rule has a string option:
 
 Examples of **incorrect** code for this rule with the `"getBeforeSet"` option:
 
+::: incorrect
+
 ```js
 /*eslint grouped-accessor-pairs: ["error", "getBeforeSet"]*/
 
@@ -174,9 +194,13 @@ const Bar = class {
     }
 }
 ```
+
+:::
 
 Examples of **correct** code for this rule with the `"getBeforeSet"` option:
 
+::: correct
+
 ```js
 /*eslint grouped-accessor-pairs: ["error", "getBeforeSet"]*/
 
@@ -207,11 +231,15 @@ const Bar = class {
     }
 }
 ```
+
+:::
 
 ### setBeforeGet
 
 Examples of **incorrect** code for this rule with the `"setBeforeGet"` option:
 
+::: incorrect
+
 ```js
 /*eslint grouped-accessor-pairs: ["error", "setBeforeGet"]*/
 
@@ -242,9 +270,13 @@ const Bar = class {
     }
 }
 ```
+
+:::
 
 Examples of **correct** code for this rule with the `"setBeforeGet"` option:
 
+::: correct
+
 ```js
 /*eslint grouped-accessor-pairs: ["error", "setBeforeGet"]*/
 
@@ -275,6 +307,8 @@ const Bar = class {
     }
 }
 ```
+
+:::
 
 ## Known Limitations
 
@@ -311,18 +345,6 @@ var bar = {
 
 Also, this rule does not report any warnings for properties that have duplicate getters or setters.
 
-See [no-dupe-keys](no-dupe-keys.md) if you also want to disallow duplicate keys in object literals.
+See [no-dupe-keys](no-dupe-keys) if you also want to disallow duplicate keys in object literals.
 
-See [no-dupe-class-members](no-dupe-class-members.md) if you also want to disallow duplicate names in class definitions.
-
-## Related Rules
-
-* [accessor-pairs](accessor-pairs.md)
-* [no-dupe-keys](no-dupe-keys.md)
-* [no-dupe-class-members](no-dupe-class-members.md)
-
-## Further Reading
-
-* [Object Setters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set)
-* [Object Getters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get)
-* [Classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
+See [no-dupe-class-members](no-dupe-class-members) if you also want to disallow duplicate names in class definitions.

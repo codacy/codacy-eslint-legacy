@@ -1,6 +1,8 @@
-# no-test-support-import
+# ember/no-test-support-import
 
-✅ The `"extends": "plugin:ember/recommended"` property in a configuration file enables this rule.
+💼 This rule is enabled in the ✅ `recommended` [config](https://github.com/ember-cli/eslint-plugin-ember#-configurations).
+
+<!-- end auto-generated rule header -->
 
 No importing of test support files into non-test code..
 
@@ -52,4 +54,4 @@ This is meant as an addition to the [no-test-import-export](no-test-import-expor
 
 ## Related Rules
 
-* [no-test-import-export](no-test-import-export.md)
+- [no-test-import-export](no-test-import-export.md)

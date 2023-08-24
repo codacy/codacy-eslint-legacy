@@ -7,10 +7,13 @@ since: "v0.6.0"
 ---
 # regexp/no-unused-capturing-group
 
-> disallow unused capturing group
+💼 This rule is enabled in the ✅ `plugin:regexp/recommended` config.
 
-- :gear: This rule is included in `"plugin:regexp/recommended"`.
-- :wrench: The `--fix` option on the [command line](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+🔧💡 This rule is automatically fixable by the [`--fix` CLI option](https://eslint.org/docs/latest/user-guide/command-line-interface#--fix) and manually fixable by [editor suggestions](https://eslint.org/docs/developer-guide/working-with-rules#providing-suggestions).
+
+<!-- end auto-generated rule header -->
+
+> disallow unused capturing group
 
 ## :book: Rule Details
 
@@ -66,7 +69,7 @@ This is by design. Capturing groups (as the name suggests) captured their matche
 
 A capturing group is intended to store its matched text so it can later be used, e.g. in text replacements.
 
-That makes a capturing group quite similar to a variable in that its value (the captured text) is stored (by the regex engine) and can be accessed afterward (by the developer). However, if the captured text is not used, then the capturing group will essentially be an unused variable. This makes the regex harder to understand because other developers will have to constantly ask themselves: "Is this a capturing group because the captured text will be used later on in the code, or because `()` is faster to type?"
+That makes a capturing group quite similar to a variable, in that its value (the captured text) is stored (by the regex engine) and can be accessed afterward (by the developer). However, if the captured text is not used, then the capturing group will essentially be an unused variable. This makes the regex harder to understand because other developers will have to constantly ask themselves: "Is this a capturing group because the captured text will be used later on in the code, or because `()` is faster to type?"
 
 Using capturing groups only if the captured text is used makes their usage unambiguous and easier for others to understand.
 

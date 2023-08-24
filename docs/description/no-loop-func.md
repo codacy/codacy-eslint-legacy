@@ -1,6 +1,8 @@
-# no-loop-func
+---
+title: no-loop-func
+rule_type: suggestion
+---
 
-Disallows functions in loops.
 
 Writing functions within loops tends to result in errors due to the way the function creates a closure around the loop. For example:
 
@@ -36,6 +38,8 @@ This rule disallows any function within a loop that contains unsafe references (
 
 Examples of **incorrect** code for this rule:
 
+::: incorrect
+
 ```js
 /*eslint no-loop-func: "error"*/
 /*eslint-env es6*/
@@ -68,7 +72,11 @@ for (let i = 0; i < 10; ++i) {
 foo = 100;
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-loop-func: "error"*/
@@ -97,3 +105,5 @@ for (let i=10; i; i--) {
 }
 //... no modifications of foo after this loop ...
 ```
+
+:::

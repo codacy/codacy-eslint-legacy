@@ -1,6 +1,12 @@
-# prefer-destructuring
+---
+title: prefer-destructuring
+rule_type: suggestion
+further_reading:
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+- https://2ality.com/2015/01/es6-destructuring.html
+---
 
-Requires destructuring from arrays and/or objects.
+
 
 With JavaScript ES6, a new syntax was added for creating variables from an array index or object property, called [destructuring](#further-reading).  This rule enforces usage of destructuring instead of accessing a property through a member expression.
 
@@ -27,21 +33,30 @@ The `--fix` option on the command line fixes only problems reported in variable 
 
 Examples of **incorrect** code for this rule:
 
+::: incorrect
+
 ```javascript
 // With `array` enabled
 var foo = array[0];
+bar.baz = array[0];
 
 // With `object` enabled
 var foo = object.foo;
 var foo = object['foo'];
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```javascript
 // With `array` enabled
 var [ foo ] = array;
 var foo = array[someIndex];
+[bar.baz] = array;
+
 
 // With `object` enabled
 var { foo } = object;
@@ -52,19 +67,31 @@ let foo;
 ({ foo } = object);
 ```
 
+:::
+
 Examples of **incorrect** code when `enforceForRenamedProperties` is enabled:
+
+::: incorrect
 
 ```javascript
 var foo = object.bar;
 ```
 
+:::
+
 Examples of **correct** code when `enforceForRenamedProperties` is enabled:
+
+::: correct
 
 ```javascript
 var { bar: foo } = object;
 ```
 
+:::
+
 Examples of additional **correct** code when `enforceForRenamedProperties` is enabled:
+
+::: correct
 
 ```javascript
 class C {
@@ -74,6 +101,8 @@ class C {
     }
 }
 ```
+
+:::
 
 An example configuration, with the defaults `array` and `object` filled in, looks like this:
 
@@ -149,17 +178,25 @@ For example, the following configuration enforces object destructuring in variab
 
 Examples of **correct** code when object destructuring in `VariableDeclarator` is enforced:
 
+::: correct
+
 ```javascript
 /* eslint prefer-destructuring: ["error", {VariableDeclarator: {object: true}}] */
 var {bar: foo} = object;
 ```
 
+:::
+
 Examples of **correct** code when array destructuring in `AssignmentExpression` is enforced:
+
+::: correct
 
 ```javascript
 /* eslint prefer-destructuring: ["error", {AssignmentExpression: {array: true}}] */
 [bar] = array;
 ```
+
+:::
 
 ## When Not To Use It
 
@@ -180,10 +217,3 @@ var $ = require('jquery');
 var foo = $('body')[0];
 var [bar] = $('body'); // fails with a TypeError
 ```
-
-## Further Reading
-
-If you want to learn more about destructuring, check out the links below:
-
-* [Destructuring Assignment (MDN)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
-* [Destructuring and parameter handling in ECMAScript 6 (2ality blog)](http://2ality.com/2015/01/es6-destructuring.html)

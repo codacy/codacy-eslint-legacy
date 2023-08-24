@@ -1,6 +1,22 @@
-# complexity
+---
+title: complexity
+rule_type: suggestion
+related_rules:
+- max-depth
+- max-len
+- max-lines
+- max-lines-per-function
+- max-nested-callbacks
+- max-params
+- max-statements
+further_reading:
+- https://en.wikipedia.org/wiki/Cyclomatic_complexity
+- https://ariya.io/2012/12/complexity-analysis-of-javascript-code
+- https://craftsmanshipforsoftware.com/2015/05/25/complexity-for-javascript/
+- https://web.archive.org/web/20160808115119/http://jscomplexity.org/complexity
+- https://github.com/eslint/eslint/issues/4808#issuecomment-167795140
+---
 
-Enforces a maximum cyclomatic complexity.
 
 Cyclomatic complexity measures the number of linearly independent paths through a program's source code. This rule allows setting a cyclomatic complexity threshold.
 
@@ -22,6 +38,8 @@ This rule is aimed at reducing code complexity by capping the amount of cyclomat
 
 Examples of **incorrect** code for a maximum of 2:
 
+::: incorrect
+
 ```js
 /*eslint complexity: ["error", 2]*/
 
@@ -41,7 +59,11 @@ function b() {
 }
 ```
 
+:::
+
 Examples of **correct** code for a maximum of 2:
+
+::: correct
 
 ```js
 /*eslint complexity: ["error", 2]*/
@@ -59,9 +81,13 @@ function b() {
 }
 ```
 
+:::
+
 Class field initializers and class static blocks are implicit functions. Therefore, their complexity is calculated separately for each initializer and each static block, and it doesn't contribute to the complexity of the enclosing code.
 
 Examples of additional **incorrect** code for a maximum of 2:
+
+::: incorrect
 
 ```js
 /*eslint complexity: ["error", 2]*/
@@ -79,7 +105,11 @@ class D { // this static block has complexity = 3
 }
 ```
 
+:::
+
 Examples of additional **correct** code for a maximum of 2:
+
+::: correct
 
 ```js
 /*eslint complexity: ["error", 2]*/
@@ -106,6 +136,8 @@ function foo() { // this function has complexity = 1
 }
 ```
 
+:::
+
 ## Options
 
 Optionally, you may specify a `max` object property:
@@ -125,21 +157,3 @@ is equivalent to
 ## When Not To Use It
 
 If you can't determine an appropriate complexity limit for your code, then it's best to disable this rule.
-
-## Related Rules
-
-* [max-depth](max-depth.md)
-* [max-len](max-len.md)
-* [max-lines](max-lines.md)
-* [max-lines-per-function](max-lines-per-function.md)
-* [max-nested-callbacks](max-nested-callbacks.md)
-* [max-params](max-params.md)
-* [max-statements](max-statements.md)
-
-## Further Reading
-
-* [Cyclomatic Complexity](https://en.wikipedia.org/wiki/Cyclomatic_complexity)
-* [Complexity Analysis of JavaScript Code](https://ariya.io/2012/12/complexity-analysis-of-javascript-code)
-* [More about Complexity in JavaScript](https://craftsmanshipforsoftware.com/2015/05/25/complexity-for-javascript/)
-* [About Complexity](https://web.archive.org/web/20160808115119/http://jscomplexity.org/complexity)
-* [Discussion about Complexity in ESLint and more links](https://github.com/eslint/eslint/issues/4808#issuecomment-167795140)

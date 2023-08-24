@@ -1,6 +1,14 @@
-# function-call-argument-newline
+---
+title: function-call-argument-newline
+rule_type: layout
+related_rules:
+- function-paren-newline
+- func-call-spacing
+- object-property-newline
+- array-element-newline
+---
 
-Enforces line breaks between arguments of a function call.
+
 
 A number of style guides require or disallow line breaks between arguments of a function call.
 
@@ -20,6 +28,8 @@ This rule has a string option:
 
 Examples of **incorrect** code for this rule with the default `"always"` option:
 
+::: incorrect
+
 ```js
 /*eslint function-call-argument-newline: ["error", "always"]*/
 
@@ -35,7 +45,11 @@ baz("one", "two", (x) => {
 });
 ```
 
+:::
+
 Examples of **correct** code for this rule with the default `"always"` option:
+
+::: correct
 
 ```js
 /*eslint function-call-argument-newline: ["error", "always"]*/
@@ -70,9 +84,13 @@ baz(
 );
 ```
 
+:::
+
 ### never
 
 Examples of **incorrect** code for this rule with the `"never"` option:
+
+::: incorrect
 
 ```js
 /*eslint function-call-argument-newline: ["error", "never"]*/
@@ -98,7 +116,11 @@ baz(
 );
 ```
 
+:::
+
 Examples of **correct** code for this rule with the `"never"` option:
+
+::: correct
 
 ```js
 /*eslint function-call-argument-newline: ["error", "never"]*/
@@ -121,9 +143,13 @@ baz("one", "two", (x) => {
 });
 ```
 
+:::
+
 ### consistent
 
 Examples of **incorrect** code for this rule with the `"consistent"` option:
+
+::: incorrect
 
 ```js
 /*eslint function-call-argument-newline: ["error", "consistent"]*/
@@ -143,7 +169,11 @@ baz("one", "two",
 );
 ```
 
+:::
+
 Examples of **correct** code for this rule with the `"consistent"` option:
+
+::: correct
 
 ```js
 /*eslint function-call-argument-newline: ["error", "consistent"]*/
@@ -189,13 +219,8 @@ baz(
 );
 ```
 
+:::
+
 ## When Not To Use It
 
 If you don't want to enforce line breaks between arguments, don't enable this rule.
-
-## Related Rules
-
-* [function-paren-newline](function-paren-newline.md)
-* [func-call-spacing](func-call-spacing.md)
-* [object-property-newline](object-property-newline.md)
-* [array-element-newline](array-element-newline.md)

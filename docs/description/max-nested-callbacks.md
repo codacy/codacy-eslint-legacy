@@ -1,6 +1,20 @@
-# max-nested-callbacks
+---
+title: max-nested-callbacks
+rule_type: suggestion
+related_rules:
+- complexity
+- max-depth
+- max-len
+- max-lines
+- max-lines-per-function
+- max-params
+- max-statements
+further_reading:
+- http://book.mixu.net/node/ch7.html
+- https://web.archive.org/web/20220104141150/https://howtonode.org/control-flow
+- https://web.archive.org/web/20220127215850/https://howtonode.org/control-flow-part-ii
+---
 
-Enforces a maximum depth that callbacks can be nested.
 
 Many JavaScript libraries use the callback pattern to manage asynchronous operations. A program of any complexity will most likely need to manage several asynchronous operations at various levels of concurrency. A common pitfall that is easy to fall into is nesting callbacks, which makes code more difficult to read the deeper the callbacks are nested.
 
@@ -32,6 +46,8 @@ This rule has a number or object option:
 
 Examples of **incorrect** code for this rule with the `{ "max": 3 }` option:
 
+::: incorrect
+
 ```js
 /*eslint max-nested-callbacks: ["error", 3]*/
 
@@ -46,7 +62,11 @@ foo1(function() {
 });
 ```
 
+:::
+
 Examples of **correct** code for this rule with the `{ "max": 3 }` option:
+
+::: correct
 
 ```js
 /*eslint max-nested-callbacks: ["error", 3]*/
@@ -70,18 +90,4 @@ function handleFoo4() {
 }
 ```
 
-## Related Rules
-
-* [complexity](complexity.md)
-* [max-depth](max-depth.md)
-* [max-len](max-len.md)
-* [max-lines](max-lines.md)
-* [max-lines-per-function](max-lines-per-function.md)
-* [max-params](max-params.md)
-* [max-statements](max-statements.md)
-
-## Further Reading
-
-* [Control flow in Node.js](http://book.mixu.net/node/ch7.html)
-* [Control Flow in Node](https://howtonode.org/control-flow)
-* [Control Flow in Node Part II](https://howtonode.org/control-flow-part-ii)
+:::

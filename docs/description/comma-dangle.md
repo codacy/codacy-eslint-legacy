@@ -1,6 +1,9 @@
-# comma-dangle
+---
+title: comma-dangle
+rule_type: layout
+---
 
-Requires or disallows trailing commas.
+
 
 Trailing commas in object literals are valid according to the ECMAScript 5 (and ECMAScript 3!) spec. However, IE8 (when not in IE8 document mode) and below will throw an error when it encounters trailing commas in JavaScript.
 
@@ -75,6 +78,8 @@ The default for each option is `"never"` unless otherwise specified.
 
 Examples of **incorrect** code for this rule with the default `"never"` option:
 
+:::incorrect
+
 ```js
 /*eslint comma-dangle: ["error", "never"]*/
 
@@ -91,7 +96,11 @@ foo({
 });
 ```
 
+:::
+
 Examples of **correct** code for this rule with the default `"never"` option:
+
+:::correct
 
 ```js
 /*eslint comma-dangle: ["error", "never"]*/
@@ -108,11 +117,15 @@ foo({
   qux: "quux"
 });
 ```
+
+:::
 
 ### always
 
 Examples of **incorrect** code for this rule with the `"always"` option:
 
+:::incorrect
+
 ```js
 /*eslint comma-dangle: ["error", "always"]*/
 
@@ -129,7 +142,11 @@ foo({
 });
 ```
 
+:::
+
 Examples of **correct** code for this rule with the `"always"` option:
+
+:::correct
 
 ```js
 /*eslint comma-dangle: ["error", "always"]*/
@@ -146,11 +163,15 @@ foo({
   qux: "quux",
 });
 ```
+
+:::
 
 ### always-multiline
 
 Examples of **incorrect** code for this rule with the `"always-multiline"` option:
 
+:::incorrect
+
 ```js
 /*eslint comma-dangle: ["error", "always-multiline"]*/
 
@@ -177,7 +198,11 @@ foo({
 });
 ```
 
+:::
+
 Examples of **correct** code for this rule with the `"always-multiline"` option:
+
+:::correct
 
 ```js
 /*eslint comma-dangle: ["error", "always-multiline"]*/
@@ -203,11 +228,15 @@ foo({
   qux: "quux",
 });
 ```
+
+:::
 
 ### only-multiline
 
 Examples of **incorrect** code for this rule with the `"only-multiline"` option:
 
+:::incorrect
+
 ```js
 /*eslint comma-dangle: ["error", "only-multiline"]*/
 
@@ -220,7 +249,11 @@ var arr = [1,
 
 ```
 
+:::
+
 Examples of **correct** code for this rule with the `"only-multiline"` option:
+
+:::correct
 
 ```js
 /*eslint comma-dangle: ["error", "only-multiline"]*/
@@ -262,10 +295,14 @@ foo({
 });
 ```
 
+:::
+
 ### functions
 
 Examples of **incorrect** code for this rule with the `{"functions": "never"}` option:
 
+:::incorrect
+
 ```js
 /*eslint comma-dangle: ["error", {"functions": "never"}]*/
 
@@ -275,9 +312,13 @@ function foo(a, b,) {
 foo(a, b,);
 new foo(a, b,);
 ```
+
+:::
 
 Examples of **correct** code for this rule with the `{"functions": "never"}` option:
 
+:::correct
+
 ```js
 /*eslint comma-dangle: ["error", {"functions": "never"}]*/
 
@@ -288,7 +329,11 @@ foo(a, b);
 new foo(a, b);
 ```
 
+:::
+
 Examples of **incorrect** code for this rule with the `{"functions": "always"}` option:
+
+:::incorrect
 
 ```js
 /*eslint comma-dangle: ["error", {"functions": "always"}]*/
@@ -300,7 +345,11 @@ foo(a, b);
 new foo(a, b);
 ```
 
+:::
+
 Examples of **correct** code for this rule with the `{"functions": "always"}` option:
+
+:::correct
 
 ```js
 /*eslint comma-dangle: ["error", {"functions": "always"}]*/
@@ -311,6 +360,8 @@ function foo(a, b,) {
 foo(a, b,);
 new foo(a, b,);
 ```
+
+:::
 
 ## When Not To Use It
 

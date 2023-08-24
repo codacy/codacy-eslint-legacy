@@ -1,4 +1,6 @@
-# no-current-route-name
+# ember/no-current-route-name
+
+<!-- end auto-generated rule header -->
 
 The route name is something which is not visible to the user, so it can be
 considered an implementation detail. The URL however is visible to the user, so
@@ -25,10 +27,10 @@ assert.equal(currentURL(), '/foo');
 
 ## Migration
 
-* Replace `currentRouteName()` with `currentURL()` and adjust
+- Replace `currentRouteName()` with `currentURL()` and adjust
   the assertion expectations
 
 ## References
 
-* [currentRouteName()](https://github.com/emberjs/ember-test-helpers/blob/master/API.md#currentroutename) documentation
-* [currentURL()](https://github.com/emberjs/ember-test-helpers/blob/master/API.md#currenturl) documentation
+- [currentRouteName()](https://github.com/emberjs/ember-test-helpers/blob/master/API.md#currentroutename) documentation
+- [currentURL()](https://github.com/emberjs/ember-test-helpers/blob/master/API.md#currenturl) documentation

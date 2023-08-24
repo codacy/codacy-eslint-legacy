@@ -1,6 +1,9 @@
-# no-inner-declarations
+---
+title: no-inner-declarations
+rule_type: problem
+---
 
-Disallows variable or `function` declarations in nested blocks.
+
 
 In JavaScript, prior to ES6, a function declaration is only allowed in the first level of a program or the body of another function, though parsers sometimes [erroneously accept them elsewhere](https://code.google.com/p/esprima/issues/detail?id=422). This only applies to function declarations; named or anonymous function expressions can occur anywhere an expression is permitted.
 
@@ -71,6 +74,8 @@ This rule has a string option:
 
 Examples of **incorrect** code for this rule with the default `"functions"` option:
 
+::: incorrect
+
 ```js
 /*eslint no-inner-declarations: "error"*/
 
@@ -95,7 +100,11 @@ class C {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule with the default `"functions"` option:
+
+::: correct
 
 ```js
 /*eslint no-inner-declarations: "error"*/
@@ -124,9 +133,13 @@ if (test) {
 if (foo) var a;
 ```
 
+:::
+
 ### both
 
 Examples of **incorrect** code for this rule with the `"both"` option:
+
+::: incorrect
 
 ```js
 /*eslint no-inner-declarations: ["error", "both"]*/
@@ -154,7 +167,11 @@ class C {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule with the `"both"` option:
+
+::: correct
 
 ```js
 /*eslint no-inner-declarations: ["error", "both"]*/
@@ -176,6 +193,8 @@ class C {
 }
 ```
 
+:::
+
 ## When Not To Use It
 
-The function declaration portion rule will be rendered obsolete when [block-scoped functions](https://bugzilla.mozilla.org/show_bug.cgi?id=585536) land in ES6, but until then, it should be left on to enforce valid constructions. Disable checking variable declarations when using [block-scoped-var](block-scoped-var.md) or if declaring variables in nested blocks is acceptable despite hoisting.
+The function declaration portion rule will be rendered obsolete when [block-scoped functions](https://bugzilla.mozilla.org/show_bug.cgi?id=585536) land in ES6, but until then, it should be left on to enforce valid constructions. Disable checking variable declarations when using [block-scoped-var](block-scoped-var) or if declaring variables in nested blocks is acceptable despite hoisting.

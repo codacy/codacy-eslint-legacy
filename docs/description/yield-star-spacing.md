@@ -1,6 +1,11 @@
-# yield-star-spacing
+---
+title: yield-star-spacing
+rule_type: layout
+further_reading:
+- https://leanpub.com/understandinges6/read/#leanpub-auto-generators
+---
 
-Enforces spacing around the `*` in `yield*` expressions.
+
 
 ## Rule Details
 
@@ -39,6 +44,8 @@ The option also has a string shorthand:
 
 Examples of **correct** code for this rule with the default `"after"` option:
 
+::: correct
+
 ```js
 /*eslint yield-star-spacing: ["error", "after"]*/
 /*eslint-env es6*/
@@ -48,9 +55,13 @@ function* generator() {
 }
 ```
 
+:::
+
 ### before
 
 Examples of **correct** code for this rule with the `"before"` option:
+
+::: correct
 
 ```js
 /*eslint yield-star-spacing: ["error", "before"]*/
@@ -61,9 +72,13 @@ function *generator() {
 }
 ```
 
+:::
+
 ### both
 
 Examples of **correct** code for this rule with the `"both"` option:
+
+::: correct
 
 ```js
 /*eslint yield-star-spacing: ["error", "both"]*/
@@ -74,9 +89,13 @@ function * generator() {
 }
 ```
 
+:::
+
 ### neither
 
 Examples of **correct** code for this rule with the `"neither"` option:
+
+::: correct
 
 ```js
 /*eslint yield-star-spacing: ["error", "neither"]*/
@@ -87,10 +106,8 @@ function*generator() {
 }
 ```
 
+:::
+
 ## When Not To Use It
 
 If your project will not be using generators or you are not concerned with spacing consistency, you do not need this rule.
-
-## Further Reading
-
-* [Understanding ES6: Generators](https://leanpub.com/understandinges6/read/#leanpub-auto-generators)

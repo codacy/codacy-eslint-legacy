@@ -1,6 +1,10 @@
-# no-extend-native
+---
+title: no-extend-native
+rule_type: suggestion
+related_rules:
+- no-global-assign
+---
 
-Disallows extending of native objects.
 
 In JavaScript, you can extend any object, including builtin or "native" objects. Sometimes people change the behavior of these native objects in ways that break the assumptions made about them in other parts of the code.
 
@@ -30,12 +34,16 @@ Disallows directly modifying the prototype of builtin objects.
 
 Examples of **incorrect** code for this rule:
 
+::: incorrect
+
 ```js
 /*eslint no-extend-native: "error"*/
 
 Object.prototype.a = "a";
 Object.defineProperty(Array.prototype, "times", { value: 999 });
 ```
+
+:::
 
 ## Options
 
@@ -45,11 +53,15 @@ This rule accepts an `exceptions` option, which can be used to specify a list of
 
 Examples of **correct** code for the sample `{ "exceptions": ["Object"] }` option:
 
+::: correct
+
 ```js
 /*eslint no-extend-native: ["error", { "exceptions": ["Object"] }]*/
 
 Object.prototype.a = "a";
 ```
+
+:::
 
 ## Known Limitations
 
@@ -71,7 +83,3 @@ window.Function.prototype.bind = 'tight';
 ## When Not To Use It
 
 You may want to disable this rule when working with polyfills that try to patch older versions of JavaScript with the latest spec, such as those that might `Function.prototype.bind` or `Array.prototype.forEach` in a future-friendly way.
-
-## Related Rules
-
-* [no-global-assign](no-global-assign.md)

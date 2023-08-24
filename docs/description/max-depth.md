@@ -1,6 +1,16 @@
-# max-depth
+---
+title: max-depth
+rule_type: suggestion
+related_rules:
+- complexity
+- max-len
+- max-lines
+- max-lines-per-function
+- max-nested-callbacks
+- max-params
+- max-statements
+---
 
-Enforces a maximum depth that blocks can be nested.
 
 Many developers consider code difficult to read if blocks are nested beyond a certain depth.
 
@@ -20,6 +30,8 @@ This rule has a number or object option:
 
 Examples of **incorrect** code for this rule with the default `{ "max": 4 }` option:
 
+::: incorrect
+
 ```js
 /*eslint max-depth: ["error", 4]*/
 
@@ -37,7 +49,11 @@ function foo() {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule with the default `{ "max": 4 }` option:
+
+::: correct
 
 ```js
 /*eslint max-depth: ["error", 4]*/
@@ -54,9 +70,13 @@ function foo() {
 }
 ```
 
+:::
+
 Note that class static blocks do not count as nested blocks, and that the depth in them is calculated separately from the enclosing context.
 
 Examples of **incorrect** code for this rule with `{ "max": 2 }` option:
+
+::: incorrect
 
 ```js
 /*eslint max-depth: ["error", 2]*/
@@ -77,7 +97,11 @@ function foo() {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule with `{ "max": 2 }` option:
+
+::: correct
 
 ```js
 /*eslint max-depth: ["error", 2]*/
@@ -96,12 +120,4 @@ function foo() {
 }
 ```
 
-## Related Rules
-
-* [complexity](complexity.md)
-* [max-len](max-len.md)
-* [max-lines](max-lines.md)
-* [max-lines-per-function](max-lines-per-function.md)
-* [max-nested-callbacks](max-nested-callbacks.md)
-* [max-params](max-params.md)
-* [max-statements](max-statements.md)
+:::

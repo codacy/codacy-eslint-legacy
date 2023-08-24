@@ -1,6 +1,12 @@
-# no-promise-executor-return
+---
+title: no-promise-executor-return
+rule_type: problem
+related_rules:
+- no-async-promise-executor
+further_reading:
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+---
 
-Disallows returning values from Promise executor functions.
 
 The `new Promise` constructor accepts a single argument, called an *executor*.
 
@@ -27,6 +33,8 @@ This rule disallows returning values from Promise executor functions.
 Only `return` without a value is allowed, as it's a control flow statement.
 
 Examples of **incorrect** code for this rule:
+
+::: incorrect
 
 ```js
 /*eslint no-promise-executor-return: "error"*/
@@ -55,13 +63,20 @@ new Promise((resolve, reject) => getSomething((err, data) => {
 new Promise(() => {
     return 1;
 });
+
+new Promise(r => r(1));
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-promise-executor-return: "error"*/
 
+// Turn return inline into two lines
 new Promise((resolve, reject) => {
     if (someCondition) {
         resolve(defaultResult);
@@ -76,6 +91,7 @@ new Promise((resolve, reject) => {
     });
 });
 
+// Add curly braces
 new Promise((resolve, reject) => {
     getSomething((err, data) => {
         if (err) {
@@ -86,13 +102,50 @@ new Promise((resolve, reject) => {
     });
 });
 
+new Promise(r => { r(1) });
+// or just use Promise.resolve
 Promise.resolve(1);
 ```
 
-## Related Rules
+:::
 
-* [no-async-promise-executor](no-async-promise-executor.md)
+## Options
 
-## Further Reading
+This rule takes one option, an object, with the following properties:
 
-* [MDN Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+* `allowVoid`: If set to `true` (`false` by default), this rule will allow returning void values.
+
+### allowVoid
+
+Examples of **correct** code for this rule with the `{ "allowVoid": true }` option:
+
+::: correct
+
+```js
+/*eslint no-promise-executor-return: ["error", { allowVoid: true }]*/
+
+new Promise((resolve, reject) => {
+    if (someCondition) {
+        return void resolve(defaultResult);
+    }
+    getSomething((err, result) => {
+        if (err) {
+            reject(err);
+        } else {
+            resolve(result);
+        }
+    });
+});
+
+new Promise((resolve, reject) => void getSomething((err, data) => {
+    if (err) {
+        reject(err);
+    } else {
+        resolve(data);
+    }
+}));
+
+new Promise(r => void r(1));
+```
+
+:::

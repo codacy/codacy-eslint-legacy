@@ -1,6 +1,13 @@
-# no-return-await
+---
+title: no-return-await
+rule_type: suggestion
+further_reading:
+- https://v8.dev/blog/fast-async
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
+- https://jakearchibald.com/2017/await-vs-return-vs-return-await/
+---
 
-Disallows unnecessary `return await`.
+This rule was **deprecated** in ESLint v8.46.0 with no replacement. The original intent of this rule no longer applies due to the fact JavaScript now handles native `Promises` differently. It can now be slower to remove `await` rather than keeping it. More technical information can be found in [this V8 blog entry](https://v8.dev/blog/fast-async).
 
 Using `return await` inside an `async function` keeps the current function in the call stack until the Promise that is being awaited has resolved, at the cost of an extra microtask before resolving the outer Promise. `return await` can also be used in a try/catch statement to catch errors from another function that returns a Promise.
 
@@ -12,6 +19,8 @@ This rule aims to prevent a likely common performance hazard due to a lack of un
 
 Examples of **incorrect** code for this rule:
 
+::: incorrect
+
 ```js
 /*eslint no-return-await: "error"*/
 
@@ -20,7 +29,11 @@ async function foo() {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-return-await: "error"*/
@@ -48,6 +61,8 @@ async function foo() {
 }
 ```
 
+:::
+
 ## When Not To Use It
 
 There are a few reasons you might want to turn this rule off:
@@ -55,9 +70,3 @@ There are a few reasons you might want to turn this rule off:
 * If you want to use `await` to denote a value that is a thenable
 * If you do not want the performance benefit of avoiding `return await`
 * If you want the functions to show up in stack traces (useful for debugging purposes)
-
-## Further Reading
-
-[`async function` on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
-
-[`await vs return vs return await` by Jake Archibald](https://jakearchibald.com/2017/await-vs-return-vs-return-await/)

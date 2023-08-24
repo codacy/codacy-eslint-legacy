@@ -1,8 +1,10 @@
-# no-mixed-requires
+---
+title: no-mixed-requires
+rule_type: suggestion
+---
 
-Disallows `require` calls to be mixed with regular variable declarations.
 
-This rule was **deprecated** in ESLint v7.0.0. Please use the corresponding rule in [`eslint-plugin-node`](https://github.com/mysticatea/eslint-plugin-node).
+This rule was **deprecated** in ESLint v7.0.0. Please use the corresponding rule in [`eslint-plugin-n`](https://github.com/eslint-community/eslint-plugin-n).
 
 In the Node.js community it is often customary to separate initializations with calls to `require` modules from other variable declarations, sometimes also grouping them by the type of module. This rule helps you enforce this convention.
 
@@ -41,6 +43,8 @@ Configuring this rule with one boolean option `true` is deprecated.
 
 Examples of **incorrect** code for this rule with the default `{ "grouping": false, "allowCall": false }` options:
 
+::: incorrect
+
 ```js
 /*eslint no-mixed-requires: "error"*/
 
@@ -52,7 +56,11 @@ var async = require('async'),
     eslint = require('eslint');
 ```
 
+:::
+
 Examples of **correct** code for this rule with the default `{ "grouping": false, "allowCall": false }` options:
+
+::: correct
 
 ```js
 /*eslint no-mixed-requires: "error"*/
@@ -73,9 +81,13 @@ var foo = require('foo' + VERSION),
     baz = require();
 ```
 
+:::
+
 ### grouping
 
 Examples of **incorrect** code for this rule with the `{ "grouping": true }` option:
+
+::: incorrect
 
 ```js
 /*eslint no-mixed-requires: ["error", { "grouping": true }]*/
@@ -89,9 +101,13 @@ var foo = require('foo'),
     bar = require(getBarModuleName());
 ```
 
+:::
+
 ### allowCall
 
 Examples of **incorrect** code for this rule with the `{ "allowCall": true }` option:
+
+::: incorrect
 
 ```js
 /*eslint no-mixed-requires: ["error", { "allowCall": true }]*/
@@ -101,7 +117,11 @@ var async = require('async'),
     eslint = require('eslint');
 ```
 
+:::
+
 Examples of **correct** code for this rule with the `{ "allowCall": true }` option:
+
+::: correct
 
 ```js
 /*eslint no-mixed-requires: ["error", { "allowCall": true }]*/
@@ -110,6 +130,8 @@ var async = require('async'),
     debug = require('diagnostics')('my-module'),
     eslint = require('eslint');
 ```
+
+:::
 
 ## Known Limitations
 

@@ -1,13 +1,21 @@
-# Tacit / Point-Free (prefer-tacit)
+# Replaces `x => f(x)` with just `f` (`functional/prefer-tacit`)
+
+⚠️ This rule _warns_ in the 🎨 `stylistic` config.
+
+💡 This rule is manually fixable by [editor suggestions](https://eslint.org/docs/developer-guide/working-with-rules#providing-suggestions).
+
+<!-- end auto-generated rule header -->
 
 This rule enforces using functions directly if they can be without wrapping them.
 
 ## Rule Details
 
-Generally there's no reason to wrap a function with a callback wrapper if it's directly called anyway.
-Doing so creates extra inline lambdas that slow the runtime down.
+If a function can be used directly without being in a callback wrapper, then it's generally better to use it directly.
+Extra inline lambdas can slow the runtime down.
 
-Examples of **incorrect** code for this rule:
+⚠️ Warning ⚠️: Use with caution as if not all parameters should be passed to the function, a wrapper function is then required.
+
+### ❌ Incorrect
 
 <!-- eslint-skip -->
 
@@ -15,70 +23,20 @@ Examples of **incorrect** code for this rule:
 /* eslint functional/prefer-tacit: "error" */
 
 function f(x) {
-  // ...
+  return x + 1;
 }
 
-const foo = x => f(x);
+const foo = [1, 2, 3].map((x) => f(x));
 ```
 
-Examples of **correct** code for this rule:
+### ✅ Correct
 
 ```ts
 /* eslint functional/prefer-tacit: "error" */
 
 function f(x) {
-  // ...
+  return x + 1;
 }
 
-const foo = f;
+const foo = [1, 2, 3].map(f);
 ```
-
-## Options
-
-This rule accepts an options object of the following type:
-
-```ts
-type Options = {
-  assumeTypes:
-    | false
-    | {
-        allowFixer: boolean;
-      }
-  ignorePattern?: string[] | string;
-}
-```
-
-The default options:
-
-```ts
-const defaults = {
-  assumeTypes: false,
-};
-```
-
-### `assumeTypes`
-
-The rule take advantage of TypeScript's typing engine to check if callback wrapper is in fact safe to remove.
-
-This option will make the rule assume that the function only accepts the arguments given to it in the wrapper.
-However this may result in some false positives being picked up.
-
-<!-- eslint-disable functional/prefer-tacit -->
-
-```js
-const foo = x => f(x);    // If `f` only accepts one parameter then this is violation of the rule.
-const bar = foo(1, 2, 3); // But if `f` accepts more than one parameter then it isn't.
-```
-
-Note: Enabling this option is the only way to get this rule to report violations in an environment without TypeScript's typing engine available (e.g. In Vanilla JS).
-
-### `assumeTypes.allowFixer`
-
-When set types will be assumed.
-
-This option states whether the auto fixer should be enabled for violations that are found when assuming types (violations found without assuming types will ignore this option).
-Because when assuming types, false positives may be found, it's recommended to set this option to `false`.
-
-### `ignorePattern`
-
-See the [ignorePattern](./options/ignore-pattern.md) docs.

@@ -7,15 +7,17 @@ since: "v0.12.0"
 ---
 # regexp/sort-alternatives
 
-> sort alternatives if order doesn't matter
+🔧 This rule is automatically fixable by the [`--fix` CLI option](https://eslint.org/docs/latest/user-guide/command-line-interface#--fix).
 
-- :wrench: The `--fix` option on the [command line](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+<!-- end auto-generated rule header -->
+
+> sort alternatives if order doesn't matter
 
 ## :book: Rule Details
 
 This rule will sort alternatives to improve readability and maintainability.
 
-The primary target of this rule are lists of words and/or numbers. These lists are somewhat common and sorting them makes it easy for readers to check whether a particular word or number is included.
+The primary target of this rule are lists of words and/or numbers. These lists are somewhat common, and sorting them makes it easy for readers to check whether a particular word or number is included.
 
 This rule will only sort alternatives if reordering the alternatives doesn't affect the pattern.
 

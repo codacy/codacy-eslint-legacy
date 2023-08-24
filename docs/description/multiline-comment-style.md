@@ -1,6 +1,9 @@
-# multiline-comment-style
+---
+title: multiline-comment-style
+rule_type: suggestion
+---
 
-Enforces a particular style for multiline comments.
+
 
 Many style guides require a particular style for comments that span multiple lines. For example, some style guides prefer the use of a single block comment for multiline comments, whereas other style guides prefer consecutive line comments.
 
@@ -13,12 +16,14 @@ This rule aims to enforce a particular style for multiline comments.
 This rule has a string option, which can have one of the following values:
 
 * `"starred-block"` (default): Disallows consecutive line comments in favor of block comments. Additionally, requires block comments to have an aligned `*` character before each line.
-* `"bare-block"`: Disallows consecutive line comments in favor of block comments, and disallows block comments from having a `"*"` character before each line.
-* `"separate-lines"`: Disallows block comments in favor of consecutive line comments
+* `"bare-block"`: Disallows consecutive line comments in favor of block comments, and disallows block comments from having a `"*"` character before each line. This option ignores JSDoc comments.
+* `"separate-lines"`: Disallows block comments in favor of consecutive line comments. By default, this option ignores JSDoc comments. To also apply this rule to JSDoc comments, set the `checkJSDoc` option to `true`.
 
-The rule always ignores directive comments such as `/* eslint-disable */`. Additionally, unless the mode is `"starred-block"`, the rule ignores JSDoc comments.
+The rule always ignores directive comments such as `/* eslint-disable */`.
 
 Examples of **incorrect** code for this rule with the default `"starred-block"` option:
+
+::: incorrect
 
 ```js
 
@@ -50,7 +55,11 @@ foo();
 
 ```
 
+:::
+
 Examples of **correct** code for this rule with the default `"starred-block"` option:
+
+::: correct
 
 ```js
 /* eslint multiline-comment-style: ["error", "starred-block"] */
@@ -64,7 +73,11 @@ foo();
 // single-line comment
 ```
 
+:::
+
 Examples of **incorrect** code for this rule with the `"bare-block"` option:
+
+::: incorrect
 
 ```js
 /* eslint multiline-comment-style: ["error", "bare-block"] */
@@ -80,7 +93,11 @@ foo();
 foo();
 ```
 
+:::
+
 Examples of **correct** code for this rule with the `"bare-block"` option:
+
+::: correct
 
 ```js
 /* eslint multiline-comment-style: ["error", "bare-block"] */
@@ -90,7 +107,11 @@ Examples of **correct** code for this rule with the `"bare-block"` option:
 foo();
 ```
 
+:::
+
 Examples of **incorrect** code for this rule with the `"separate-lines"` option:
+
+::: incorrect
 
 ```js
 
@@ -108,7 +129,11 @@ foo();
 
 ```
 
+:::
+
 Examples of **correct** code for this rule with the `"separate-lines"` option:
+
+::: correct
 
 ```js
 /* eslint multiline-comment-style: ["error", "separate-lines"] */
@@ -117,8 +142,42 @@ Examples of **correct** code for this rule with the `"separate-lines"` option:
 // calls foo()
 foo();
 
+```
+
+:::
+
+Examples of **incorrect** code for this rule with the `"separate-lines"` option and `checkJSDoc` set to `true`:
+
+::: incorrect
+
+```js
+
+/* eslint multiline-comment-style: ["error", "separate-lines", { "checkJSDoc": true }] */
+
+/**
+ * I am a JSDoc comment
+ * and I'm not allowed
+ */
+foo();
 
 ```
+
+:::
+
+Examples of **correct** code for this rule with the `"separate-lines"` option and `checkJSDoc` set to `true`:
+
+::: correct
+
+```js
+/* eslint multiline-comment-style: ["error", "separate-lines", { "checkJSDoc": true }] */
+
+// I am a JSDoc comment
+// and I'm not allowed
+foo();
+
+```
+
+:::
 
 ## When Not To Use It
 

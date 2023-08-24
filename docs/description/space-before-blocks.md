@@ -1,6 +1,15 @@
-# space-before-blocks
+---
+title: space-before-blocks
+rule_type: layout
+related_rules:
+- keyword-spacing
+- arrow-spacing
+- switch-colon-spacing
+- block-spacing
+- brace-style
+---
 
-Requires Or disallows space before blocks.
+
 
 Consistency is an important part of any style guide.
 While it is a personal preference where to put the opening brace of blocks,
@@ -30,6 +39,8 @@ The default is `"always"`.
 
 Examples of **incorrect** code for this rule with the "always" option:
 
+::: incorrect
+
 ```js
 /*eslint space-before-blocks: "error"*/
 
@@ -50,7 +61,11 @@ class Foo{
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule with the `"always"` option:
+
+::: correct
 
 ```js
 /*eslint space-before-blocks: "error"*/
@@ -78,9 +93,13 @@ for (;;) {
 try {} catch(a) {}
 ```
 
+:::
+
 ### "never"
 
 Examples of **incorrect** code for this rule with the `"never"` option:
+
+::: incorrect
 
 ```js
 /*eslint space-before-blocks: ["error", "never"]*/
@@ -98,7 +117,11 @@ for (;;) {
 try {} catch(a) {}
 ```
 
+:::
+
 Examples of **correct** code for this rule with the `"never"` option:
+
+::: correct
 
 ```js
 /*eslint space-before-blocks: ["error", "never"]*/
@@ -120,7 +143,11 @@ class Foo{
 }
 ```
 
+:::
+
 Examples of **incorrect** code for this rule when configured `{ "functions": "never", "keywords": "always", "classes": "never" }`:
+
+::: incorrect
 
 ```js
 /*eslint space-before-blocks: ["error", { "functions": "never", "keywords": "always", "classes": "never" }]*/
@@ -135,7 +162,11 @@ class Foo{
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule when configured `{ "functions": "never", "keywords": "always", "classes": "never" }`:
+
+::: correct
 
 ```js
 /*eslint space-before-blocks: ["error", { "functions": "never", "keywords": "always", "classes": "never" }]*/
@@ -154,7 +185,11 @@ class Foo{
 }
 ```
 
+:::
+
 Examples of **incorrect** code for this rule when configured `{ "functions": "always", "keywords": "never", "classes": "never" }`:
+
+::: incorrect
 
 ```js
 /*eslint space-before-blocks: ["error", { "functions": "always", "keywords": "never", "classes": "never" }]*/
@@ -169,7 +204,11 @@ class Foo {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule when configured `{ "functions": "always", "keywords": "never", "classes": "never" }`:
+
+::: correct
 
 ```js
 /*eslint space-before-blocks: ["error", { "functions": "always", "keywords": "never", "classes": "never" }]*/
@@ -186,7 +225,11 @@ class Foo{
 }
 ```
 
+:::
+
 Examples of **incorrect** code for this rule when configured `{ "functions": "never", "keywords": "never", "classes": "always" }`:
+
+::: incorrect
 
 ```js
 /*eslint space-before-blocks: ["error", { "functions": "never", "keywords": "never", "classes": "always" }]*/
@@ -197,7 +240,11 @@ class Foo{
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule when configured `{ "functions": "never", "keywords": "never", "classes": "always" }`:
+
+::: correct
 
 ```js
 /*eslint space-before-blocks: ["error", { "functions": "never", "keywords": "never", "classes": "always" }]*/
@@ -208,14 +255,8 @@ class Foo {
 }
 ```
 
+:::
+
 ## When Not To Use It
 
 You can turn this rule off if you are not concerned with the consistency of spacing before blocks.
-
-## Related Rules
-
-* [keyword-spacing](keyword-spacing.md)
-* [arrow-spacing](arrow-spacing.md)
-* [switch-colon-spacing](switch-colon-spacing.md)
-* [block-spacing](block-spacing.md)
-* [brace-style](brace-style.md)

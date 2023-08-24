@@ -1,6 +1,12 @@
-# no-irregular-whitespace
+---
+title: no-irregular-whitespace
+rule_type: problem
+further_reading:
+- https://es5.github.io/#x7.2
+- https://web.archive.org/web/20200414142829/http://timelessrepo.com/json-isnt-a-javascript-subset
+---
 
-Disallows irregular whitespace characters.
+
 
 Invalid or irregular whitespace causes issues with ECMAScript 5 parsers and also makes code harder to debug in a similar nature to mixed tabs and spaces.
 
@@ -22,30 +28,32 @@ This rule is aimed at catching invalid whitespace that is not a normal tab and s
 
 This rule disallows the following characters except where the options allow:
 
-    \u000B - Line Tabulation (\v) - <VT>
-    \u000C - Form Feed (\f) - <FF>
-    \u00A0 - No-Break Space - <NBSP>
-    \u0085 - Next Line
-    \u1680 - Ogham Space Mark
-    \u180E - Mongolian Vowel Separator - <MVS>
-    \ufeff - Zero Width No-Break Space - <BOM>
-    \u2000 - En Quad
-    \u2001 - Em Quad
-    \u2002 - En Space - <ENSP>
-    \u2003 - Em Space - <EMSP>
-    \u2004 - Three-Per-Em
-    \u2005 - Four-Per-Em
-    \u2006 - Six-Per-Em
-    \u2007 - Figure Space
-    \u2008 - Punctuation Space - <PUNCSP>
-    \u2009 - Thin Space
-    \u200A - Hair Space
-    \u200B - Zero Width Space - <ZWSP>
-    \u2028 - Line Separator
-    \u2029 - Paragraph Separator
-    \u202F - Narrow No-Break Space
-    \u205f - Medium Mathematical Space
-    \u3000 - Ideographic Space
+```text
+\u000B - Line Tabulation (\v) - <VT>
+\u000C - Form Feed (\f) - <FF>
+\u00A0 - No-Break Space - <NBSP>
+\u0085 - Next Line
+\u1680 - Ogham Space Mark
+\u180E - Mongolian Vowel Separator - <MVS>
+\ufeff - Zero Width No-Break Space - <BOM>
+\u2000 - En Quad
+\u2001 - Em Quad
+\u2002 - En Space - <ENSP>
+\u2003 - Em Space - <EMSP>
+\u2004 - Three-Per-Em
+\u2005 - Four-Per-Em
+\u2006 - Six-Per-Em
+\u2007 - Figure Space
+\u2008 - Punctuation Space - <PUNCSP>
+\u2009 - Thin Space
+\u200A - Hair Space
+\u200B - Zero Width Space - <ZWSP>
+\u2028 - Line Separator
+\u2029 - Paragraph Separator
+\u202F - Narrow No-Break Space
+\u205f - Medium Mathematical Space
+\u3000 - Ideographic Space
+```
 
 ## Options
 
@@ -55,10 +63,13 @@ This rule has an object option for exceptions:
 * `"skipComments": true` allows any whitespace characters in comments
 * `"skipRegExps": true` allows any whitespace characters in regular expression literals
 * `"skipTemplates": true` allows any whitespace characters in template literals
+* `"skipJSXText": true` allows any whitespace characters in JSX text
 
 ### skipStrings
 
 Examples of **incorrect** code for this rule with the default `{ "skipStrings": true }` option:
+
+::: incorrect
 
 ```js
 /*eslint no-irregular-whitespace: "error"*/
@@ -105,7 +116,11 @@ function thing() {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule with the default `{ "skipStrings": true }` option:
+
+::: correct
 
 ```js
 /*eslint no-irregular-whitespace: "error"*/
@@ -123,9 +138,13 @@ function thing() {
 }
 ```
 
+:::
+
 ### skipComments
 
 Examples of additional **correct** code for this rule with the `{ "skipComments": true }` option:
+
+::: correct
 
 ```js
 /*eslint no-irregular-whitespace: ["error", { "skipComments": true }]*/
@@ -139,9 +158,13 @@ Description <NBSP>: some descriptive text
 */
 ```
 
+:::
+
 ### skipRegExps
 
 Examples of additional **correct** code for this rule with the `{ "skipRegExps": true }` option:
+
+::: correct
 
 ```js
 /*eslint no-irregular-whitespace: ["error", { "skipRegExps": true }]*/
@@ -151,9 +174,13 @@ function thing() {
 }
 ```
 
+:::
+
 ### skipTemplates
 
 Examples of additional **correct** code for this rule with the `{ "skipTemplates": true }` option:
+
+::: correct
 
 ```js
 /*eslint no-irregular-whitespace: ["error", { "skipTemplates": true }]*/
@@ -164,11 +191,25 @@ function thing() {
 }
 ```
 
+:::
+
+### skipJSXText
+
+Examples of additional **correct** code for this rule with the `{ "skipJSXText": true }` option:
+
+::: correct
+
+```js
+/*eslint no-irregular-whitespace: ["error", { "skipJSXText": true }]*/
+/*eslint-env es6*/
+
+function Thing() {
+    return <div>text in <NBSP>JSX</div>;
+}
+```
+
+:::
+
 ## When Not To Use It
 
 If you decide that you wish to use whitespace other than tabs and spaces outside of strings in your application.
-
-## Further Reading
-
-* [ECMA whitespace](https://es5.github.io/#x7.2)
-* [JSON whitespace issues](http://timelessrepo.com/json-isnt-a-javascript-subset)

@@ -1,4 +1,6 @@
-# Prevent multiple component definition per file (react/no-multi-comp)
+# Disallow multiple component definition per file (`react/no-multi-comp`)
+
+<!-- end auto-generated rule header -->
 
 Declaring only one component per file improves readability and reusability of components.
 

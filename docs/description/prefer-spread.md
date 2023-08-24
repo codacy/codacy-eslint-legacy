@@ -1,6 +1,10 @@
-# prefer-spread
+---
+title: prefer-spread
+rule_type: suggestion
+related_rules:
+- no-useless-call
+---
 
-Suggests using spread syntax instead of `.apply()`.
 
 Before ES2015, one must use `Function.prototype.apply()` to call variadic functions.
 
@@ -26,6 +30,8 @@ This rule is aimed to flag usage of `Function.prototype.apply()` in situations w
 
 Examples of **incorrect** code for this rule:
 
+::: incorrect
+
 ```js
 /*eslint prefer-spread: "error"*/
 
@@ -34,7 +40,11 @@ foo.apply(null, args);
 obj.foo.apply(obj, args);
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint prefer-spread: "error"*/
@@ -55,6 +65,8 @@ foo.apply(null, [1, 2, 3]);
 obj.foo.apply(obj, [1, 2, 3]);
 ```
 
+:::
+
 Known limitations:
 
 This rule analyzes code statically to check whether or not the `this` argument is changed. So, if the `this` argument is computed in a dynamic expression, this rule cannot detect a violation.
@@ -74,7 +86,3 @@ a[++i].foo.apply(a[i], args);
 This rule should not be used in ES3/5 environments.
 
 In ES2015 (ES6) or later, if you don't want to be notified about `Function.prototype.apply()` callings, you can safely disable this rule.
-
-## Related Rules
-
-* [no-useless-call](no-useless-call.md)

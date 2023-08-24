@@ -1,12 +1,14 @@
-# no-private-routing-service
+# ember/no-private-routing-service
 
-✅ The `"extends": "plugin:ember/recommended"` property in a configuration file enables this rule.
+💼 This rule is enabled in the ✅ `recommended` [config](https://github.com/ember-cli/eslint-plugin-ember#-configurations).
+
+<!-- end auto-generated rule header -->
 
 Disallow the use of:
 
-* The private `-routing` service
-* The private `_routerMicrolib` property
-* The private `router:main` property
+- The private `-routing` service
+- The private `_routerMicrolib` property
+- The private `router:main` property
 
 There has been a public `router` service since Ember 2.16 and using the private routing service should be unnecessary.
 
@@ -83,8 +85,8 @@ export default class MyComponent extends Component {
 
 This rule takes an optional object containing:
 
-* `boolean` -- `catchRouterMicrolib` -- whether the rule should catch usages of the private property `_routerMicrolib` (default `true`)
-* `boolean` -- `catchRouterMain` -- whether the rule should catch usages of the private property `router:main` (default `true`)
+- `boolean` -- `catchRouterMicrolib` -- whether the rule should catch usages of the private property `_routerMicrolib` (default `true`)
+- `boolean` -- `catchRouterMain` -- whether the rule should catch usages of the private property `router:main` (default `true`)
 
 ## References
 

@@ -1,6 +1,12 @@
-# prefer-regex-literals
+---
+title: prefer-regex-literals
+rule_type: suggestion
+further_reading:
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp
+---
 
-Disallows use of the `RegExp` constructor in favor of regular expression literals.
+
 
 There are two ways to create a regular expression:
 
@@ -46,6 +52,8 @@ dynamically generated regular expressions.
 
 Examples of **incorrect** code for this rule:
 
+::: incorrect
+
 ```js
 /*eslint prefer-regex-literals: "error"*/
 
@@ -64,7 +72,11 @@ RegExp(`^\\d\\.$`);
 new RegExp(String.raw`^\d\.$`);
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint prefer-regex-literals: "error"*/
@@ -89,6 +101,8 @@ RegExp(`${prefix}abc`);
 
 new RegExp(String.raw`^\d\. ${suffix}`);
 ```
+
+:::
 
 ## Options
 
@@ -121,8 +135,3 @@ Examples of `correct` code for `{ "disallowRedundantWrapping": true }`
 
 new RegExp(/abc/, flags);
 ```
-
-## Further Reading
-
-* [MDN: Regular Expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)
-* [MDN: RegExp Constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp)

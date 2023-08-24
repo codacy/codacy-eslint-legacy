@@ -1,6 +1,8 @@
-# no-new
+---
+title: no-new
+rule_type: suggestion
+---
 
-Disallows `new` operators outside of assignments or comparisons.
 
 The goal of using `new` with a constructor is typically to create an object of a particular type and store that object in a variable, such as:
 
@@ -22,18 +24,26 @@ This rule is aimed at maintaining consistency and convention by disallowing cons
 
 Examples of **incorrect** code for this rule:
 
+::: incorrect
+
 ```js
 /*eslint no-new: "error"*/
 
 new Thing();
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-new: "error"*/
 
 var thing = new Thing();
 
-Thing();
+Foo();
 ```
+
+:::

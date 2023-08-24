@@ -1,6 +1,9 @@
-# unicode-bom
+---
+title: unicode-bom
+rule_type: layout
+---
 
-Requires or disallows the Unicode Byte Order Mark (BOM).
+
 
 The Unicode Byte Order Mark (BOM) is used to specify whether code units are big
 endian or little endian. That is, whether the most significant or least
@@ -25,6 +28,8 @@ This rule has a string option:
 
 Example of **correct** code for this rule with the `"always"` option:
 
+::: correct
+
 ```js
 /*eslint unicode-bom: ["error", "always"]*/
 
@@ -32,25 +37,37 @@ U+FEFF
 var abc;
 ```
 
+:::
+
 Example of **incorrect** code for this rule with the `"always"` option:
+
+::: incorrect
 
 ```js
 /*eslint unicode-bom: ["error", "always"]*/
 
 var abc;
 ```
+
+:::
 
 ### never
 
 Example of **correct** code for this rule with the default `"never"` option:
 
+::: correct
+
 ```js
 /*eslint unicode-bom: ["error", "never"]*/
 
 var abc;
 ```
 
+:::
+
 Example of **incorrect** code for this rule with the `"never"` option:
+
+::: incorrect
 
 ```js
 /*eslint unicode-bom: ["error", "never"]*/
@@ -58,6 +75,8 @@ Example of **incorrect** code for this rule with the `"never"` option:
 U+FEFF
 var abc;
 ```
+
+:::
 
 ## When Not To Use It
 

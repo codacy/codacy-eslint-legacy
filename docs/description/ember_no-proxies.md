@@ -1,4 +1,6 @@
-# no-proxies
+# ember/no-proxies
+
+<!-- end auto-generated rule header -->
 
 You may want to disallow the use of Ember proxy objects (`ObjectProxy`, `ArrayProxy`) in your application for a number of reasons:
 
@@ -27,9 +29,9 @@ import ArrayProxy from '@ember/array/proxy';
 
 ## Related Rules
 
-* [no-get](no-get.md) which may need to be disabled for `this.get()` usages in proxy objects
+- [no-get](no-get.md) which may need to be disabled for `this.get()` usages in proxy objects
 
 ## References
 
-* [ObjectProxy](https://api.emberjs.com/ember/release/classes/ObjectProxy) spec
-* [ArrayProxy](https://api.emberjs.com/ember/release/classes/ArrayProxy) spec
+- [ObjectProxy](https://api.emberjs.com/ember/release/classes/ObjectProxy) spec
+- [ArrayProxy](https://api.emberjs.com/ember/release/classes/ArrayProxy) spec

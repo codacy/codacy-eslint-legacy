@@ -35,6 +35,7 @@ describe("convertResults", () => {
           fixableErrorCount: 0,
           fixableWarningCount: 0,
           usedDeprecatedRules: [],
+          fatalErrorCount: 2
         },
       ],
       errorCount: 2,

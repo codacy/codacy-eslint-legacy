@@ -1,4 +1,6 @@
-# Prevent usage of Array index in keys (react/no-array-index-key)
+# Disallow usage of Array index in keys (`react/no-array-index-key`)
+
+<!-- end auto-generated rule header -->
 
 Warn if an element uses an Array index in its `key`.
 
@@ -42,6 +44,10 @@ things.find((thing, index) => {
 things.findIndex((thing, index) => {
   otherThings.push(<Hello key={index} />);
 });
+
+things.flatMap((thing, index) => (
+  <Hello key={index} />
+));
 
 things.reduce((collection, thing, index) => (
   collection.concat(<Hello key={index} />)
@@ -106,4 +112,4 @@ things.reduceRight((collection, thing) => (
 
 ## When Not To Use It
 
-If there is nothing unique about the items, for example [you are breaking an array down in to chunks](https://github.com/yannickcr/eslint-plugin-react/issues/1123), then you may want to disable this rule with an override.
+If there is nothing unique about the items, for example [you are breaking an array down in to chunks](https://github.com/jsx-eslint/eslint-plugin-react/issues/1123), then you may want to disable this rule with an override.

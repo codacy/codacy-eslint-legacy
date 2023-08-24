@@ -1,6 +1,9 @@
-# no-unreachable
+---
+title: no-unreachable
+rule_type: problem
+---
 
-Disallows unreachable code after `return`, `throw`, `continue`, and `break` statements.
+
 
 Because the `return`, `throw`, `break`, and `continue` statements unconditionally exit a block of code, any statements after them cannot be executed. Unreachable statements are usually a mistake.
 
@@ -29,6 +32,8 @@ class C extends B {
 This rule disallows unreachable code after `return`, `throw`, `continue`, and `break` statements. This rule also flags definitions of instance fields in subclasses whose constructors don't have `super()` calls.
 
 Examples of **incorrect** code for this rule:
+
+::: incorrect
 
 ```js
 /*eslint no-unreachable: "error"*/
@@ -64,7 +69,11 @@ for (;;) {}
 console.log("done");
 ```
 
+:::
+
 Examples of **correct** code for this rule, because of JavaScript function and variable hoisting:
+
+::: correct
 
 ```js
 /*eslint no-unreachable: "error"*/
@@ -88,7 +97,11 @@ switch (foo) {
 }
 ```
 
+:::
+
 Examples of additional **incorrect** code for this rule:
+
+::: incorrect
 
 ```js
 /*eslint no-unreachable: "error"*/
@@ -105,7 +118,11 @@ class C extends B {
 }
 ```
 
+:::
+
 Examples of additional **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-unreachable: "error"*/
@@ -141,3 +158,5 @@ class F extends B {
     }
 }
 ```
+
+:::

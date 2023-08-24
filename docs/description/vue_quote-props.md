@@ -2,12 +2,12 @@
 pageClass: rule-details
 sidebarDepth: 0
 title: vue/quote-props
-description: require quotes around object literal property names in `<template>`
+description: Require quotes around object literal property names in `<template>`
 since: v8.4.0
 ---
 # vue/quote-props
 
-> require quotes around object literal property names in `<template>`
+> Require quotes around object literal property names in `<template>`
 
 - :wrench: The `--fix` option on the [command line](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
@@ -28,4 +28,4 @@ This rule was introduced in eslint-plugin-vue v8.4.0
 - [Rule source](https://github.com/vuejs/eslint-plugin-vue/blob/master/lib/rules/quote-props.js)
 - [Test source](https://github.com/vuejs/eslint-plugin-vue/blob/master/tests/lib/rules/quote-props.js)
 
-<sup>Taken with ❤️ [from ESLint core](https://eslint.org/docs/rules/quote-props)</sup>
+<sup>Taken with ❤️ [from ESLint core](https://eslint.org/docs/latest/rules/quote-props)</sup>

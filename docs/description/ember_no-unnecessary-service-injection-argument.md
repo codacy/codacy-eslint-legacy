@@ -1,6 +1,8 @@
-# no-unnecessary-service-injection-argument
+# ember/no-unnecessary-service-injection-argument
 
-🔧 The `--fix` option on the [command line](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+🔧 This rule is automatically fixable by the [`--fix` CLI option](https://eslint.org/docs/latest/user-guide/command-line-interface#--fix).
+
+<!-- end auto-generated rule header -->
 
 Disallow unnecessary argument when injecting service.
 
@@ -43,9 +45,9 @@ export default Component.extend({
 
 ## Related Rules
 
-* [no-implicit-service-injection-argument](https://github.com/ember-cli/eslint-plugin-ember/blob/master/docs/rules/no-implicit-service-injection-argument.md) is the opposite of this rule
+- [no-implicit-service-injection-argument](https://github.com/ember-cli/eslint-plugin-ember/blob/master/docs/rules/no-implicit-service-injection-argument.md) is the opposite of this rule
 
 ## References
 
-* Ember [Services](https://guides.emberjs.com/release/applications/services/) guide
-* Ember [inject](https://api.emberjs.com/ember/release/functions/@ember%2Fservice/inject) function spec
+- Ember [Services](https://guides.emberjs.com/release/applications/services/) guide
+- Ember [inject](https://api.emberjs.com/ember/release/functions/@ember%2Fservice/inject) function spec

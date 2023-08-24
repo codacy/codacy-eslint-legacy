@@ -1,6 +1,12 @@
-# no-extra-bind
+---
+title: no-extra-bind
+rule_type: suggestion
+further_reading:
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind
+- https://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind/
+---
 
-Disallows unnecessary function binding.
+
 
 The `bind()` method is used to create functions with specific `this` values and, optionally, binds arguments to specific values. When used to specify the value of `this`, it's important that the function actually uses `this` in its function body. For example:
 
@@ -35,6 +41,8 @@ This rule is aimed at avoiding the unnecessary use of `bind()` and as such will 
 
 Examples of **incorrect** code for this rule:
 
+::: incorrect
+
 ```js
 /*eslint no-extra-bind: "error"*/
 /*eslint-env es6*/
@@ -64,7 +72,11 @@ var x = function () {
 }.bind(baz);
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-extra-bind: "error"*/
@@ -78,11 +90,8 @@ var x = function (a) {
 }.bind(foo, bar);
 ```
 
+:::
+
 ## When Not To Use It
 
 If you are not concerned about unnecessary calls to `bind()`, you can safely disable this rule.
-
-## Further Reading
-
-* [Function.prototype.bind](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind)
-* [Understanding JavaScript's Function.prototype.bind](https://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind/)

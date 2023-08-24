@@ -1,6 +1,8 @@
-# no-return-assign
+---
+title: no-return-assign
+rule_type: suggestion
+---
 
-Disallows assignment operators in `return` statements.
 
 One of the interesting, and sometimes confusing, aspects of JavaScript is that assignment can happen at almost any point. Because of this, an errant equals sign can end up causing assignment when the true intent was to do a comparison. This is especially true when using a `return` statement. For example:
 
@@ -32,6 +34,8 @@ It disallows assignments unless they are enclosed in parentheses.
 
 Examples of **incorrect** code for the default `"except-parens"` option:
 
+::: incorrect
+
 ```js
 /*eslint no-return-assign: "error"*/
 
@@ -52,7 +56,11 @@ function doSomething() {
 }
 ```
 
+:::
+
 Examples of **correct** code for the default `"except-parens"` option:
+
+::: correct
 
 ```js
 /*eslint no-return-assign: "error"*/
@@ -78,12 +86,16 @@ function doSomething() {
 }
 ```
 
+:::
+
 ### always
 
 This option disallows all assignments in `return` statements.
 All assignments are treated as problems.
 
 Examples of **incorrect** code for the `"always"` option:
+
+::: incorrect
 
 ```js
 /*eslint no-return-assign: ["error", "always"]*/
@@ -101,7 +113,11 @@ function doSomething() {
 }
 ```
 
+:::
+
 Examples of **correct** code for the `"always"` option:
+
+::: correct
 
 ```js
 /*eslint no-return-assign: ["error", "always"]*/
@@ -114,6 +130,8 @@ function doSomething() {
     return foo === bar + 2;
 }
 ```
+
+:::
 
 ## When Not To Use It
 

@@ -1,6 +1,9 @@
-# no-async-promise-executor
+---
+title: no-async-promise-executor
+rule_type: problem
+---
 
-Disallows using an async function as a Promise executor.
+
 
 The `new Promise` constructor accepts an *executor* function as an argument, which has `resolve` and `reject` parameters that can be used to control the state of the created Promise. For example:
 
@@ -27,6 +30,8 @@ This rule aims to disallow async Promise executor functions.
 
 Examples of **incorrect** code for this rule:
 
+::: incorrect
+
 ```js
 const foo = new Promise(async (resolve, reject) => {
   readFile('foo.txt', function(err, result) {
@@ -43,7 +48,11 @@ const result = new Promise(async (resolve, reject) => {
 });
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 const foo = new Promise((resolve, reject) => {
@@ -58,6 +67,8 @@ const foo = new Promise((resolve, reject) => {
 
 const result = Promise.resolve(foo);
 ```
+
+:::
 
 ## When Not To Use It
 

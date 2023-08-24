@@ -1,6 +1,9 @@
-# eol-last
+---
+title: eol-last
+rule_type: layout
+---
 
-Requires or disallows newline at the end of files.
+
 
 Trailing newlines in non-empty files are a common UNIX idiom. Benefits of
 trailing newlines include the ability to concatenate or append to files as well
@@ -13,28 +16,36 @@ of non-empty files.
 
 Prior to v0.16.0 this rule also enforced that there was only a single line at
 the end of the file. If you still want this behavior, consider enabling
-[no-multiple-empty-lines](no-multiple-empty-lines.md) with `maxEOF` and/or
-[no-trailing-spaces](no-trailing-spaces.md).
+[no-multiple-empty-lines](no-multiple-empty-lines) with `maxEOF` and/or
+[no-trailing-spaces](no-trailing-spaces).
 
 Examples of **incorrect** code for this rule:
+
+::: incorrect
 
 ```js
 /*eslint eol-last: ["error", "always"]*/
 
-function doSmth() {
+function doSomething() {
   var foo = 2;
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint eol-last: ["error", "always"]*/
 
-function doSmth() {
+function doSomething() {
   var foo = 2;
 }\n
 ```
+
+:::
 
 ## Options
 

@@ -2,12 +2,12 @@
 pageClass: rule-details
 sidebarDepth: 0
 title: vue/no-use-v-if-with-v-for
-description: disallow use v-if on the same element as v-for
+description: disallow using `v-if` on the same element as `v-for`
 since: v4.6.0
 ---
 # vue/no-use-v-if-with-v-for
 
-> disallow use v-if on the same element as v-for
+> disallow using `v-if` on the same element as `v-for`
 
 - :gear: This rule is included in all of `"plugin:vue/vue3-essential"`, `"plugin:vue/essential"`, `"plugin:vue/vue3-strongly-recommended"`, `"plugin:vue/strongly-recommended"`, `"plugin:vue/vue3-recommended"` and `"plugin:vue/recommended"`.
 
@@ -88,11 +88,15 @@ There are two common cases where this can be tempting:
 
 </eslint-code-block>
 
+## :couple: Related Rules
+
+- [vue/no-use-v-else-with-v-for](./no-use-v-else-with-v-for.md)
+
 ## :books: Further Reading
 
 - [Style guide - Avoid v-if with v-for](https://vuejs.org/style-guide/rules-essential.html#avoid-v-if-with-v-for)
-- [Guide - Conditional Rendering / v-if with v-for](https://v3.vuejs.org/guide/conditional.html#v-if-with-v-for)
-- [Guide - List Rendering / v-for with v-if](https://v3.vuejs.org/guide/list.html#v-for-with-v-if)
+- [Guide - Conditional Rendering / v-if with v-for](https://vuejs.org/guide/essentials/conditional.html#v-if-with-v-for)
+- [Guide - List Rendering / v-for with v-if](https://vuejs.org/guide/essentials/list.html#v-for-with-v-if)
 
 ## :rocket: Version
 

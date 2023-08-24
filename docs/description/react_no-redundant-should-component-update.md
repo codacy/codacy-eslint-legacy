@@ -1,4 +1,6 @@
-# Prevent usage of shouldComponentUpdate when extending React.PureComponent (react/no-redundant-should-component-update)
+# Disallow usage of shouldComponentUpdate when extending React.PureComponent (`react/no-redundant-should-component-update`)
+
+<!-- end auto-generated rule header -->
 
 Warns if you have `shouldComponentUpdate` defined when defining a component that extends React.PureComponent.
 While having `shouldComponentUpdate` will still work, it becomes pointless to extend PureComponent.

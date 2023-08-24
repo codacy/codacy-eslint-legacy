@@ -1,4 +1,6 @@
-# Restrict file extensions that may contain JSX (react/jsx-filename-extension)
+# Disallow file extensions that may contain JSX (`react/jsx-filename-extension`)
+
+<!-- end auto-generated rule header -->
 
 ## Rule Details
 

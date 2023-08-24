@@ -1,6 +1,7 @@
-# constructor-super
-
-Verifies calls of `super()` in constructors.
+---
+title: constructor-super
+rule_type: problem
+---
 
 Constructors of derived classes must call `super()`.
 Constructors of non derived classes must not call `super()`.
@@ -13,6 +14,8 @@ This rule checks whether or not there is a valid `super()` call.
 This rule is aimed to flag invalid/missing `super()` calls.
 
 Examples of **incorrect** code for this rule:
+
+:::incorrect
 
 ```js
 /*eslint constructor-super: "error"*/
@@ -40,7 +43,11 @@ class A extends null {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+:::correct
 
 ```js
 /*eslint constructor-super: "error"*/
@@ -57,6 +64,10 @@ class A extends B {
 }
 ```
 
+:::
+
 ## When Not To Use It
 
 If you don't want to be notified about invalid/missing `super()` callings in constructors, you can safely disable this rule.
+
+It is safe to disable this rule when using TypeScript because TypeScript's compiler enforces this check (`ts(2335) & ts(2377)`).

@@ -1,6 +1,10 @@
-# require-await
+---
+title: require-await
+rule_type: suggestion
+related_rules:
+- require-yield
+---
 
-Disallows async functions which have no `await` expression.
 
 Asynchronous functions in JavaScript behave differently than other functions in two important ways:
 
@@ -28,6 +32,8 @@ This rule warns async functions which have no `await` expression.
 
 Examples of **incorrect** code for this rule:
 
+::: incorrect
+
 ```js
 /*eslint require-await: "error"*/
 
@@ -40,7 +46,11 @@ bar(async () => {
 });
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint require-await: "error"*/
@@ -65,6 +75,8 @@ bar(() => {
 async function noop() {}
 ```
 
+:::
+
 ## When Not To Use It
 
 Asynchronous functions are designed to work with promises such that throwing an error will cause a promise's rejection handler (such as `catch()`) to be called. For example:
@@ -82,7 +94,3 @@ fail().catch(error => {
 In this case, the `fail()` function throws an error that is intended to be caught by the `catch()` handler assigned later. Converting the `fail()` function into a synchronous function would require the call to `fail()` to be refactored to use a `try-catch` statement instead of a promise.
 
 If you are throwing an error inside of an asynchronous function for this purpose, then you may want to disable this rule.
-
-## Related Rules
-
-* [require-yield](require-yield.md)

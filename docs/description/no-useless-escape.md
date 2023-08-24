@@ -1,6 +1,11 @@
-# no-useless-escape
+---
+title: no-useless-escape
+rule_type: suggestion
+---
 
-Disallows unnecessary escape characters.
+
+
+
 
 Escaping non-special characters in strings, template literals, and regular expressions doesn't have any effect, as demonstrated in the following example:
 
@@ -15,6 +20,8 @@ let baz = /\:/ // same functionality with /:/
 This rule flags escapes that can be safely removed without changing behavior.
 
 Examples of **incorrect** code for this rule:
+
+::: incorrect
 
 ```js
 /*eslint no-useless-escape: "error"*/
@@ -32,7 +39,11 @@ Examples of **incorrect** code for this rule:
 /[a-z\-]/;
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-useless-escape: "error"*/
@@ -53,6 +64,8 @@ Examples of **correct** code for this rule:
 /[\]]/;
 /[a-z-]/;
 ```
+
+:::
 
 ## When Not To Use It
 

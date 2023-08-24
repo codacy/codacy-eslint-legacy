@@ -2,12 +2,12 @@
 pageClass: rule-details
 sidebarDepth: 0
 title: vue/no-restricted-syntax
-description: disallow specified syntax in `<template>`
+description: Disallow specified syntax in `<template>`
 since: v5.2.0
 ---
 # vue/no-restricted-syntax
 
-> disallow specified syntax in `<template>`
+> Disallow specified syntax in `<template>`
 
 This rule is the same rule as core [no-restricted-syntax] rule but it applies to the expressions in `<template>`.
 
@@ -59,4 +59,4 @@ This rule was introduced in eslint-plugin-vue v5.2.0
 - [Rule source](https://github.com/vuejs/eslint-plugin-vue/blob/master/lib/rules/no-restricted-syntax.js)
 - [Test source](https://github.com/vuejs/eslint-plugin-vue/blob/master/tests/lib/rules/no-restricted-syntax.js)
 
-<sup>Taken with ❤️ [from ESLint core](https://eslint.org/docs/rules/no-restricted-syntax)</sup>
+<sup>Taken with ❤️ [from ESLint core](https://eslint.org/docs/latest/rules/no-restricted-syntax)</sup>

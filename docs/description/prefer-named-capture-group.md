@@ -1,6 +1,10 @@
-# prefer-named-capture-group
+---
+title: prefer-named-capture-group
+rule_type: suggestion
+related_rules:
+- no-invalid-regexp
+---
 
-Suggest using named capture group in regular expression.
 
 ## Rule Details
 
@@ -19,6 +23,8 @@ const regex = /(?:cauli|sun)flower/;
 
 Examples of **incorrect** code for this rule:
 
+::: incorrect
+
 ```js
 /*eslint prefer-named-capture-group: "error"*/
 
@@ -29,7 +35,11 @@ const baz = RegExp('(ba[rz])');
 foo.exec('bar')[1]; // Retrieve the group result.
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint prefer-named-capture-group: "error"*/
@@ -42,10 +52,8 @@ const xyz = /xyz(?:zy|abc)/;
 foo.exec('bar').groups.id; // Retrieve the group result.
 ```
 
+:::
+
 ## When Not To Use It
 
 If you are targeting ECMAScript 2017 and/or older environments, you should not use this rule, because this ECMAScript feature is only supported in ECMAScript 2018 and/or newer environments.
-
-## Related Rules
-
-* [no-invalid-regexp](./no-invalid-regexp.md)

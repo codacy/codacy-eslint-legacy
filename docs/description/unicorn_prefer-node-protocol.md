@@ -1,15 +1,19 @@
 # Prefer using the `node:` protocol when importing Node.js builtin modules
 
-<!-- Do not manually modify RULE_NOTICE part. Run: `npm run generate-rule-notices` -->
-<!-- RULE_NOTICE -->
-✅ *This rule is part of the [recommended](https://github.com/sindresorhus/eslint-plugin-unicorn#recommended-config) config.*
+💼 This rule is enabled in the ✅ `recommended` [config](https://github.com/sindresorhus/eslint-plugin-unicorn#preset-configs).
 
-🔧 *This rule is [auto-fixable](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems).*
-<!-- /RULE_NOTICE -->
+🔧 This rule is automatically fixable by the [`--fix` CLI option](https://eslint.org/docs/latest/user-guide/command-line-interface#--fix).
 
-When importing builtin modules, it's better to use the [`node:` protocol](https://nodejs.org/api/esm.html#esm_node_imports) as it makes it perfectly clear that the package is a Node.js builtin module.
+<!-- end auto-generated rule header -->
+<!-- Do not manually modify this header. Run: `npm run fix:eslint-docs` -->
 
-And don't forget to [upvote this issue](https://github.com/nodejs/node/issues/38343) if you agree.
+When importing builtin modules, it's better to use the [`node:` protocol](https://nodejs.org/api/esm.html#node-imports) as it makes it perfectly clear that the package is a Node.js builtin module.
+
+Note that Node.js support for this feature began in:
+
+> v16.0.0, v14.18.0 (`require()`)
+>
+> v14.13.1, v12.20.0 (`import`)
 
 ## Fail
 
@@ -23,6 +27,10 @@ export {strict as default} from 'assert';
 
 ```js
 import fs from 'fs/promises';
+```
+
+```js
+const fs = require('fs/promises');
 ```
 
 ## Pass
@@ -51,20 +59,6 @@ import _ from 'lodash';
 import fs from './fs.js';
 ```
 
-## Options
-
-Type: `object`
-
-### `checkRequire`
-
-Type: `boolean`\
-Default: `false`
-
-Currently, `require(…)` with the `node:` protocol is only available on Node.js 16. If you don't care about old versions, you can set this to `true`.
-
-We'll remove this option and check `require(…)` by default once this feature get backported to v12.
-
 ```js
-// eslint unicorn/prefer-node-protocol: ["error", {"checkRequire": true}]
-const fs = require('fs'); // Fails
+const fs = require('node:fs/promises');
 ```

@@ -1,6 +1,11 @@
-# no-invalid-regexp
+---
+title: no-invalid-regexp
+rule_type: problem
+further_reading:
+- https://es5.github.io/#x7.8.5
+---
 
-Disallows invalid regular expression strings in `RegExp` constructors.
+
 
 An invalid pattern in a regular expression literal is a `SyntaxError` when the code is parsed, but an invalid string in `RegExp` constructors throws a `SyntaxError` only when the code is executed.
 
@@ -9,6 +14,8 @@ An invalid pattern in a regular expression literal is a `SyntaxError` when the c
 This rule disallows invalid regular expression strings in `RegExp` constructors.
 
 Examples of **incorrect** code for this rule:
+
+::: incorrect
 
 ```js
 /*eslint no-invalid-regexp: "error"*/
@@ -20,7 +27,11 @@ RegExp('.', 'z')
 new RegExp('\\')
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-invalid-regexp: "error"*/
@@ -31,6 +42,8 @@ new RegExp
 
 this.RegExp('[')
 ```
+
+:::
 
 Please note that this rule validates regular expressions per the latest ECMAScript specification, regardless of your parser settings.
 
@@ -46,6 +59,8 @@ This rule has an object option for exceptions:
 
 Examples of **correct** code for this rule with the `{ "allowConstructorFlags": ["a", "z"] }` option:
 
+::: correct
+
 ```js
 /*eslint no-invalid-regexp: ["error", { "allowConstructorFlags": ["a", "z"] }]*/
 
@@ -54,6 +69,4 @@ new RegExp('.', 'a')
 new RegExp('.', 'az')
 ```
 
-## Further Reading
-
-* [Annotated ES5 §7.8.5 - Regular Expression Literals](https://es5.github.io/#x7.8.5)
+:::

@@ -1,6 +1,9 @@
-# no-empty-pattern
+---
+title: no-empty-pattern
+rule_type: problem
+---
 
-Disallows empty destructuring patterns.
+
 
 When using destructuring, it's possible to create a pattern that has no effect. This happens when empty curly braces are used to the right of an embedded object destructuring pattern, such as:
 
@@ -31,6 +34,8 @@ This rule aims to flag any empty patterns in destructured objects and arrays, an
 
 Examples of **incorrect** code for this rule:
 
+::: incorrect
+
 ```js
 /*eslint no-empty-pattern: "error"*/
 
@@ -44,7 +49,11 @@ function foo({a: {}}) {}
 function foo({a: []}) {}
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-empty-pattern: "error"*/
@@ -54,3 +63,49 @@ var {a = []} = foo;
 function foo({a = {}}) {}
 function foo({a = []}) {}
 ```
+
+:::
+
+## Options
+
+This rule has an object option for exceptions:
+
+### allowObjectPatternsAsParameters
+
+Set to `false` by default. Setting this option to `true` allows empty object patterns as function parameters.
+
+**Note:** This rule doesn't allow empty array patterns as function parameters.
+
+Examples of **incorrect** code for this rule with the `{"allowObjectPatternsAsParameters": true}` option:
+
+::: incorrect
+
+```js
+/*eslint no-empty-pattern: ["error", { "allowObjectPatternsAsParameters": true }]*/
+
+function foo({a: {}}) {}
+var foo = function({a: {}}) {};
+var foo = ({a: {}}) => {};
+var foo = ({} = bar) => {};
+var foo = ({} = { bar: 1 }) => {};
+
+function foo([]) {}
+```
+
+:::
+
+Examples of **correct** code for this rule with the `{"allowObjectPatternsAsParameters": true}` option:
+
+::: correct
+
+```js
+/*eslint no-empty-pattern: ["error", { "allowObjectPatternsAsParameters": true }]*/
+
+function foo({}) {}
+var foo = function({}) {};
+var foo = ({}) => {};
+
+function foo({} = {}) {}
+```
+
+:::

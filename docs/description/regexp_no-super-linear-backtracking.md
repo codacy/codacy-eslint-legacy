@@ -7,10 +7,13 @@ since: "v0.13.0"
 ---
 # regexp/no-super-linear-backtracking
 
-> disallow exponential and polynomial backtracking
+💼 This rule is enabled in the ✅ `plugin:regexp/recommended` config.
 
-- :gear: This rule is included in `"plugin:regexp/recommended"`.
-- :wrench: The `--fix` option on the [command line](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+🔧 This rule is automatically fixable by the [`--fix` CLI option](https://eslint.org/docs/latest/user-guide/command-line-interface#--fix).
+
+<!-- end auto-generated rule header -->
+
+> disallow exponential and polynomial backtracking
 
 ## :book: Rule Details
 
@@ -44,7 +47,6 @@ The rule only implements a very simplistic detection method and can only detect 
 
 While the detection will improve in the future, this rule will never be able to perfectly detect all cases super-linear backtracking.
 
-
 ## :wrench: Options
 
 ```json
@@ -65,7 +67,7 @@ Every input string that exploits super-linear worst-case runtime can be separate
 
 For some regexes it is not possible to find a rejecting suffix even though the regex contains exploitable ambiguity (e.g. `/(?:a+)+/`). These regexes are safe as long as they are used as is. However, regexes can also be used as building blocks to create more complex regexes. In this case, the ambiguity might cause super-linear backtracking in the composite regex.
 
-This options control whether ambiguity that might cause super-linear backtracking will be reported.
+These options control whether ambiguity that might cause super-linear backtracking will be reported.
 
 - `report: "certain"`  (_default_)
 

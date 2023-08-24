@@ -1,14 +1,20 @@
-# no-invalid-this
+---
+title: no-invalid-this
+rule_type: suggestion
+---
 
-Disallows `this` keywords outside of classes or class-like objects.
 
 Under the strict mode, `this` keywords outside of classes or class-like objects might be `undefined` and raise a `TypeError`.
 
 ## Rule Details
 
-This rule aims to flag usage of `this` keywords outside of classes or class-like objects.
+This rule aims to flag usage of `this` keywords in contexts where the value of `this` is `undefined`.
 
-Basically, this rule checks whether or not a function containing `this` keyword is a constructor or a method.
+Top-level `this` in scripts is always considered valid because it refers to the global object regardless of the strict mode.
+
+Top-level `this` in ECMAScript modules is always considered invalid because its value is `undefined`.
+
+For `this` inside functions, this rule basically checks whether or not the function containing `this` keyword is a constructor or a method. Note that arrow functions have lexical `this`, and that therefore this rule checks their enclosing contexts.
 
 This rule judges from following conditions whether or not the function is a constructor:
 
@@ -30,6 +36,7 @@ And this rule allows `this` keywords in functions below:
 
 And this rule always allows `this` keywords in the following contexts:
 
+* At the top level of scripts.
 * In class field initializers.
 * In class static blocks.
 
@@ -40,14 +47,13 @@ With `"parserOptions": { "sourceType": "module" }` in the ESLint configuration, 
 
 Examples of **incorrect** code for this rule in strict mode:
 
+::: incorrect
+
 ```js
 /*eslint no-invalid-this: "error"*/
 /*eslint-env es6*/
 
 "use strict";
-
-this.a = 0;
-baz(() => this);
 
 (function() {
     this.a = 0;
@@ -69,11 +75,6 @@ foo(function() {
     baz(() => this);
 });
 
-obj.foo = () => {
-    // `this` of arrow functions is the outer scope's.
-    this.a = 0;
-};
-
 var obj = {
     aaa: function() {
         return function foo() {
@@ -90,13 +91,20 @@ foo.forEach(function() {
 });
 ```
 
+:::
+
 Examples of **correct** code for this rule in strict mode:
+
+::: correct
 
 ```js
 /*eslint no-invalid-this: "error"*/
 /*eslint-env es6*/
 
 "use strict";
+
+this.a = 0;
+baz(() => this);
 
 function Foo() {
     // OK, this is in a legacy style constructor.
@@ -217,6 +225,8 @@ function foo() {
 }
 ```
 
+:::
+
 ## Options
 
 This rule has an object option, with one option:
@@ -230,6 +240,8 @@ By default, this rule always allows the use of `this` in functions which name st
 Set `"capIsConstructor"` to `false` if you want those functions to be treated as 'regular' functions.
 
 Examples of **incorrect** code for this rule with `"capIsConstructor"` option set to `false`:
+
+::: incorrect
 
 ```js
 /*eslint no-invalid-this: ["error", { "capIsConstructor": false }]*/
@@ -253,7 +265,11 @@ Baz = function() {
 };
 ```
 
+:::
+
 Examples of **correct** code for this rule with `"capIsConstructor"` option set to `false`:
+
+::: correct
 
 ```js
 /*eslint no-invalid-this: ["error", { "capIsConstructor": false }]*/
@@ -265,6 +281,8 @@ obj.Foo = function Foo() {
     this.a = 0;
 };
 ```
+
+:::
 
 ## When Not To Use It
 

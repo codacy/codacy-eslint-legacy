@@ -1,6 +1,8 @@
-# no-await-in-loop
+---
+title: no-await-in-loop
+rule_type: problem
+---
 
-Disallows `await` inside of loops.
 
 Performing an operation on each element of an iterable is a common task. However, performing an
 `await` as part of each operation is an indication that the program is not taking full advantage of
@@ -43,6 +45,8 @@ This rule disallows the use of `await` within loop bodies.
 
 Examples of **correct** code for this rule:
 
+:::correct
+
 ```js
 /*eslint no-await-in-loop: "error"*/
 
@@ -57,7 +61,11 @@ async function foo(things) {
 }
 ```
 
+:::
+
 Examples of **incorrect** code for this rule:
+
+:::incorrect
 
 ```js
 /*eslint no-await-in-loop: "error"*/
@@ -71,6 +79,8 @@ async function foo(things) {
   return baz(results);
 }
 ```
+
+:::
 
 ## When Not To Use It
 

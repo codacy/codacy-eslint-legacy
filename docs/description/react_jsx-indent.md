@@ -1,9 +1,12 @@
-# Validate JSX indentation (react/jsx-indent)
+# Enforce JSX indentation (`react/jsx-indent`)
+
+🔧 This rule is automatically fixable by the [`--fix` CLI option](https://eslint.org/docs/latest/user-guide/command-line-interface#--fix).
+
+<!-- end auto-generated rule header -->
 
 This option validates a specific indentation style for JSX.
 
-**Fixable:** This rule is automatically fixable using the `--fix` flag on the command line.
-Fixer will fix whitespace and tabs indentation.
+Note: The fixer will fix whitespace and tabs indentation.
 
 ## Rule Details
 

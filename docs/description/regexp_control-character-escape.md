@@ -7,16 +7,21 @@ since: "v0.9.0"
 ---
 # regexp/control-character-escape
 
-> enforce consistent escaping of control characters
+💼 This rule is enabled in the ✅ `plugin:regexp/recommended` config.
 
-- :gear: This rule is included in `"plugin:regexp/recommended"`.
-- :wrench: The `--fix` option on the [command line](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+🔧 This rule is automatically fixable by the [`--fix` CLI option](https://eslint.org/docs/latest/user-guide/command-line-interface#--fix).
+
+<!-- end auto-generated rule header -->
+
+> enforce consistent escaping of control characters
 
 ## :book: Rule Details
 
 This rule reports control characters that were not escaped using a control escape (`\0`, `t`, `\n`, `\v`, `f`, `\r`).
 
 <eslint-code-block fix>
+
+<!-- markdownlint-disable no-hard-tabs -->
 
 ```js
 /* eslint regexp/control-character-escape: "error" */
@@ -32,6 +37,8 @@ var foo = /\u0009/;
 var foo = /\u{a}/u;
 var foo = RegExp("\\u000a");
 ```
+
+<!-- markdownlint-enable no-hard-tabs -->
 
 </eslint-code-block>
 

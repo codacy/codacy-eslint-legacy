@@ -32,11 +32,7 @@ This rule enforce usage of `exact` modifier on `v-on` when there is another `v-o
 
 ## :wrench: Options
 
-```json
-{
-  "vue/use-v-on-exact": ["error"]
-}
-```
+Nothing.
 
 ## :couple: Related Rules
 
@@ -45,7 +41,7 @@ This rule enforce usage of `exact` modifier on `v-on` when there is another `v-o
 
 ## :books: Further Reading
 
-- [Guide - .exact Modifier](https://v3.vuejs.org/guide/events.html#exact-modifier)
+- [Guide - .exact Modifier](https://vuejs.org/guide/essentials/event-handling.html#exact-modifier)
 
 ## :rocket: Version
 

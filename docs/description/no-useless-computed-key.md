@@ -1,6 +1,9 @@
-# no-useless-computed-key
+---
+title: no-useless-computed-key
+rule_type: suggestion
+---
 
-Disallows unnecessary computed property keys in objects and classes.
+
 
 It's unnecessary to use computed properties with literals such as:
 
@@ -20,6 +23,8 @@ This rule disallows unnecessary usage of computed property keys.
 
 Examples of **incorrect** code for this rule:
 
+::: incorrect
+
 ```js
 /*eslint no-useless-computed-key: "error"*/
 
@@ -30,7 +35,11 @@ var a = { ['x']: 0 };
 var a = { ['x']() {} };
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-useless-computed-key: "error"*/
@@ -42,7 +51,11 @@ var c = { a: 0 };
 var c = { '0+1,234': 0 };
 ```
 
+:::
+
 Examples of additional **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-useless-computed-key: "error"*/
@@ -53,6 +66,8 @@ var c = {
     ["__proto__"]: bar // defines a property named "__proto__"
 };
 ```
+
+:::
 
 ## Options
 
@@ -68,6 +83,8 @@ as the default value for `enforceForClassMembers` is `false`.
 When `enforceForClassMembers` is set to `true`, the rule will also disallow unnecessary computed keys inside of class fields, class methods, class getters, and class setters.
 
 Examples of **incorrect** code for this rule with the `{ "enforceForClassMembers": true }` option:
+
+::: incorrect
 
 ```js
 /*eslint no-useless-computed-key: ["error", { "enforceForClassMembers": true }]*/
@@ -86,7 +103,11 @@ class Foo {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule with the `{ "enforceForClassMembers": true }` option:
+
+::: correct
 
 ```js
 /*eslint no-useless-computed-key: ["error", { "enforceForClassMembers": true }]*/
@@ -105,7 +126,11 @@ class Foo {
 }
 ```
 
+:::
+
 Examples of additional **correct** code for this rule with the `{ "enforceForClassMembers": true }` option:
+
+::: correct
 
 ```js
 /*eslint no-useless-computed-key: ["error", { "enforceForClassMembers": true }]*/
@@ -122,6 +147,8 @@ class Foo {
     static ["prototype"]; // runtime error, it would be a parsing error without `[]`
 }
 ```
+
+:::
 
 ## When Not To Use It
 

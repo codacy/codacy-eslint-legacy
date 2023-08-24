@@ -338,6 +338,7 @@
   <module name="promise_no-new-statics" />
   <module name="promise_no-return-in-finally" />
   <module name="promise_valid-params" />
+  <module name="promise_no-multiple-resolved" />
   <module name="security_detect-unsafe-regex" />
   <module name="security_detect-non-literal-regexp" />
   <module name="security_detect-non-literal-require" />
@@ -351,6 +352,7 @@
   <module name="security_detect-disable-mustache-escape" />
   <module name="security_detect-object-injection" />
   <module name="security_detect-new-buffer" />
+  <module name="security_detect-bidi-characters" />
   <module name="angular_angularelement" />
   <module name="angular_avoid-scope-typos" />
   <module name="angular_component-limit" />
@@ -455,6 +457,7 @@
   <module name="chai-friendly_no-unused-expressions" />
   <module name="compat_compat" />
   <module name="cypress_no-assigning-return-values" />
+  <module name="cypress_unsafe-to-chain-command" />
   <module name="cypress_no-unnecessary-waiting" />
   <module name="cypress_no-async-tests" />
   <module name="cypress_assertion-before-screenshot" />
@@ -474,8 +477,10 @@
   <module name="ember_named-functions-in-promises" />
   <module name="ember_new-module-imports" />
   <module name="ember_no-actions-hash" />
+  <module name="ember_no-array-prototype-extensions" />
   <module name="ember_no-arrow-function-computed-properties" />
   <module name="ember_no-assignment-of-untracked-properties-used-in-tracking-contexts" />
+  <module name="ember_no-at-ember-render-modifiers" />
   <module name="ember_no-attrs-in-components" />
   <module name="ember_no-attrs-snapshot" />
   <module name="ember_no-capital-letters-in-routes" />
@@ -487,6 +492,7 @@
   <module name="ember_no-controllers" />
   <module name="ember_no-current-route-name" />
   <module name="ember_no-deeply-nested-dependent-keys-with-each" />
+  <module name="ember_no-deprecated-router-transition-methods" />
   <module name="ember_no-duplicate-dependent-keys" />
   <module name="ember_no-ember-super-in-es-classes" />
   <module name="ember_no-ember-testing-in-module-scope" />
@@ -497,6 +503,7 @@
   <module name="ember_no-get" />
   <module name="ember_no-global-jquery" />
   <module name="ember_no-html-safe" />
+  <module name="ember_no-implicit-injections" />
   <module name="ember_no-implicit-service-injection-argument" />
   <module name="ember_no-incorrect-calls-with-inline-anonymous-functions" />
   <module name="ember_no-incorrect-computed-macros" />
@@ -517,6 +524,7 @@
   <module name="ember_no-replace-test-comments" />
   <module name="ember_no-restricted-resolver-tests" />
   <module name="ember_no-restricted-service-injections" />
+  <module name="ember_no-runloop" />
   <module name="ember_no-settled-after-test-helper" />
   <module name="ember_no-shadow-route-definition" />
   <module name="ember_no-side-effects" />
@@ -526,6 +534,7 @@
   <module name="ember_no-test-module-for" />
   <module name="ember_no-test-support-import" />
   <module name="ember_no-test-this-render" />
+  <module name="ember_no-tracked-properties-from-args" />
   <module name="ember_no-try-invoke" />
   <module name="ember_no-unnecessary-index-route" />
   <module name="ember_no-unnecessary-route-path-option" />
@@ -630,6 +639,7 @@
   <module name="i18n-json_valid-message-syntax" />
   <module name="i18n-json_identical-keys" />
   <module name="i18n-json_sorted-keys" />
+  <module name="i18n-json_identical-placeholders" />
   <module name="jasmine_expect-matcher" />
   <module name="jasmine_expect-single-argument" />
   <module name="jasmine_named-spy" />
@@ -655,6 +665,7 @@
   <module name="jasmine_prefer-toBeUndefined" />
   <module name="jest_consistent-test-it" />
   <module name="jest_expect-expect" />
+  <module name="jest_max-expects" />
   <module name="jest_max-nested-describe" />
   <module name="jest_no-alias-methods" />
   <module name="jest_no-commented-out-tests" />
@@ -671,20 +682,24 @@
   <module name="jest_no-if" />
   <module name="jest_no-interpolation-in-snapshots" />
   <module name="jest_no-jasmine-globals" />
-  <module name="jest_no-jest-import" />
   <module name="jest_no-large-snapshots" />
   <module name="jest_no-mocks-import" />
+  <module name="jest_no-restricted-jest-methods" />
   <module name="jest_no-restricted-matchers" />
   <module name="jest_no-standalone-expect" />
   <module name="jest_no-test-prefixes" />
   <module name="jest_no-test-return-statement" />
+  <module name="jest_no-untyped-mock-factory" />
   <module name="jest_prefer-called-with" />
   <module name="jest_prefer-comparison-matcher" />
+  <module name="jest_prefer-each" />
   <module name="jest_prefer-equality-matcher" />
   <module name="jest_prefer-expect-assertions" />
   <module name="jest_prefer-expect-resolves" />
+  <module name="jest_prefer-hooks-in-order" />
   <module name="jest_prefer-hooks-on-top" />
   <module name="jest_prefer-lowercase-title" />
+  <module name="jest_prefer-mock-promise-shorthand" />
   <module name="jest_prefer-snapshot-hint" />
   <module name="jest_prefer-spy-on" />
   <module name="jest_prefer-strict-equal" />
@@ -756,6 +771,7 @@
   <module name="jsdoc_require-yields-check" />
   <module name="jsdoc_sort-tags" />
   <module name="jsdoc_tag-lines" />
+  <module name="jsdoc_text-escaping" />
   <module name="jsdoc_valid-types" />
   <module name="json_*" />
   <module name="json_json" />
@@ -796,6 +812,7 @@
   <module name="jsonc_no-floating-decimal" />
   <module name="jsonc_no-hexadecimal-numeric-literals" />
   <module name="jsonc_no-infinity" />
+  <module name="jsonc_no-irregular-whitespace" />
   <module name="jsonc_no-multi-str" />
   <module name="jsonc_no-nan" />
   <module name="jsonc_no-number-props" />
@@ -823,6 +840,7 @@
   <module name="jsonc_vue-custom-block_no-parsing-error" />
   <module name="jsx-a11y_accessible-emoji" />
   <module name="jsx-a11y_alt-text" />
+  <module name="jsx-a11y_anchor-ambiguous-text" />
   <module name="jsx-a11y_anchor-has-content" />
   <module name="jsx-a11y_anchor-is-valid" />
   <module name="jsx-a11y_aria-activedescendant-has-tabindex" />
@@ -844,6 +862,7 @@
   <module name="jsx-a11y_media-has-caption" />
   <module name="jsx-a11y_mouse-events-have-key-events" />
   <module name="jsx-a11y_no-access-key" />
+  <module name="jsx-a11y_no-aria-hidden-on-focusable" />
   <module name="jsx-a11y_no-autofocus" />
   <module name="jsx-a11y_no-distracting-elements" />
   <module name="jsx-a11y_no-interactive-element-to-noninteractive-role" />
@@ -853,6 +872,7 @@
   <module name="jsx-a11y_no-onchange" />
   <module name="jsx-a11y_no-redundant-roles" />
   <module name="jsx-a11y_no-static-element-interactions" />
+  <module name="jsx-a11y_prefer-tag-over-role" />
   <module name="jsx-a11y_role-has-required-aria-props" />
   <module name="jsx-a11y_role-supports-aria-props" />
   <module name="jsx-a11y_scope" />
@@ -979,6 +999,23 @@
   <module name="no-unsanitized_method" />
   <module name="playwright_missing-playwright-await" />
   <module name="playwright_no-page-pause" />
+  <module name="playwright_no-element-handle" />
+  <module name="playwright_no-eval" />
+  <module name="playwright_no-focused-test" />
+  <module name="playwright_no-skipped-test" />
+  <module name="playwright_no-wait-for-timeout" />
+  <module name="playwright_no-force-option" />
+  <module name="playwright_max-nested-describe" />
+  <module name="playwright_no-conditional-in-test" />
+  <module name="playwright_no-useless-not" />
+  <module name="playwright_no-restricted-matchers" />
+  <module name="playwright_prefer-lowercase-title" />
+  <module name="playwright_prefer-strict-equal" />
+  <module name="playwright_prefer-to-be" />
+  <module name="playwright_prefer-to-have-length" />
+  <module name="playwright_require-top-level-describe" />
+  <module name="playwright_require-soft-assertions" />
+  <module name="playwright_valid-expect" />
   <module name="prettier_prettier" />
   <module name="prettier-vue_prettier" />
   <module name="ramda_always-simplification" />
@@ -1049,6 +1086,7 @@
   <module name="react_jsx-no-comment-textnodes" />
   <module name="react_jsx-no-constructed-context-values" />
   <module name="react_jsx-no-duplicate-props" />
+  <module name="react_jsx-no-leaked-render" />
   <module name="react_jsx-no-literals" />
   <module name="react_jsx-no-script-url" />
   <module name="react_jsx-no-target-blank" />
@@ -1096,6 +1134,7 @@
   <module name="react_no-unused-class-component-methods" />
   <module name="react_no-unused-prop-types" />
   <module name="react_no-unused-state" />
+  <module name="react_no-object-type-as-default-prop" />
   <module name="react_no-will-update-set-state" />
   <module name="react_prefer-es6-class" />
   <module name="react_prefer-exact-props" />
@@ -1108,6 +1147,7 @@
   <module name="react_require-render-return" />
   <module name="react_self-closing-comp" />
   <module name="react_sort-comp" />
+  <module name="react_sort-default-props" />
   <module name="react_sort-prop-types" />
   <module name="react_state-in-constructor" />
   <module name="react_static-property-placement" />
@@ -1133,11 +1173,14 @@
   <module name="regexp_no-empty-group" />
   <module name="regexp_no-empty-lookarounds-assertion" />
   <module name="regexp_no-escape-backspace" />
+  <module name="regexp_no-extra-lookaround-assertions" />
   <module name="regexp_no-invalid-regexp" />
   <module name="regexp_no-invisible-character" />
   <module name="regexp_no-lazy-ends" />
   <module name="regexp_no-legacy-features" />
+  <module name="regexp_no-misleading-capturing-group" />
   <module name="regexp_no-misleading-unicode-character" />
+  <module name="regexp_no-missing-g-flag" />
   <module name="regexp_no-non-standard-flag" />
   <module name="regexp_no-obscure-range" />
   <module name="regexp_no-octal" />
@@ -1222,13 +1265,13 @@
   <module name="scanjs-rules_assign__to__protocol" />
   <module name="scanjs-rules_assign__to__search" />
   <module name="scanjs-rules_assign__to__src" />
-  <module name="scanjs-rules_call__Function" />
   <module name="scanjs-rules_call__addEventListener" />
   <module name="scanjs-rules_call__addEventListener__deviceproximity" />
   <module name="scanjs-rules_call__addEventListener__message" />
   <module name="scanjs-rules_call__connect" />
   <module name="scanjs-rules_call__eval" />
   <module name="scanjs-rules_call__execScript" />
+  <module name="scanjs-rules_call__Function" />
   <module name="scanjs-rules_call__hide" />
   <module name="scanjs-rules_call__open__remote=true" />
   <module name="scanjs-rules_call__parseFromString" />
@@ -1297,6 +1340,7 @@
   <module name="storybook_no-redundant-story-name" />
   <module name="storybook_no-stories-of" />
   <module name="storybook_no-title-property-in-meta" />
+  <module name="storybook_no-uninstalled-addons" />
   <module name="storybook_prefer-pascal-case" />
   <module name="storybook_story-exports" />
   <module name="storybook_use-storybook-expect" />
@@ -1442,8 +1486,10 @@
   <module name="unicorn_no-array-method-this-argument" />
   <module name="unicorn_no-array-push-push" />
   <module name="unicorn_no-array-reduce" />
+  <module name="unicorn_no-await-expression-member" />
   <module name="unicorn_no-console-spaces" />
   <module name="unicorn_no-document-cookie" />
+  <module name="unicorn_no-empty-file" />
   <module name="unicorn_no-for-loop" />
   <module name="unicorn_no-hex-escape" />
   <module name="unicorn_no-instanceof-array" />
@@ -1457,12 +1503,14 @@
   <module name="unicorn_no-object-as-default-parameter" />
   <module name="unicorn_no-process-exit" />
   <module name="unicorn_no-static-only-class" />
+  <module name="unicorn_no-thenable" />
   <module name="unicorn_no-this-assignment" />
   <module name="unicorn_no-unreadable-array-destructuring" />
   <module name="unicorn_no-unsafe-regex" />
   <module name="unicorn_no-unused-properties" />
   <module name="unicorn_no-useless-fallback-in-spread" />
   <module name="unicorn_no-useless-length-check" />
+  <module name="unicorn_no-useless-promise-resolve-reject" />
   <module name="unicorn_no-useless-spread" />
   <module name="unicorn_no-useless-undefined" />
   <module name="unicorn_no-zero-fractions" />
@@ -1475,13 +1523,16 @@
   <module name="unicorn_prefer-array-index-of" />
   <module name="unicorn_prefer-array-some" />
   <module name="unicorn_prefer-at" />
+  <module name="unicorn_prefer-code-point" />
   <module name="unicorn_prefer-date-now" />
   <module name="unicorn_prefer-default-parameters" />
   <module name="unicorn_prefer-dom-node-append" />
   <module name="unicorn_prefer-dom-node-dataset" />
   <module name="unicorn_prefer-dom-node-remove" />
   <module name="unicorn_prefer-dom-node-text-content" />
+  <module name="unicorn_prefer-export-from" />
   <module name="unicorn_prefer-includes" />
+  <module name="unicorn_prefer-json-parse-buffer" />
   <module name="unicorn_prefer-keyboard-event-key" />
   <module name="unicorn_prefer-math-trunc" />
   <module name="unicorn_prefer-modern-dom-apis" />
@@ -1490,7 +1541,6 @@
   <module name="unicorn_prefer-node-protocol" />
   <module name="unicorn_prefer-number-properties" />
   <module name="unicorn_prefer-object-from-entries" />
-  <module name="unicorn_prefer-object-has-own" />
   <module name="unicorn_prefer-optional-catch-binding" />
   <module name="unicorn_prefer-prototype-methods" />
   <module name="unicorn_prefer-query-selector" />
@@ -1507,6 +1557,7 @@
   <module name="unicorn_prefer-top-level-await" />
   <module name="unicorn_prefer-type-error" />
   <module name="unicorn_prevent-abbreviations" />
+  <module name="unicorn_relative-url-style" />
   <module name="unicorn_require-array-join-separator" />
   <module name="unicorn_require-number-to-fixed-digits-argument" />
   <module name="unicorn_require-post-message-target-origin" />
@@ -1522,6 +1573,7 @@
   <module name="unicorn_prefer-flat-map" />
   <module name="unicorn_prefer-node-append" />
   <module name="unicorn_prefer-node-remove" />
+  <module name="unicorn_prefer-object-has-own" />
   <module name="unicorn_prefer-replace-all" />
   <module name="unicorn_prefer-starts-ends-with" />
   <module name="unicorn_prefer-text-content" />
@@ -1547,6 +1599,7 @@
   <module name="vue_component-options-name-casing" />
   <module name="vue_component-tags-order" />
   <module name="vue_custom-event-name-casing" />
+  <module name="vue_define-macros-order" />
   <module name="vue_dot-location" />
   <module name="vue_dot-notation" />
   <module name="vue_eqeqeq" />
@@ -1567,6 +1620,7 @@
   <module name="vue_key-spacing" />
   <module name="vue_keyword-spacing" />
   <module name="vue_match-component-file-name" />
+  <module name="vue_match-component-import-name" />
   <module name="vue_max-attributes-per-line" />
   <module name="vue_max-len" />
   <module name="vue_multi-word-component-names" />
@@ -1633,6 +1687,7 @@
   <module name="vue_no-restricted-class" />
   <module name="vue_no-restricted-component-options" />
   <module name="vue_no-restricted-custom-event" />
+  <module name="vue_no-restricted-html-elements" />
   <module name="vue_no-restricted-props" />
   <module name="vue_no-restricted-static-attribute" />
   <module name="vue_no-restricted-syntax" />
@@ -1678,6 +1733,7 @@
   <module name="vue_order-in-components" />
   <module name="vue_padding-line-between-blocks" />
   <module name="vue_prefer-import-from-vue" />
+  <module name="vue_prefer-prop-type-boolean-first" />
   <module name="vue_prefer-separate-static-class" />
   <module name="vue_prefer-template" />
   <module name="vue_prefer-true-attribute-shorthand" />

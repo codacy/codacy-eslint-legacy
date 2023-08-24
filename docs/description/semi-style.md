@@ -1,6 +1,13 @@
-# semi-style
+---
+title: semi-style
+rule_type: layout
+related_rules:
+- no-extra-semi
+- semi
+- semi-spacing
+---
 
-Enforces location of semicolons.
+
 
 Generally, semicolons are at the end of lines. However, in semicolon-less style, semicolons are at the beginning of lines. This rule enforces that semicolons are at the configured location.
 
@@ -21,6 +28,8 @@ This rule has an option.
 
 Examples of **incorrect** code for this rule with `"last"` option:
 
+::: incorrect
+
 ```js
 /*eslint semi-style: ["error", "last"]*/
 
@@ -42,9 +51,13 @@ class C {
     }
 }
 ```
+
+:::
 
 Examples of **correct** code for this rule with `"last"` option:
 
+::: correct
+
 ```js
 /*eslint semi-style: ["error", "last"]*/
 
@@ -67,7 +80,11 @@ class C {
 }
 ```
 
+:::
+
 Examples of **incorrect** code for this rule with `"first"` option:
+
+::: incorrect
 
 ```js
 /*eslint semi-style: ["error", "first"]*/
@@ -91,7 +108,11 @@ class C {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule with `"first"` option:
+
+::: correct
 
 ```js
 /*eslint semi-style: ["error", "first"]*/
@@ -114,13 +135,9 @@ class C {
     }
 }
 ```
+
+:::
 
 ## When Not To Use It
 
 If you don't want to notify the location of semicolons, then it's safe to disable this rule.
-
-## Related Rules
-
-* [no-extra-semi](./no-extra-semi.md)
-* [semi](./semi.md)
-* [semi-spacing](./semi-spacing.md)

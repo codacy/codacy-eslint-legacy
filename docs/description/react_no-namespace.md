@@ -1,4 +1,6 @@
-# Enforce that namespaces are not used in React elements (react/no-namespace)
+# Enforce that namespaces are not used in React elements (`react/no-namespace`)
+
+<!-- end auto-generated rule header -->
 
 Enforces the absence of a namespace in React elements, such as with `svg:circle`, as they are not supported in React.
 

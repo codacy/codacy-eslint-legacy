@@ -7,9 +7,11 @@ since: "v0.9.0"
 ---
 # regexp/no-obscure-range
 
-> disallow obscure character ranges
+💼 This rule is enabled in the ✅ `plugin:regexp/recommended` config.
 
-- :gear: This rule is included in `"plugin:regexp/recommended"`.
+<!-- end auto-generated rule header -->
+
+> disallow obscure character ranges
 
 ## :book: Rule Details
 
@@ -41,7 +43,6 @@ var foo = /[😀-😄]/u;
 
 ## :wrench: Options
 
-
 ```json5
 {
   "regexp/no-obscure-range": ["error",
@@ -56,7 +57,7 @@ This option can be used to override the [allowedCharacterRanges] setting.
 
 It allows all values that the [allowedCharacterRanges] setting allows.
 
-[allowedCharacterRanges]: ../settings/README.md#allowedCharacterRanges
+[allowedCharacterRanges]: ../settings/index.md#allowedCharacterRanges
 
 ### `"allowed": "alphanumeric"`
 
