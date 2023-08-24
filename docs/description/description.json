@@ -4971,12 +4971,6 @@
   },
   {
     "parameters": [],
-    "patternId": "flowtype_object-type-delimiter",
-    "title": "Flowtype: Object type delimiter",
-    "timeToFix": 5
-  },
-  {
-    "parameters": [],
     "patternId": "flowtype_quotes",
     "title": "Flowtype: Quotes",
     "timeToFix": 5
@@ -5786,13 +5780,6 @@
     "patternId": "jest_require-top-level-describe",
     "title": "Jest: Require top level describe",
     "description": "Require test cases and hooks to be inside a `describe` block",
-    "timeToFix": 5
-  },
-  {
-    "parameters": [],
-    "patternId": "jest_unbound-method",
-    "title": "Jest: Unbound method",
-    "description": "Enforces unbound methods are called with their expected scope",
     "timeToFix": 5
   },
   {

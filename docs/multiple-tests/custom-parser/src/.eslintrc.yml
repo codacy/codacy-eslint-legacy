@@ -69,13 +69,6 @@ rules:
     space-unary-ops: [error, {words: true, nonwords: false}]
     spaced-comment: error
     yoda: error
-    babel/object-curly-spacing: [error, never]
-    babel/generator-star-spacing: error
-    babel/array-bracket-spacing: error
-    babel/arrow-parens: error
-    babel/no-await-in-loop: error
-    babel/func-params-comma-dangle: error
-    babel/flow-object-type: error
     react/display-name: error
     react/jsx-boolean-value: [error, always]
     react/jsx-closing-bracket-location: error
@@ -90,7 +83,6 @@ rules:
     react/jsx-no-duplicate-props: error
     react/jsx-no-undef: error
     react/jsx-pascal-case: error
-    react/jsx-space-before-closing: error
     react/jsx-uses-react: error
     react/jsx-uses-vars: error
     react/no-comment-textnodes: error
@@ -132,5 +124,3 @@ rules:
     mocha/no-synchronous-tests: off
     mocha/valid-suite-description: off
     mocha/valid-test-description: off
-    babel/object-shorthand: off
-    babel/new-cap: off

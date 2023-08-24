@@ -586,7 +586,6 @@
   <module name="flowtype_no-unused-expressions" />
   <module name="flowtype_no-weak-types" />
   <module name="flowtype_object-type-curly-spacing" />
-  <module name="flowtype_object-type-delimiter" />
   <module name="flowtype_quotes" />
   <module name="flowtype_require-compound-type-alias" />
   <module name="flowtype_require-exact-type" />
@@ -709,7 +708,6 @@
   <module name="jest_require-hook" />
   <module name="jest_require-to-throw-message" />
   <module name="jest_require-top-level-describe" />
-  <module name="jest_unbound-method" />
   <module name="jest_valid-describe-callback" />
   <module name="jest_valid-expect-in-promise" />
   <module name="jest_valid-expect" />

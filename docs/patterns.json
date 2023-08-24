@@ -5110,13 +5110,6 @@
       "enabled": false
     },
     {
-      "patternId": "flowtype_object-type-delimiter",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
       "patternId": "flowtype_quotes",
       "level": "Info",
       "category": "CodeStyle",
@@ -5975,13 +5968,6 @@
     },
     {
       "patternId": "jest_require-top-level-describe",
-      "level": "Info",
-      "category": "CodeStyle",
-      "parameters": [],
-      "enabled": false
-    },
-    {
-      "patternId": "jest_unbound-method",
       "level": "Info",
       "category": "CodeStyle",
       "parameters": [],
