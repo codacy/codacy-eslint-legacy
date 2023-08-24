@@ -26,6 +26,7 @@ export const defaultOptions: CLIEngine.Options = {
       qunit: true,
     },
     plugins: [
+      "@m6web/i18n",
       "angular",
       "angularjs-security-rules",
       "@babel",
@@ -98,6 +99,7 @@ export const defaultOptions: CLIEngine.Options = {
         extends: baseConfigs.concat(typescriptConfigs),
         parser: "@typescript-eslint/parser",
         parserOptions: {
+          project: ["./tsconfig.json"],
           sourceType: "module",
         },
       },

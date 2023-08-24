@@ -3281,6 +3281,41 @@
   },
   {
     "parameters": [],
+    "patternId": "@m6web_i18n_no-unknown-key",
+    "title": "@m6web: [I18n] No unknown key",
+    "description": "Ensures that used translate key is in translation file",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@m6web_i18n_no-unknown-key-secondary-langs",
+    "title": "@m6web: [I18n] No unknown key secondary langs",
+    "description": "Ensures that used translate key is in translation file",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@m6web_i18n_no-text-as-attribute",
+    "title": "@m6web: [I18n] No text as attribute",
+    "description": "Ensure that no plain text is used in attributes",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@m6web_i18n_no-text-as-children",
+    "title": "@m6web: [I18n] No text as children",
+    "description": "Ensures that no plain text is used in JSX components",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
+    "patternId": "@m6web_i18n_interpolation-data",
+    "title": "@m6web: [I18n] Interpolation data",
+    "description": "Ensures that interpolated translate key have data",
+    "timeToFix": 5
+  },
+  {
+    "parameters": [],
     "patternId": "angular_angularelement",
     "title": "Angular: Angularelement",
     "timeToFix": 5
@@ -3569,12 +3604,6 @@
   },
   {
     "parameters": [],
-    "patternId": "angular_service-name",
-    "title": "Angular: Service name",
-    "timeToFix": 5
-  },
-  {
-    "parameters": [],
     "patternId": "angular_timeout-service",
     "title": "Angular: Timeout service",
     "timeToFix": 5
@@ -3715,75 +3744,6 @@
     "parameters": [],
     "patternId": "angularjs-security-rules_detect-third-party-angular-translate",
     "title": "Angularjs security rules: Detect third party angular translate",
-    "timeToFix": 5
-  },
-  {
-    "parameters": [
-      {
-        "name": "newIsCap",
-        "description": "newIsCap"
-      },
-      {
-        "name": "capIsNew",
-        "description": "capIsNew"
-      },
-      {
-        "name": "properties",
-        "description": "properties"
-      }
-    ],
-    "patternId": "@babel_new-cap",
-    "title": "@babel: New cap",
-    "description": "Require constructor names to begin with a capital letter",
-    "timeToFix": 5
-  },
-  {
-    "parameters": [
-      {
-        "name": "capIsConstructor",
-        "description": "capIsConstructor"
-      }
-    ],
-    "patternId": "@babel_no-invalid-this",
-    "title": "@babel: No invalid this",
-    "description": "Disallow `this` keywords outside of classes or class-like objects",
-    "timeToFix": 5
-  },
-  {
-    "parameters": [
-      {
-        "name": "allowShortCircuit",
-        "description": "allowShortCircuit"
-      },
-      {
-        "name": "allowTernary",
-        "description": "allowTernary"
-      },
-      {
-        "name": "allowTaggedTemplates",
-        "description": "allowTaggedTemplates"
-      },
-      {
-        "name": "enforceForJSX",
-        "description": "enforceForJSX"
-      }
-    ],
-    "patternId": "@babel_no-unused-expressions",
-    "title": "@babel: No unused expressions",
-    "description": "Disallow unused expressions",
-    "timeToFix": 5
-  },
-  {
-    "parameters": [],
-    "patternId": "@babel_object-curly-spacing",
-    "title": "@babel: Object curly spacing",
-    "description": "Enforce consistent spacing inside braces",
-    "timeToFix": 5
-  },
-  {
-    "parameters": [],
-    "patternId": "@babel_semi",
-    "title": "@babel: Semi",
     "timeToFix": 5
   },
   {
@@ -8863,13 +8823,6 @@
     "timeToFix": 5
   },
   {
-    "parameters": [],
-    "patternId": "react_jsx-sort-default-props",
-    "title": "React: Jsx sort default props",
-    "description": "Enforce defaultProps declarations alphabetical sorting",
-    "timeToFix": 5
-  },
-  {
     "parameters": [
       {
         "name": "multiline",
@@ -8883,13 +8836,6 @@
     "patternId": "react_jsx-sort-props",
     "title": "React: Jsx sort props",
     "description": "Enforce props alphabetical sorting",
-    "timeToFix": 5
-  },
-  {
-    "parameters": [],
-    "patternId": "react_jsx-space-before-closing",
-    "title": "React: Jsx space before closing",
-    "description": "Enforce spacing before closing bracket in JSX",
     "timeToFix": 5
   },
   {
@@ -11730,18 +11676,6 @@
     "timeToFix": 5
   },
   {
-    "parameters": [
-      {
-        "name": "ignoreImports",
-        "description": "ignoreImports"
-      }
-    ],
-    "patternId": "unicorn_import-index",
-    "title": "Unicorn: Import index",
-    "description": "Enforce importing index files with `.`.",
-    "timeToFix": 5
-  },
-  {
     "parameters": [],
     "patternId": "unicorn_import-style",
     "title": "Unicorn: Import style",
@@ -12385,96 +12319,6 @@
     "patternId": "unicorn_throw-new-error",
     "title": "Unicorn: Throw new error",
     "description": "Require `new` when throwing an error.",
-    "timeToFix": 5
-  },
-  {
-    "parameters": [],
-    "patternId": "unicorn_no-array-instanceof",
-    "title": "Unicorn: No array instanceof",
-    "timeToFix": 5
-  },
-  {
-    "parameters": [],
-    "patternId": "unicorn_no-fn-reference-in-iterator",
-    "title": "Unicorn: No fn reference in iterator",
-    "timeToFix": 5
-  },
-  {
-    "parameters": [],
-    "patternId": "unicorn_no-reduce",
-    "title": "Unicorn: No reduce",
-    "timeToFix": 5
-  },
-  {
-    "parameters": [],
-    "patternId": "unicorn_prefer-dataset",
-    "title": "Unicorn: Prefer dataset",
-    "timeToFix": 5
-  },
-  {
-    "parameters": [],
-    "patternId": "unicorn_prefer-event-key",
-    "title": "Unicorn: Prefer event key",
-    "timeToFix": 5
-  },
-  {
-    "parameters": [],
-    "patternId": "unicorn_prefer-exponentiation-operator",
-    "title": "Unicorn: Prefer exponentiation operator",
-    "timeToFix": 5
-  },
-  {
-    "parameters": [],
-    "patternId": "unicorn_prefer-flat-map",
-    "title": "Unicorn: Prefer flat map",
-    "timeToFix": 5
-  },
-  {
-    "parameters": [],
-    "patternId": "unicorn_prefer-node-append",
-    "title": "Unicorn: Prefer node append",
-    "timeToFix": 5
-  },
-  {
-    "parameters": [],
-    "patternId": "unicorn_prefer-node-remove",
-    "title": "Unicorn: Prefer node remove",
-    "timeToFix": 5
-  },
-  {
-    "parameters": [],
-    "patternId": "unicorn_prefer-object-has-own",
-    "title": "Unicorn: Prefer object has own",
-    "timeToFix": 5
-  },
-  {
-    "parameters": [],
-    "patternId": "unicorn_prefer-replace-all",
-    "title": "Unicorn: Prefer replace all",
-    "timeToFix": 5
-  },
-  {
-    "parameters": [],
-    "patternId": "unicorn_prefer-starts-ends-with",
-    "title": "Unicorn: Prefer starts ends with",
-    "timeToFix": 5
-  },
-  {
-    "parameters": [],
-    "patternId": "unicorn_prefer-text-content",
-    "title": "Unicorn: Prefer text content",
-    "timeToFix": 5
-  },
-  {
-    "parameters": [],
-    "patternId": "unicorn_prefer-trim-start-end",
-    "title": "Unicorn: Prefer trim start end",
-    "timeToFix": 5
-  },
-  {
-    "parameters": [],
-    "patternId": "unicorn_regex-shorthand",
-    "title": "Unicorn: Regex shorthand",
     "timeToFix": 5
   },
   {
