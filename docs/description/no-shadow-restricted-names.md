@@ -1,6 +1,14 @@
-# no-shadow-restricted-names
+---
+title: no-shadow-restricted-names
+rule_type: suggestion
+related_rules:
+- no-shadow
+further_reading:
+- https://es5.github.io/#x15.1.1
+- https://es5.github.io/#C
+---
 
-Disallows identifiers from shadowing restricted names.
+
 
 ES5 §15.1.1 Value Properties of the Global Object (`NaN`, `Infinity`, `undefined`) as well as strict mode restricted identifiers `eval` and `arguments` are considered to be restricted names in JavaScript. Defining them to mean something else can have unintended consequences and confuse others reading the code. For example, there's nothing preventing you from writing:
 
@@ -14,6 +22,8 @@ Then any code used within the same scope would not get the global `undefined`, b
 
 Examples of **incorrect** code for this rule:
 
+::: incorrect
+
 ```js
 /*eslint no-shadow-restricted-names: "error"*/
 
@@ -26,7 +36,11 @@ var undefined = 5;
 try {} catch(eval){}
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-shadow-restricted-names: "error"*/
@@ -39,11 +53,4 @@ function f(a, b){}
 var undefined;
 ```
 
-## Related Rules
-
-* [no-shadow](no-shadow.md)
-
-## Further Reading
-
-* [Annotated ES5 - §15.1.1](https://es5.github.io/#x15.1.1)
-* [Annotated ES5 - Annex C](https://es5.github.io/#C)
+:::

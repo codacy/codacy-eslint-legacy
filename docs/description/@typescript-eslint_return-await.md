@@ -1,23 +1,17 @@
-# `return-await`
+---
+description: 'Enforce consistent returning of awaited values.'
+---
 
-Enforces consistent returning of awaited values.
+> 🛑 This file is source code, not the primary documentation location! 🛑
+>
+> See **https://typescript-eslint.io/rules/return-await** for documentation.
 
 Returning an awaited promise can make sense for better stack trace information as well as for consistent error handling (returned promises will not be caught in an async function try/catch).
-
-## Rule Details
 
 This rule builds on top of the [`eslint/no-return-await`](https://eslint.org/docs/rules/no-return-await) rule.
 It expands upon the base rule to add support for optionally requiring `return await` in certain cases.
 
-## How to Use
-
-```jsonc
-{
-  // note you must disable the base rule as it can report incorrect errors
-  "no-return-await": "off",
-  "@typescript-eslint/return-await": "error"
-}
-```
+The extended rule is named `return-await` instead of `no-return-await` because the extended rule can enforce the positive or the negative. Additionally, while the core rule is now deprecated, the extended rule is still useful in many contexts.
 
 ## Options
 
@@ -220,9 +214,3 @@ async function validNever3() {
   return 'value';
 }
 ```
-
-## Attributes
-
-- [ ] ✅ Recommended
-- [x] 🔧 Fixable
-- [x] 💭 Requires type information

@@ -1,6 +1,8 @@
-# max-classes-per-file
+---
+title: max-classes-per-file
+rule_type: suggestion
+---
 
-Enforces a maximum number of classes per file.
 
 Files containing multiple classes can often result in a less navigable
 and poorly structured codebase. Best practice is to keep each file
@@ -13,6 +15,8 @@ of classes and no more.
 
 Examples of **incorrect** code for this rule:
 
+::: incorrect
+
 ```js
 /*eslint max-classes-per-file: "error"*/
 
@@ -20,13 +24,19 @@ class Foo {}
 class Bar {}
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint max-classes-per-file: "error"*/
 
 class Foo {}
 ```
+
+:::
 
 ## Options
 
@@ -56,6 +66,8 @@ For example:
 
 Examples of **correct** code for this rule with the `max` option set to `2`:
 
+::: correct
+
 ```js
 /* eslint max-classes-per-file: ["error", 2] */
 
@@ -63,7 +75,11 @@ class Foo {}
 class Bar {}
 ```
 
+:::
+
 Examples of **correct** code for this rule with the `ignoreExpressions` option set to `true`:
+
+::: correct
 
 ```js
 /* eslint max-classes-per-file: ["error", { ignoreExpressions: true }] */
@@ -78,3 +94,5 @@ class VisitorFactory {
     }
 }
 ```
+
+:::

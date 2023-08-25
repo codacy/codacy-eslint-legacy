@@ -1,6 +1,9 @@
-# no-class-assign
+---
+title: no-class-assign
+rule_type: problem
+---
 
-Disallows modifying variables of class declarations.
+
 
 `ClassDeclaration` creates a variable, and we can modify the variable.
 
@@ -19,6 +22,8 @@ This rule is aimed to flag modifying variables of class declarations.
 
 Examples of **incorrect** code for this rule:
 
+::: incorrect
+
 ```js
 /*eslint no-class-assign: "error"*/
 /*eslint-env es6*/
@@ -27,6 +32,10 @@ class A { }
 A = 0;
 ```
 
+:::
+
+::: incorrect
+
 ```js
 /*eslint no-class-assign: "error"*/
 /*eslint-env es6*/
@@ -34,6 +43,10 @@ A = 0;
 A = 0;
 class A { }
 ```
+
+:::
+
+::: incorrect
 
 ```js
 /*eslint no-class-assign: "error"*/
@@ -45,6 +58,10 @@ class A {
     }
 }
 ```
+
+:::
+
+::: incorrect
 
 ```js
 /*eslint no-class-assign: "error"*/
@@ -58,7 +75,11 @@ let A = class A {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-class-assign: "error"*/
@@ -67,6 +88,10 @@ Examples of **correct** code for this rule:
 let A = class A { }
 A = 0; // A is a variable.
 ```
+
+:::
+
+::: correct
 
 ```js
 /*eslint no-class-assign: "error"*/
@@ -79,6 +104,10 @@ let A = class {
 }
 ```
 
+:::
+
+::: correct
+
 ```js
 /*eslint no-class-assign: 2*/
 /*eslint-env es6*/
@@ -89,6 +118,8 @@ class A {
     }
 }
 ```
+
+:::
 
 ## When Not To Use It
 

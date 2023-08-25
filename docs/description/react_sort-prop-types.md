@@ -1,6 +1,12 @@
-# Enforce propTypes declarations alphabetical sorting (react/sort-prop-types)
+# Enforce propTypes declarations alphabetical sorting (`react/sort-prop-types`)
 
-Some developers prefer to sort prop type declaratioms alphabetically to be able to find necessary declaration easier at the later time. Others feel that it adds complexity and becomes burden to maintain.
+🔧 This rule is automatically fixable by the [`--fix` CLI option](https://eslint.org/docs/latest/user-guide/command-line-interface#--fix).
+
+<!-- end auto-generated rule header -->
+
+🔧 This rule is automatically fixable using the `--fix` [flag](https://eslint.org/docs/latest/user-guide/command-line-interface#--fix) on the command line.
+
+Some developers prefer to sort prop type declarations alphabetically to be able to find necessary declaration easier at the later time. Others feel that it adds complexity and becomes burden to maintain.
 
 ## Rule Details
 
@@ -18,6 +24,7 @@ var Component = createReactClass({
 ...
 });
 ```
+
 ```jsx
 type Props = {
   z: number,
@@ -28,6 +35,7 @@ class Component extends React.Component<Props> {
   ...
 }
 ```
+
 ```jsx
 class Component extends React.Component {
   static propTypes = {
@@ -53,6 +61,7 @@ var Component = createReactClass({
 ...
 });
 ```
+
 ```jsx
 type Props = {
   a: string,
@@ -63,6 +72,7 @@ class Component extends React.Component<Props> {
   ...
 }
 ```
+
 ```jsx
 class Component extends React.Component {
   static propTypes = {
@@ -85,7 +95,8 @@ class Component extends React.Component {
   "ignoreCase": <boolean>,
   "requiredFirst": <boolean>,
   "sortShapeProp": <boolean>,
-  "noSortAlphabetically": <boolean>
+  "noSortAlphabetically": <boolean>,
+  "checkTypes": <boolean>
 }]
 ...
 ```
@@ -144,6 +155,7 @@ var Component = createReactClass({
 ...
 });
 ```
+
 ### `noSortAlphabetically`
 
 When `true`, alphabetical order is not enforced:
@@ -158,6 +170,10 @@ var Component = createReactClass({
 ...
 });
 ```
+
+### `checkTypes`
+
+When `true`, the sorting of prop type definitions are checked.
 
 ## When Not To Use It
 

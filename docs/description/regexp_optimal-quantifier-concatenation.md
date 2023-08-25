@@ -7,10 +7,13 @@ since: "v0.11.0"
 ---
 # regexp/optimal-quantifier-concatenation
 
-> require optimal quantifiers for concatenated quantifiers
+💼 This rule is enabled in the ✅ `plugin:regexp/recommended` config.
 
-- :gear: This rule is included in `"plugin:regexp/recommended"`.
-- :wrench: The `--fix` option on the [command line](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+🔧 This rule is automatically fixable by the [`--fix` CLI option](https://eslint.org/docs/latest/user-guide/command-line-interface#--fix).
+
+<!-- end auto-generated rule header -->
+
+> require optimal quantifiers for concatenated quantifiers
 
 ## :book: Rule Details
 
@@ -43,7 +46,36 @@ var foo = /\w+(?:(a)|b)*/;
 
 ## :wrench: Options
 
-Nothing.
+```json5
+{
+  "regexp/optimal-quantifier-concatenation": [
+    "error",
+    {
+        "capturingGroups": "report"
+    }
+  ]
+}
+```
+
+### `capturingGroups`
+
+The type of concatenation this rule reports might be intentional around capturing groups. This option allows you to turn off false unfixable reports around capturing groups.
+
+- `capturingGroups: "report"` (_default_)
+
+  Concatenations around quantifiers will be reported.
+
+- `capturingGroups: "ignore"`
+
+  Concatenations around quantifiers will not be reported.
+
+  If this option is used, it is recommended to have the [regexp/no-super-linear-backtracking] rule enabled to protect against ReDoS.
+
+## :books: Further reading
+
+- [regexp/no-super-linear-backtracking]
+
+[regexp/no-super-linear-backtracking]: ./no-super-linear-backtracking.md
 
 ## :rocket: Version
 

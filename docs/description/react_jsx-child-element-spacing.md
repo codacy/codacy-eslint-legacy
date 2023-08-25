@@ -1,4 +1,6 @@
-# Enforce or disallow spaces inside of curly braces in JSX attributes and expressions. (react/jsx-child-element-spacing)
+# Enforce or disallow spaces inside of curly braces in JSX attributes and expressions (`react/jsx-child-element-spacing`)
+
+<!-- end auto-generated rule header -->
 
 ## Rule Details
 

@@ -1,6 +1,11 @@
-# no-array-constructor
+---
+title: no-array-constructor
+rule_type: suggestion
+related_rules:
+- no-new-object
+- no-new-wrappers
+---
 
-Disallows `Array` constructors.
 
 Use of the `Array` constructor to construct a new array is generally
 discouraged in favor of array literal notation because of the single-argument
@@ -14,6 +19,8 @@ This rule disallows `Array` constructors.
 
 Examples of **incorrect** code for this rule:
 
+:::incorrect
+
 ```js
 /*eslint no-array-constructor: "error"*/
 
@@ -22,7 +29,11 @@ Array(0, 1, 2)
 new Array(0, 1, 2)
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+:::correct
 
 ```js
 /*eslint no-array-constructor: "error"*/
@@ -34,12 +45,9 @@ new Array(someOtherArray.length)
 [0, 1, 2]
 ```
 
+:::
+
 ## When Not To Use It
 
 This rule enforces a nearly universal stylistic concern. That being said, this
 rule may be disabled if the constructor style is preferred.
-
-## Related Rules
-
-* [no-new-object](no-new-object.md)
-* [no-new-wrappers](no-new-wrappers.md)

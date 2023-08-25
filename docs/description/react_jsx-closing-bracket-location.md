@@ -1,8 +1,10 @@
-# Validate closing bracket location in JSX (react/jsx-closing-bracket-location)
+# Enforce closing bracket location in JSX (`react/jsx-closing-bracket-location`)
+
+🔧 This rule is automatically fixable by the [`--fix` CLI option](https://eslint.org/docs/latest/user-guide/command-line-interface#--fix).
+
+<!-- end auto-generated rule header -->
 
 Enforce the closing bracket location for JSX multiline elements.
-
-**Fixable:** This rule is automatically fixable using the `--fix` flag on the command line.
 
 ## Rule Details
 
@@ -56,10 +58,10 @@ The second form allows you to distinguish between non-empty and self-closing tag
 
 Enforced location for the closing bracket.
 
-* `tag-aligned`: must be aligned with the opening tag.
-* `line-aligned`: must be aligned with the line containing the opening tag.
-* `after-props`: must be placed right after the last prop.
-* `props-aligned`: must be aligned with the last prop.
+- `tag-aligned`: must be aligned with the opening tag.
+- `line-aligned`: must be aligned with the line containing the opening tag.
+- `after-props`: must be placed right after the last prop.
+- `props-aligned`: must be aligned with the last prop.
 
 Defaults to `tag-aligned`.
 

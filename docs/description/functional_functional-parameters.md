@@ -1,6 +1,10 @@
-# Enforce functional parameters (functional-parameters)
+# Enforce functional parameters (`functional/functional-parameters`)
 
-Disallow use of rest parameters, the `arguments` keyword and enforces that functions take a least 1 parameter.
+💼 This rule is enabled in the following configs: `currying`, ☑️ `lite`, ✅ `recommended`, 🔒 `strict`.
+
+<!-- end auto-generated rule header -->
+
+Disallow use of rest parameters, the `arguments` keyword and enforces that functions take at least 1 parameter.
 
 ## Rule Details
 
@@ -11,7 +15,7 @@ When it comes to functional programming, known and explicit parameters must be u
 
 Note: With an unknown number of parameters, currying functions is a lot more difficult/impossible.
 
-Examples of **incorrect** code for this rule:
+### ❌ Incorrect
 
 <!-- eslint-skip -->
 
@@ -33,7 +37,7 @@ function add(...numbers) {
 }
 ```
 
-Examples of **correct** code for this rule:
+### ✅ Correct
 
 ```js
 /* eslint functional/functional-parameters: "error" */
@@ -51,15 +55,22 @@ This rule accepts an options object of the following type:
 type Options = {
   allowRestParameter: boolean;
   allowArgumentsKeyword: boolean;
-  enforceParameterCount: "atLeastOne" | "exactlyOne" | false | {
-    count: "atLeastOne" | "exactlyOne";
-    ignoreIIFE: boolean;
-  };
-  ignorePattern?: string[] | string;
-}
+  enforceParameterCount:
+    | "atLeastOne"
+    | "exactlyOne"
+    | false
+    | {
+        count: "atLeastOne" | "exactlyOne";
+        ignoreLambdaExpression: boolean;
+        ignoreIIFE: boolean;
+        ignoreGettersAndSetters: boolean;
+      };
+  ignoreIdentifierPattern?: string[] | string;
+  ignorePrefixSelector?: string[] | string;
+};
 ```
 
-The default options:
+### Default Options
 
 ```ts
 const defaults = {
@@ -67,19 +78,33 @@ const defaults = {
   allowArgumentsKeyword: false,
   enforceParameterCount: {
     count: "atLeastOne",
-    ignoreIIFE: true
-  }
-}
+    ignoreLambdaExpression: false,
+    ignoreIIFE: true,
+    ignoreGettersAndSetters: true,
+  },
+};
 ```
 
-Note: the `lite` ruleset overrides the default options to:
+### Preset Overrides
+
+#### `recommended`
 
 ```ts
-const liteDefaults = {
-  allowRestParameter: false,
-  allowArgumentsKeyword: false,
-  enforceParameterCount: false
-}
+const recommendedOptions = {
+  enforceParameterCount: {
+    ignoreLambdaExpression: true,
+    ignoreIIFE: true,
+    ignoreGettersAndSetters: true,
+  },
+};
+```
+
+#### `lite`
+
+```ts
+const liteOptions = {
+  enforceParameterCount: false,
+};
 ```
 
 ### `allowRestParameter`
@@ -108,7 +133,7 @@ There's not much point of having a function that doesn't take any parameters in 
 
 Require all functions to have exactly one parameter.
 
-Any function that take takes multiple parameter can be rewritten as a higher-order function that only takes one.
+Any function that takes multiple parameter can be rewritten as a higher-order function that only takes one.
 
 Example:
 
@@ -132,11 +157,42 @@ See [Currying](https://en.wikipedia.org/wiki/Currying) and [Higher-order functio
 
 See [enforceParameterCount](#enforceparametercount).
 
+#### `enforceParameterCount.ignoreLambdaExpression`
+
+If true, this option allows for the use of lambda function expressions that do not have any parameters.
+Here, a lambda function expression refers to any function being defined in place as passed directly as an argument to another function.
+
 #### `enforceParameterCount.ignoreIIFE`
 
 If true, this option allows for the use of [IIFEs](https://developer.mozilla.org/en-US/docs/Glossary/IIFE) that do not have any parameters.
 
-### `ignorePattern`
+#### `enforceParameterCount.ignoreGettersAndSetters`
 
-Patterns will be matched against function names.
-See the [ignorePattern](./options/ignore-pattern.md) docs for more information.
+Getters should always take zero parameters, and setter one. If for some reason you want to treat these function like any other function, then you can set this option to `false`.
+
+### `ignorePrefixSelector`
+
+This allows for ignore functions where one of the given selectors matches the parent node in the AST of the function node.\
+For more information see [ESLint Selectors](https://eslint.org/docs/developer-guide/selectors).
+
+Example:
+
+With the following config:
+
+```json
+{
+  "enforceParameterCount": "exactlyOne",
+  "ignorePrefixSelector": "CallExpression[callee.property.name='reduce']"
+},
+```
+
+The following inline callback won't be flagged:
+
+```js
+const sum = [1, 2, 3].reduce((carry, current) => current, 0);
+```
+
+### `ignoreIdentifierPattern`
+
+This option takes a RegExp string or an array of RegExp strings.
+It allows for the ability to ignore violations based on a function's name.

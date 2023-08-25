@@ -1,6 +1,16 @@
-# semi
+---
+title: semi
+rule_type: layout
+related_rules:
+- no-extra-semi
+- no-unexpected-multiline
+- semi-spacing
+further_reading:
+- https://blog.izs.me/2010/12/an-open-letter-to-javascript-leaders-regarding/
+- https://web.archive.org/web/20200420230322/http://inimino.org/~inimino/blog/javascript_semicolons
+---
 
-Requires or disallows semicolons instead of ASI.
+
 
 JavaScript doesn't require semicolons at the end of each statement. In many cases, the JavaScript engine can determine that a semicolon should be in a certain spot and will automatically add it. This feature is known as **automatic semicolon insertion (ASI)** and is considered one of the more controversial features of JavaScript. For example, the following lines are both valid:
 
@@ -31,7 +41,7 @@ return;
 }
 ```
 
-Effectively, a semicolon is inserted after the `return` statement, causing the code below it (a labeled literal inside a block) to be unreachable. This rule and the [no-unreachable](no-unreachable.md) rule will protect your code from such cases.
+Effectively, a semicolon is inserted after the `return` statement, causing the code below it (a labeled literal inside a block) to be unreachable. This rule and the [no-unreachable](no-unreachable) rule will protect your code from such cases.
 
 On the other side of the argument are those who say that since semicolons are inserted automatically, they are optional and do not need to be inserted manually. However, the ASI mechanism can also be tricky to people who don't use semicolons. For example, consider this code:
 
@@ -46,7 +56,7 @@ var globalCounter = { }
 })()
 ```
 
-In this example, a semicolon will not be inserted after the first line, causing a run-time error (because an empty object is called as if it's a function). The [no-unexpected-multiline](no-unexpected-multiline.md) rule can protect your code from such cases.
+In this example, a semicolon will not be inserted after the first line, causing a run-time error (because an empty object is called as if it's a function). The [no-unexpected-multiline](no-unexpected-multiline) rule can protect your code from such cases.
 
 Although ASI allows for more freedom over your coding style, it can also make your code behave in an unexpected way, whether you use semicolons or not. Therefore, it is best to know when ASI takes place and when it does not, and have ESLint protect your code from these potentially unexpected cases. In short, as once described by Isaac Schlueter, a `\n` character always ends a statement (just like a semicolon) unless one of the following is true:
 
@@ -66,23 +76,26 @@ This rule has two options, a string option and an object option.
 String option:
 
 * `"always"` (default) requires semicolons at the end of statements
-* `"never"` disallows semicolons as the end of statements (except to disambiguate statements beginning with `[`, `(`, `/`, `+`, or `-`)
+* `"never"` disallows semicolons at the end of statements (except to disambiguate statements beginning with `[`, `(`, `/`, `+`, or `-`)
 
 Object option (when `"always"`):
 
-* `"omitLastInOneLineBlock": true` ignores the last semicolon in a block in which its braces (and therefore the content of the block) are in the same line
+* `"omitLastInOneLineBlock": true` disallows the last semicolon in a block in which its braces (and therefore the content of the block) are in the same line
+* `"omitLastInOneLineClassBody": true` disallows the last semicolon in a class body in which its braces (and therefore the content of the class body) are in the same line
 
 Object option (when `"never"`):
 
 * `"beforeStatementContinuationChars": "any"` (default) ignores semicolons (or lacking semicolon) at the end of statements if the next line starts with `[`, `(`, `/`, `+`, or `-`.
 * `"beforeStatementContinuationChars": "always"` requires semicolons at the end of statements if the next line starts with `[`, `(`, `/`, `+`, or `-`.
-* `"beforeStatementContinuationChars": "never"` disallows semicolons as the end of statements if it doesn't make ASI hazard even if the next line starts with `[`, `(`, `/`, `+`, or `-`.
+* `"beforeStatementContinuationChars": "never"` disallows semicolons at the end of statements if it doesn't make ASI hazard even if the next line starts with `[`, `(`, `/`, `+`, or `-`.
 
 **Note:** `beforeStatementContinuationChars` does not apply to class fields because class fields are not statements.
 
 ### always
 
 Examples of **incorrect** code for this rule with the default `"always"` option:
+
+::: incorrect
 
 ```js
 /*eslint semi: ["error", "always"]*/
@@ -98,7 +111,11 @@ class Foo {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule with the default `"always"` option:
+
+::: correct
 
 ```js
 /*eslint semi: "error"*/
@@ -114,9 +131,59 @@ class Foo {
 }
 ```
 
+:::
+
+#### omitLastInOneLineBlock
+
+Examples of additional **correct** code for this rule with the `"always", { "omitLastInOneLineBlock": true }` options:
+
+::: correct
+
+```js
+/*eslint semi: ["error", "always", { "omitLastInOneLineBlock": true}] */
+
+if (foo) { bar() }
+
+if (foo) { bar(); baz() }
+
+function f() { bar(); baz() }
+
+class C {
+    foo() { bar(); baz() }
+
+    static { bar(); baz() }
+}
+```
+
+:::
+
+#### omitLastInOneLineClassBody
+
+Examples of additional **correct** code for this rule with the `"always", { "omitLastInOneLineClassBody": true }` options:
+
+::: correct
+
+```js
+/*eslint semi: ["error", "always", { "omitLastInOneLineClassBody": true}] */
+
+export class SomeClass{
+    logType(){
+        console.log(this.type);
+        console.log(this.anotherType);
+    }
+}
+
+export class Variant1 extends SomeClass{type=1}
+export class Variant2 extends SomeClass{type=2; anotherType=3}
+```
+
+:::
+
 ### never
 
 Examples of **incorrect** code for this rule with the `"never"` option:
+
+::: incorrect
 
 ```js
 /*eslint semi: ["error", "never"]*/
@@ -132,7 +199,11 @@ class Foo {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule with the `"never"` option:
+
+::: correct
 
 ```js
 /*eslint semi: ["error", "never"]*/
@@ -164,29 +235,13 @@ class Foo {
 }
 ```
 
-#### omitLastInOneLineBlock
-
-Examples of additional **correct** code for this rule with the `"always", { "omitLastInOneLineBlock": true }` options:
-
-```js
-/*eslint semi: ["error", "always", { "omitLastInOneLineBlock": true}] */
-
-if (foo) { bar() }
-
-if (foo) { bar(); baz() }
-
-function f() { bar(); baz() }
-
-class C {
-    foo() { bar(); baz() }
-
-    static { bar(); baz() }
-}
-```
+:::
 
 #### beforeStatementContinuationChars
 
 Examples of additional **incorrect** code for this rule with the `"never", { "beforeStatementContinuationChars": "always" }` options:
+
+::: incorrect
 
 ```js
 /*eslint semi: ["error", "never", { "beforeStatementContinuationChars": "always"}] */
@@ -197,7 +252,11 @@ import a from "a"
 })()
 ```
 
+:::
+
 Examples of additional **incorrect** code for this rule with the `"never", { "beforeStatementContinuationChars": "never" }` options:
+
+::: incorrect
 
 ```js
 /*eslint semi: ["error", "never", { "beforeStatementContinuationChars": "never"}] */
@@ -208,17 +267,8 @@ import a from "a"
 })()
 ```
 
+:::
+
 ## When Not To Use It
 
 If you do not want to enforce semicolon usage (or omission) in any particular way, then you can turn this rule off.
-
-## Related Rules
-
-* [no-extra-semi](no-extra-semi.md)
-* [no-unexpected-multiline](no-unexpected-multiline.md)
-* [semi-spacing](semi-spacing.md)
-
-## Further Reading
-
-* [An Open Letter to JavaScript Leaders Regarding Semicolons](http://blog.izs.me/post/2353458699/an-open-letter-to-javascript-leaders-regarding)
-* [JavaScript Semicolon Insertion](http://inimino.org/~inimino/blog/javascript_semicolons)

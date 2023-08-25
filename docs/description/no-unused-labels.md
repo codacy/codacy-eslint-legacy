@@ -1,6 +1,15 @@
-# no-unused-labels
+---
+title: no-unused-labels
+rule_type: suggestion
+related_rules:
+- no-extra-label
+- no-labels
+- no-label-var
+---
 
-Disallows unused labels.
+
+
+
 
 Labels that are declared and not used anywhere in the code are most likely an error due to incomplete refactoring.
 
@@ -21,7 +30,11 @@ Such labels take up space in the code and can lead to confusion by readers.
 
 This rule is aimed at eliminating unused labels.
 
+Problems reported by this rule can be fixed automatically, except when there are any comments between the label and the following statement, or when removing a label would cause the following statement to become a directive such as `"use strict"`.
+
 Examples of **incorrect** code for this rule:
+
+::: incorrect
 
 ```js
 /*eslint no-unused-labels: "error"*/
@@ -38,7 +51,11 @@ for (let i = 0; i < 10; ++i) {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-unused-labels: "error"*/
@@ -59,12 +76,8 @@ for (let i = 0; i < 10; ++i) {
 }
 ```
 
+:::
+
 ## When Not To Use It
 
 If you don't want to be notified about unused labels, then it's safe to disable this rule.
-
-## Related Rules
-
-* [no-extra-label](./no-extra-label.md)
-* [no-labels](./no-labels.md)
-* [no-label-var](./no-label-var.md)

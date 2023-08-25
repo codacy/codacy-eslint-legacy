@@ -1,6 +1,9 @@
-# no-useless-return
+---
+title: no-useless-return
+rule_type: suggestion
+---
 
-Disallows redundant return statements.
+
 
 A `return;` statement with nothing after it is redundant, and has no effect on the runtime behavior of a function. This can be confusing, so it's better to disallow these redundant statements.
 
@@ -9,6 +12,8 @@ A `return;` statement with nothing after it is redundant, and has no effect on t
 This rule aims to report redundant `return` statements.
 
 Examples of **incorrect** code for this rule:
+
+::: incorrect
 
 ```js
 /* eslint no-useless-return: "error" */
@@ -41,7 +46,11 @@ function foo() {
 
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /* eslint no-useless-return: "error" */
@@ -79,6 +88,8 @@ function foo() {
 }
 
 ```
+
+:::
 
 ## When Not To Use It
 

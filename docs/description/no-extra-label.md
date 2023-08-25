@@ -1,6 +1,13 @@
-# no-extra-label
+---
+title: no-extra-label
+rule_type: suggestion
+related_rules:
+- no-labels
+- no-label-var
+- no-unused-labels
+---
 
-Disallows unnecessary labels.
+
 
 If a loop contains no nested loops or switches, labeling the loop is unnecessary.
 
@@ -19,6 +26,8 @@ This rule is aimed at eliminating unnecessary labels.
 
 Examples of **incorrect** code for this rule:
 
+::: incorrect
+
 ```js
 /*eslint no-extra-label: "error"*/
 
@@ -36,7 +45,11 @@ C: switch (a) {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-extra-label: "error"*/
@@ -73,12 +86,8 @@ C: switch (a) {
 }
 ```
 
+:::
+
 ## When Not To Use It
 
 If you don't want to be notified about usage of labels, then it's safe to disable this rule.
-
-## Related Rules
-
-* [no-labels](./no-labels.md)
-* [no-label-var](./no-label-var.md)
-* [no-unused-labels](./no-unused-labels.md)

@@ -20,7 +20,7 @@ in the rule configuration.
 
 ```json
 {
-  "vue/no-restricted-class": ["error", "forbidden", "forbidden-two", "forbidden-three"]
+  "vue/no-restricted-class": ["error", "forbidden", "forbidden-two", "forbidden-three", "/^for(bidden|gotten)/"]
 }
 ```
 
@@ -35,7 +35,7 @@ in the rule configuration.
   <div :class="'forbidden'" />
   <div :class="'forbidden ' + someString" />
   <div :class="[someString, 'forbidden']" />
-  <!-- ✗ GOOD -->
+  <!-- ✓ GOOD -->
   <div class="allowed-class" />
 </template>
 

@@ -1,6 +1,12 @@
-# dot-location
+---
+title: dot-location
+rule_type: layout
+related_rules:
+- newline-after-var
+- dot-notation
+---
 
-Enforces newline before and after dots.
+
 
 JavaScript allows you to place newlines before or after a dot in a member expression.
 
@@ -31,6 +37,8 @@ The default `"object"` option requires the dot to be on the same line as the obj
 
 Examples of **incorrect** code for the default `"object"` option:
 
+::: incorrect
+
 ```js
 /*eslint dot-location: ["error", "object"]*/
 
@@ -38,7 +46,11 @@ var foo = object
 .property;
 ```
 
+:::
+
 Examples of **correct** code for the default `"object"` option:
+
+::: correct
 
 ```js
 /*eslint dot-location: ["error", "object"]*/
@@ -54,11 +66,15 @@ property;
 var baz = object.property;
 ```
 
+:::
+
 ### property
 
 The `"property"` option requires the dot to be on the same line as the property.
 
 Examples of **incorrect** code for the `"property"` option:
+
+::: incorrect
 
 ```js
 /*eslint dot-location: ["error", "property"]*/
@@ -67,7 +83,11 @@ var foo = object.
 property;
 ```
 
+:::
+
 Examples of **correct** code for the `"property"` option:
+
+::: correct
 
 ```js
 /*eslint dot-location: ["error", "property"]*/
@@ -77,11 +97,8 @@ var foo = object
 var bar = object.property;
 ```
 
+:::
+
 ## When Not To Use It
 
 You can turn this rule off if you are not concerned with the consistency of newlines before or after dots in member expressions.
-
-## Related Rules
-
-* [newline-after-var](newline-after-var.md)
-* [dot-notation](dot-notation.md)

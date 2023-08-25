@@ -1,4 +1,8 @@
-# Prevent React to be incorrectly marked as unused (react/jsx-uses-react)
+# Disallow React to be incorrectly marked as unused (`react/jsx-uses-react`)
+
+💼🚫 This rule is enabled in the ☑️ `recommended` [config](https://github.com/jsx-eslint/eslint-plugin-react/#shareable-configs). This rule is _disabled_ in the 🏃 `jsx-runtime` [config](https://github.com/jsx-eslint/eslint-plugin-react/#shareable-configs).
+
+<!-- end auto-generated rule header -->
 
 JSX expands to a call to `React.createElement`, a file which includes `React`
 but only uses JSX should consider the `React` variable as used.
@@ -45,4 +49,4 @@ var Hello = <div>Hello {this.props.name}</div>;
 
 If you are not using JSX, if React is declared as global variable, or if you do not use the `no-unused-vars` rule.
 
-If you are using the [new JSX transform from React 17](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#removing-unused-react-imports), you should disable this rule by extending [`react/jsx-runtime`](https://github.com/yannickcr/eslint-plugin-react/blob/HEAD/index.js#L163-L176) in your eslint config (add `"plugin:react/jsx-runtime"` to `"extends"`).
+If you are using the [new JSX transform from React 17](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#removing-unused-react-imports), you should disable this rule by extending [`react/jsx-runtime`](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/index.js#L163-L176) in your eslint config (add `"plugin:react/jsx-runtime"` to `"extends"`).

@@ -1,4 +1,8 @@
-# Prevent using string references (react/no-string-refs)
+# Disallow using string references (`react/no-string-refs`)
+
+💼 This rule is enabled in the ☑️ `recommended` [config](https://github.com/jsx-eslint/eslint-plugin-react/#shareable-configs).
+
+<!-- end auto-generated rule header -->
 
 Currently, two ways are supported by React to refer to components. The first way, providing a string identifier, is now considered legacy in the official documentation. The documentation now prefers a second method -- referring to components by setting a property on the `this` object in the reference callback.
 
@@ -45,6 +49,7 @@ var Hello = createReactClass({
 ```js
 "react/no-string-refs": [<enabled>, {"noTemplateLiterals": <boolean>}]
 ```
+
 ### `noTemplateLiterals`
 
 When set to `true`, it will give warning when using template literals for refs.

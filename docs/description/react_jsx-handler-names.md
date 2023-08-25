@@ -1,4 +1,6 @@
-# Enforce event handler naming conventions in JSX (react/jsx-handler-names)
+# Enforce event handler naming conventions in JSX (`react/jsx-handler-names`)
+
+<!-- end auto-generated rule header -->
 
 Ensures that any component or prop methods used to handle events are correctly prefixed.
 
@@ -37,10 +39,10 @@ Examples of **correct** code for this rule:
 ...
 ```
 
-* `eventHandlerPrefix`: Prefix for component methods used as event handlers. Defaults to `handle`
-* `eventHandlerPropPrefix`: Prefix for props that are used as event handlers. Defaults to `on`
-* `checkLocalVariables`: Determines whether event handlers stored as local variables are checked. Defaults to `false`
-* `checkInlineFunction`: Determines whether event handlers set as inline functions are checked. Defaults to `false`
+- `eventHandlerPrefix`: Prefix for component methods used as event handlers. Defaults to `handle`
+- `eventHandlerPropPrefix`: Prefix for props that are used as event handlers. Defaults to `on`
+- `checkLocalVariables`: Determines whether event handlers stored as local variables are checked. Defaults to `false`
+- `checkInlineFunction`: Determines whether event handlers set as inline functions are checked. Defaults to `false`
 
 ## When Not To Use It
 

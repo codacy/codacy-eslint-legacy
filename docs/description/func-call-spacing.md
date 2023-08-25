@@ -1,6 +1,11 @@
-# func-call-spacing
+---
+title: func-call-spacing
+rule_type: layout
+related_rules:
+- no-spaced-func
+---
 
-Requires or disallows spacing between function identifiers and their invocations.
+
 
 When calling a function, developers may insert optional whitespace between the function's name and the parentheses that invoke it. The following pairs of function calls are equivalent:
 
@@ -32,6 +37,8 @@ Further, in `"always"` mode, a second object option is available that contains a
 
 Examples of **incorrect** code for this rule with the default `"never"` option:
 
+::: incorrect
+
 ```js
 /*eslint func-call-spacing: ["error", "never"]*/
 
@@ -41,18 +48,26 @@ fn
 ();
 ```
 
+:::
+
 Examples of **correct** code for this rule with the default `"never"` option:
+
+::: correct
 
 ```js
 /*eslint func-call-spacing: ["error", "never"]*/
 
 fn();
 ```
+
+:::
 
 ### always
 
 Examples of **incorrect** code for this rule with the `"always"` option:
 
+::: incorrect
+
 ```js
 /*eslint func-call-spacing: ["error", "always"]*/
 
@@ -62,13 +77,19 @@ fn
 ();
 ```
 
+:::
+
 Examples of **correct** code for this rule with the `"always"` option:
+
+::: correct
 
 ```js
 /*eslint func-call-spacing: ["error", "always"]*/
 
 fn ();
 ```
+
+:::
 
 #### allowNewlines
 
@@ -76,13 +97,19 @@ By default, `"always"` does not allow newlines. To permit newlines when in `"alw
 
 Examples of **incorrect** code for this rule with `allowNewlines` option enabled:
 
+::: incorrect
+
 ```js
 /*eslint func-call-spacing: ["error", "always", { "allowNewlines": true }]*/
 
 fn();
 ```
 
+:::
+
 Examples of **correct** code for this rule with the `allowNewlines` option enabled:
+
+::: correct
 
 ```js
 /*eslint func-call-spacing: ["error", "always", { "allowNewlines": true }]*/
@@ -93,13 +120,11 @@ fn
 ();
 ```
 
+:::
+
 ## When Not To Use It
 
 This rule can safely be turned off if your project does not care about enforcing a consistent style for spacing within function calls.
-
-## Related Rules
-
-* [no-spaced-func](no-spaced-func.md) (deprecated)
 
 ## Compatibility
 

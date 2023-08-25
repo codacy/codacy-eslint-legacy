@@ -1,6 +1,13 @@
-# comma-style
+---
+title: comma-style
+rule_type: layout
+related_rules:
+- operator-linebreak
+further_reading:
+- https://gist.github.com/isaacs/357981
+---
 
-Enforces consistent comma styles.
+
 
 The Comma Style rule enforces styles for comma-separated lists. There are two comma styles primarily used in JavaScript:
 
@@ -47,6 +54,8 @@ A way to determine the node types as defined by [ESTree](https://github.com/estr
 
 Examples of **incorrect** code for this rule with the default `"last"` option:
 
+:::incorrect
+
 ```js
 /*eslint comma-style: ["error", "last"]*/
 
@@ -68,7 +77,11 @@ function bar() {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule with the default `"last"` option:
+
+:::correct
 
 ```js
 /*eslint comma-style: ["error", "last"]*/
@@ -89,9 +102,13 @@ function bar() {
 }
 ```
 
+:::
+
 ### first
 
 Examples of **incorrect** code for this rule with the `"first"` option:
+
+:::incorrect
 
 ```js
 /*eslint comma-style: ["error", "first"]*/
@@ -110,7 +127,11 @@ function bar() {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule with the `"first"` option:
+
+:::correct
 
 ```js
 /*eslint comma-style: ["error", "first"]*/
@@ -131,11 +152,15 @@ function bar() {
 }
 ```
 
+:::
+
 ### exceptions
 
 An example use case is to enforce comma style *only* in var statements.
 
 Examples of **incorrect** code for this rule with sample `"first", { "exceptions": { … } }` options:
+
+:::incorrect
 
 ```js
 /*eslint comma-style: ["error", "first", { "exceptions": { "ArrayExpression": true, "ObjectExpression": true } }]*/
@@ -144,7 +169,11 @@ var o = {},
     a = [];
 ```
 
+:::
+
 Examples of **correct** code for this rule with sample `"first", { "exceptions": { … } }` options:
+
+:::correct
 
 ```js
 /*eslint comma-style: ["error", "first", { "exceptions": { "ArrayExpression": true, "ObjectExpression": true } }]*/
@@ -155,17 +184,8 @@ var o = {fst:1,
   , a = [];
 ```
 
+:::
+
 ## When Not To Use It
 
 This rule can safely be turned off if your project does not care about enforcing a consistent comma style.
-
-## Related Rules
-
-* [operator-linebreak](operator-linebreak.md)
-
-## Further Reading
-
-For more information on the Comma First style:
-
-* [A better coding convention for lists and object literals in JavaScript by isaacs](https://gist.github.com/isaacs/357981)
-* [npm coding style guideline](https://docs.npmjs.com/misc/coding-style)

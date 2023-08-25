@@ -1,13 +1,13 @@
 # Add expiration conditions to TODO comments
 
-<!-- Do not manually modify RULE_NOTICE part. Run: `npm run generate-rule-notices` -->
-<!-- RULE_NOTICE -->
-✅ *This rule is part of the [recommended](https://github.com/sindresorhus/eslint-plugin-unicorn#recommended-config) config.*
-<!-- /RULE_NOTICE -->
+💼 This rule is enabled in the ✅ `recommended` [config](https://github.com/sindresorhus/eslint-plugin-unicorn#preset-configs).
+
+<!-- end auto-generated rule header -->
+<!-- Do not manually modify this header. Run: `npm run fix:eslint-docs` -->
 
 This rule makes it possible to pass arguments to TODO, FIXME and XXX comments to trigger ESLint to report.
 
-From [ESLint's documentation](https://eslint.org/docs/rules/no-warning-comments):
+From [ESLint's documentation](https://eslint.org/docs/latest/rules/no-warning-comments):
 
 > Developers often add comments to code which is not complete or needs review.
 
@@ -146,13 +146,13 @@ You can also use block comments to specify TODOs with conditions. Each line can 
 
 This rule implements [`eslint/no-warning-comments`](https://eslint.org/docs/rules/no-warning-comments).
 
-The sole difference is that first we check for **valid conditions** to apply this rule. If no valid conditions are met, we fall back to `eslint/no-warning-comments` if [`allowWarningComments`](#allowWarningComments) is set to `false` (default `true`) and you'll see something like `Unexpected 'todo' comment without any conditions.`
+The sole difference is that first we check for **valid conditions** to apply this rule. If no valid conditions are met, we fall back to `eslint/no-warning-comments` if [`allowWarningComments`](#allowwarningcomments) is set to `false` (default `true`) and you'll see something like `Unexpected 'todo' comment without any conditions.`
 
 The reason behind this is that now that you have a powerful rule to make sure there are no stray TODOs on your code, you should strive for best practices. Don't just add TODO comments and leave them forever. Define conditions to justify the presence of warning comments.
 
 With that in mind, you **could** disable that ESLint rule in favor of this one as you will get its same behavior and more.
 
-Since by default the option `allowWarningComments` is `true`, both rules can coexist even with different reporting levels. For example, one might want to error when conditions are met, but just warn on TODOs without conditions (See [`allowWarningComments`](#allowWarningComments) below).
+Since by default the option `allowWarningComments` is `true`, both rules can coexist even with different reporting levels. For example, one might want to error when conditions are met, but just warn on TODOs without conditions (See [`allowWarningComments`](#allowwarningcomments) below).
 
 ## Legacy Branches
 
@@ -241,7 +241,7 @@ Default: `true`
 
 Disables `Expiry Date` checks during pull requests.
 
-Sometimes developers may send [Pull Requests](https://help.github.com/en/articles/about-pull-requests) at a time when TODO expiry dates are triggered. This means that their code would fail to pass linting, causing a false-positive.
+Sometimes developers may send [Pull Requests](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) at a time when TODO expiry dates are triggered. This means that their code would fail to pass linting, causing a false-positive.
 
 By default, this rule will not trigger expiry dates while on Pull Requests so that the one responsible for the fix will be the maintainer not the contributor.
 

@@ -1,6 +1,9 @@
-# space-infix-ops
+---
+title: space-infix-ops
+rule_type: layout
+---
 
-Requires spacing around infix operators.
+
 
 While formatting preferences are very personal, a number of style guides require spaces around operators, such as:
 
@@ -8,7 +11,7 @@ While formatting preferences are very personal, a number of style guides require
 var sum = 1 + 2;
 ```
 
-The proponents of these extra spaces believe it make the code easier to read and can more easily highlight potential errors, such as:
+Proponents of this rule believe that it makes code easier to read and can more easily highlight potential errors, such as:
 
 ```js
 var sum = i+++2;
@@ -38,6 +41,8 @@ var foo = bar|0; // `foo` is forced to be signed 32 bit integer
 
 Examples of **incorrect** code for this rule:
 
+::: incorrect
+
 ```js
 /*eslint space-infix-ops: "error"*/
 /*eslint-env es6*/
@@ -57,7 +62,11 @@ var {a=0}=bar;
 function foo(a=0) { }
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint space-infix-ops: "error"*/
@@ -75,6 +84,8 @@ var {a = 0} = bar;
 
 function foo(a = 0) { }
 ```
+
+:::
 
 ## When Not To Use It
 

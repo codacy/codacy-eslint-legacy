@@ -1,6 +1,16 @@
-# max-statements-per-line
+---
+title: max-statements-per-line
+rule_type: layout
+related_rules:
+- max-depth
+- max-len
+- max-lines
+- max-lines-per-function
+- max-nested-callbacks
+- max-params
+- max-statements
+---
 
-Enforces a maximum number of statements allowed per line.
 
 A line of code containing too many statements can be difficult to read. Code is generally read from the top down, especially when scanning, so limiting the number of statements allowed on a single line can be very beneficial for readability and maintainability.
 
@@ -20,6 +30,8 @@ The "max" object property is optional (default: 1).
 
 Examples of **incorrect** code for this rule with the default `{ "max": 1 }` option:
 
+::: incorrect
+
 ```js
 /*eslint max-statements-per-line: ["error", { "max": 1 }]*/
 
@@ -32,7 +44,11 @@ var foo = function foo() { bar = 1; };
 (function foo() { bar = 1; })();
 ```
 
+:::
+
 Examples of **correct** code for this rule with the default `{ "max": 1 }` option:
+
+::: correct
 
 ```js
 /*eslint max-statements-per-line: ["error", { "max": 1 }]*/
@@ -46,7 +62,11 @@ var foo = function foo() { };
 (function foo() { })();
 ```
 
+:::
+
 Examples of **incorrect** code for this rule with the `{ "max": 2 }` option:
+
+::: incorrect
 
 ```js
 /*eslint max-statements-per-line: ["error", { "max": 2 }]*/
@@ -60,7 +80,11 @@ var foo = function foo() { bar = 1; };
 (function foo() { bar = 1; baz = 2; })();
 ```
 
+:::
+
 Examples of **correct** code for this rule with the `{ "max": 2 }` option:
+
+::: correct
 
 ```js
 /*eslint max-statements-per-line: ["error", { "max": 2 }]*/
@@ -74,16 +98,8 @@ var foo = function foo() { bar = 1; };
 (function foo() { var bar = 1; })();
 ```
 
+:::
+
 ## When Not To Use It
 
 You can turn this rule off if you are not concerned with the number of statements on each line.
-
-## Related Rules
-
-* [max-depth](max-depth.md)
-* [max-len](max-len.md)
-* [max-lines](max-lines.md)
-* [max-lines-per-function](max-lines-per-function.md)
-* [max-nested-callbacks](max-nested-callbacks.md)
-* [max-params](max-params.md)
-* [max-statements](max-statements.md)

@@ -1,4 +1,8 @@
-# Enforce state initialization style (react/state-in-constructor)
+# Enforce class component state initialization style (`react/state-in-constructor`)
+
+<!-- end auto-generated rule header -->
+
+## Rule Details
 
 This rule will enforce the state initialization style to be either in a constructor or with a class property.
 
@@ -67,7 +71,6 @@ class Foo extends React.Component {
   }
 }
 ```
-
 
 ## When Not To Use It
 

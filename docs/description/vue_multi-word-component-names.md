@@ -16,7 +16,7 @@ since: v7.20.0
 This rule require component names to be always multi-word, except for root `App`
 components, and built-in components provided by Vue, such as `<transition>` or
 `<component>`. This prevents conflicts with existing and future HTML elements,
-since all HTML elements are a single word.
+since all HTML elements are single words.
 
 <eslint-code-block filename="src/TodoItem.js" language="javascript" :rules="{'vue/multi-word-component-names': ['error']}">
 
@@ -76,6 +76,47 @@ export default {
 
 </eslint-code-block>
 
+<eslint-code-block filename="src/Todo.vue" :rules="{'vue/multi-word-component-names': ['error']}">
+
+```vue
+<!-- filename: Todo.vue -->
+<!-- ✗ BAD -->
+<script setup>
+  // ...
+</script>
+```
+
+</eslint-code-block>
+
+<eslint-code-block filename="src/TodoItem.js" :rules="{'vue/multi-word-component-names': ['error']}">
+
+```vue
+<!-- filename: TodoItem.vue -->
+<!-- ✓ GOOD -->
+<script setup>
+  // ...
+</script>
+```
+
+</eslint-code-block>
+
+<eslint-code-block filename="src/Todo.vue" :rules="{'vue/multi-word-component-names': ['error']}">
+
+```vue
+<!-- filename: Todo.vue -->
+<!-- ✓ GOOD -->
+<script setup>
+  // ...
+</script>
+<script>
+export default {
+  name: 'TodoItem'
+}
+</script>
+```
+
+</eslint-code-block>
+
 ## :wrench: Options
 
 ```json
@@ -115,6 +156,22 @@ export default {
 ```
 
 </eslint-code-block>
+
+<eslint-code-block filename="src/Todo.vue" :rules="{'vue/multi-word-component-names': ['error', {ignores: ['Todo']}]}">
+
+```vue
+<!-- filename: Todo.vue -->
+<!-- ✓ GOOD -->
+<script setup>
+  // ...
+</script>
+```
+
+</eslint-code-block>
+
+## :couple: Related Rules
+
+- [vue/no-reserved-component-names](./no-reserved-component-names.md)
 
 ## :books: Further Reading
 

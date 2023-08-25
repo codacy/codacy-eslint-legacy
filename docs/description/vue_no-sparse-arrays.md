@@ -2,12 +2,12 @@
 pageClass: rule-details
 sidebarDepth: 0
 title: vue/no-sparse-arrays
-description: disallow sparse arrays in `<template>`
+description: Disallow sparse arrays in `<template>`
 since: v7.0.0
 ---
 # vue/no-sparse-arrays
 
-> disallow sparse arrays in `<template>`
+> Disallow sparse arrays in `<template>`
 
 This rule is the same rule as core [no-sparse-arrays] rule but it applies to the expressions in `<template>`.
 
@@ -26,4 +26,4 @@ This rule was introduced in eslint-plugin-vue v7.0.0
 - [Rule source](https://github.com/vuejs/eslint-plugin-vue/blob/master/lib/rules/no-sparse-arrays.js)
 - [Test source](https://github.com/vuejs/eslint-plugin-vue/blob/master/tests/lib/rules/no-sparse-arrays.js)
 
-<sup>Taken with ❤️ [from ESLint core](https://eslint.org/docs/rules/no-sparse-arrays)</sup>
+<sup>Taken with ❤️ [from ESLint core](https://eslint.org/docs/latest/rules/no-sparse-arrays)</sup>

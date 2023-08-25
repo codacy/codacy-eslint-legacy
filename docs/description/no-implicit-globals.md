@@ -1,6 +1,16 @@
-# no-implicit-globals
+---
+title: no-implicit-globals
+rule_type: suggestion
+related_rules:
+- no-undef
+- no-global-assign
+- no-unused-vars
+further_reading:
+- https://benalman.com/news/2010/11/immediately-invoked-function-expression/
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Undeclared_var
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#Temporal_dead_zone
+---
 
-Disallows declarations in the global scope.
 
 It is the best practice to avoid 'polluting' the global scope with variables that are intended to be local to the script.
 
@@ -34,6 +44,8 @@ This rule disallows `var` and `function` declarations at the top-level script sc
 
 Examples of **incorrect** code for this rule:
 
+::: incorrect { "sourceType": "script" }
+
 ```js
 /*eslint no-implicit-globals: "error"*/
 
@@ -42,7 +54,11 @@ var foo = 1;
 function bar() {}
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct { "sourceType": "script" }
 
 ```js
 /*eslint no-implicit-globals: "error"*/
@@ -59,7 +75,11 @@ window.bar = function() {};
 })();
 ```
 
+:::
+
 Examples of **correct** code for this rule with `"parserOptions": { "sourceType": "module" }` in the ESLint configuration:
+
+::: correct { "sourceType": "script" }
 
 ```js
 /*eslint no-implicit-globals: "error"*/
@@ -69,6 +89,8 @@ var foo = 1;
 function bar() {}
 ```
 
+:::
+
 ### Global variable leaks
 
 When the code is not in `strict` mode, an assignment to an undeclared variable creates
@@ -77,6 +99,8 @@ a new global variable. This will happen even if the code is in a function.
 This does not apply to ES modules since the module code is implicitly in `strict` mode.
 
 Examples of **incorrect** code for this rule:
+
+::: incorrect { "sourceType": "script" }
 
 ```js
 /*eslint no-implicit-globals: "error"*/
@@ -88,6 +112,8 @@ Bar.prototype.baz = function () {
 };
 ```
 
+:::
+
 ### Read-only global variables
 
 This rule also disallows redeclarations of read-only global variables and assignments to read-only global variables.
@@ -96,10 +122,12 @@ A read-only global variable can be a built-in ES global (e.g. `Array`), an envir
 (e.g. `window` in the browser environment), or a global variable defined as `readonly` in the configuration file
 or in a `/*global */` comment.
 
-* [Specifying Environments](../user-guide/configuring#specifying-environments)
-* [Specifying Globals](../user-guide/configuring#specifying-globals)
+* [Specifying Environments](../use/configure#specifying-environments)
+* [Specifying Globals](../use/configure#specifying-globals)
 
 Examples of **incorrect** code for this rule:
+
+::: incorrect { "sourceType": "script" }
 
 ```js
 /*eslint no-implicit-globals: "error"*/
@@ -111,6 +139,8 @@ foo = 1;
 Array = [];
 var Object;
 ```
+
+:::
 
 ### `const`, `let` and `class` declarations
 
@@ -125,6 +155,8 @@ If the variable is intended to be local to the script, wrap the code with a bloc
 
 Examples of **correct** code for this rule with `"lexicalBindings"` option set to `false` (default):
 
+::: correct { "sourceType": "script" }
+
 ```js
 /*eslint no-implicit-globals: ["error", {"lexicalBindings": false}]*/
 
@@ -135,7 +167,11 @@ let baz;
 class Bar {}
 ```
 
+:::
+
 Examples of **incorrect** code for this rule with `"lexicalBindings"` option set to `true`:
+
+::: incorrect { "sourceType": "script" }
 
 ```js
 /*eslint no-implicit-globals: ["error", {"lexicalBindings": true}]*/
@@ -147,7 +183,11 @@ let baz;
 class Bar {}
 ```
 
+:::
+
 Examples of **correct** code for this rule with `"lexicalBindings"` option set to `true`:
+
+::: correct { "sourceType": "script" }
 
 ```js
 /*eslint no-implicit-globals: ["error", {"lexicalBindings": true}]*/
@@ -165,6 +205,8 @@ Examples of **correct** code for this rule with `"lexicalBindings"` option set t
 }());
 ```
 
+:::
+
 If you intend to create a global `const` or `let` variable or a global `class` declaration, to be used from other scripts,
 be aware that there are certain differences when compared to the traditional methods, which are `var` declarations and assigning to a property of the global `window` object:
 
@@ -179,6 +221,8 @@ Even the `typeof` check is not safe from TDZ reference exceptions.
 
 Examples of **incorrect** code for this rule with `"lexicalBindings"` option set to `true`:
 
+::: incorrect { "sourceType": "script" }
+
 ```js
 /*eslint no-implicit-globals: ["error", {"lexicalBindings": true}]*/
 
@@ -191,7 +235,11 @@ const MyGlobalFunction = (function() {
 }());
 ```
 
+:::
+
 Examples of **correct** code for this rule with `"lexicalBindings"` option set to `true`:
+
+::: correct { "sourceType": "script" }
 
 ```js
 /*eslint no-implicit-globals: ["error", {"lexicalBindings": true}]*/
@@ -205,6 +253,24 @@ window.MyGlobalFunction = (function() {
 }());
 ```
 
+:::
+
+### exported
+
+You can use `/* exported variableName */` block comments in the same way as in [`no-unused-vars`](./no-unused-vars). See the [`no-unused-vars` exported section](./no-unused-vars#exported) for details.
+
+Examples of **correct** code for `/* exported variableName */` operation:
+
+::: correct { "sourceType": "script" }
+
+```js
+/* exported global_var */
+
+var global_var = 42;
+```
+
+:::
+
 ## When Not To Use It
 
 In the case of a browser script, if you want to be able to explicitly declare variables and functions in the global scope,
@@ -215,14 +281,3 @@ In the case of a CommonJS module, if your code is in strict mode or you don't wa
 and you also don't want this rule to warn you about the read-only globals, you can disable this rule.
 
 In the case of an ES module, if you don't want this rule to warn you about the read-only globals you can disable this rule.
-
-## Related Rules
-
-* [no-undef](no-undef.md)
-* [no-global-assign](no-global-assign.md)
-
-## Further Reading
-
-* [Immediately-Invoked Function Expression (IIFE)](http://benalman.com/news/2010/11/immediately-invoked-function-expression/)
-* [ReferenceError: assignment to undeclared variable](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Undeclared_var)
-* [Temporal Dead Zone](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#Temporal_dead_zone)

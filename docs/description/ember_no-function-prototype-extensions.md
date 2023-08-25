@@ -1,10 +1,18 @@
-# no-function-prototype-extensions
+# ember/no-function-prototype-extensions
 
-✅ The `"extends": "plugin:ember/recommended"` property in a configuration file enables this rule.
+💼 This rule is enabled in the ✅ `recommended` [config](https://github.com/ember-cli/eslint-plugin-ember#-configurations).
 
-Do not use Ember's `function` prototype extensions.
+<!-- end auto-generated rule header -->
 
-Use computed property syntax, observer syntax or module hooks instead of `.property()`, `.observes()` or `.on()` in Ember modules.
+By default, Ember extends certain native JavaScript objects with additional methods. This can lead to problems in some situations. One example is relying on these methods in an addon that is used inside an app that has the extensions disabled.
+
+The prototype extensions for the `function` object were deprecated in [RFC #272](https://rfcs.emberjs.com/id/0272-deprecation-native-function-prototype-extensions).
+
+Use computed property syntax, observer syntax, or module hooks instead of `.property()`, `.observes()` or `.on()` in Ember modules.
+
+## Rule Details
+
+This rule will disallow method calls that match any of the forbidden `function` prototype extension method names.
 
 ## Examples
 
@@ -39,3 +47,13 @@ export default Component.extend({
   }
 });
 ```
+
+## References
+
+- [Ember prototype extensions documentation](https://guides.emberjs.com/release/configuring-ember/disabling-prototype-extensions/)
+- [Ember function prototype extensions deprecation RFC](https://rfcs.emberjs.com/id/0272-deprecation-native-function-prototype-extensions)
+
+## Related Rules
+
+- [no-array-prototype-extensions](no-array-prototype-extensions.md)
+- [no-string-prototype-extensions](no-string-prototype-extensions.md)

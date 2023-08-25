@@ -1,8 +1,10 @@
-# no-sync
+---
+title: no-sync
+rule_type: suggestion
+---
 
-Disallows synchronous methods.
 
-This rule was **deprecated** in ESLint v7.0.0. Please use the corresponding rule in [`eslint-plugin-node`](https://github.com/mysticatea/eslint-plugin-node).
+This rule was **deprecated** in ESLint v7.0.0. Please use the corresponding rule in [`eslint-plugin-n`](https://github.com/eslint-community/eslint-plugin-n).
 
 In Node.js, most I/O is done through asynchronous methods. However, there are often synchronous versions of the asynchronous methods. For example, `fs.exists()` and `fs.existsSync()`. In some contexts, using synchronous operations is okay (if, as with ESLint, you are writing a command line utility). However, in other contexts the use of synchronous operations is considered a bad practice that should be avoided. For example, if you are running a high-travel web server on Node.js, you should consider carefully if you want to allow any synchronous operations that could lock up the server.
 
@@ -16,6 +18,8 @@ This rule has an optional object option `{ allowAtRootLevel: <boolean> }`, which
 
 Examples of **incorrect** code for this rule with the default `{ allowAtRootLevel: false }` option:
 
+::: incorrect
+
 ```js
 /*eslint no-sync: "error"*/
 
@@ -26,7 +30,11 @@ function foo() {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule with the default `{ allowAtRootLevel: false }` option:
+
+::: correct
 
 ```js
 /*eslint no-sync: "error"*/
@@ -38,7 +46,11 @@ async(function() {
 });
 ```
 
+:::
+
 Examples of **incorrect** code for this rule with the `{ allowAtRootLevel: true }` option
+
+::: incorrect
 
 ```js
 /*eslint no-sync: ["error", { allowAtRootLevel: true }]*/
@@ -50,13 +62,19 @@ function foo() {
 var bar = baz => fs.readFileSync(qux);
 ```
 
+:::
+
 Examples of **correct** code for this rule with the `{ allowAtRootLevel: true }` option
+
+::: correct
 
 ```js
 /*eslint no-sync: ["error", { allowAtRootLevel: true }]*/
 
 fs.readFileSync(somePath).toString();
 ```
+
+:::
 
 ## When Not To Use It
 

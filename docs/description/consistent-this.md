@@ -1,6 +1,8 @@
-# consistent-this
+---
+title: consistent-this
+rule_type: suggestion
+---
 
-Enforces consistent naming when capturing the current execution context.
 
 It is often necessary to capture the current execution context in order to make it available subsequently. A prominent example of this are jQuery callbacks:
 
@@ -29,6 +31,8 @@ This rule has one or more string options:
 
 Examples of **incorrect** code for this rule with the default `"that"` option:
 
+::: incorrect
+
 ```js
 /*eslint consistent-this: ["error", "that"]*/
 
@@ -41,7 +45,11 @@ that = 42;
 self = this;
 ```
 
+:::
+
 Examples of **correct** code for this rule with the default `"that"` option:
+
+::: correct
 
 ```js
 /*eslint consistent-this: ["error", "that"]*/
@@ -57,7 +65,11 @@ that = this;
 foo.bar = this;
 ```
 
+:::
+
 Examples of **incorrect** code for this rule with the default `"that"` option, if the variable is not initialized:
+
+::: incorrect
 
 ```js
 /*eslint consistent-this: ["error", "that"]*/
@@ -68,7 +80,11 @@ function f() {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule with the default `"that"` option, if the variable is not initialized:
+
+::: correct
 
 ```js
 /*eslint consistent-this: ["error", "that"]*/
@@ -80,6 +96,8 @@ var foo, that;
 foo = 42;
 that = this;
 ```
+
+:::
 
 ## When Not To Use It
 

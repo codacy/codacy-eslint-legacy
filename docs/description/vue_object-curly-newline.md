@@ -2,12 +2,12 @@
 pageClass: rule-details
 sidebarDepth: 0
 title: vue/object-curly-newline
-description: enforce consistent line breaks after opening and before closing braces in `<template>`
+description: Enforce consistent line breaks after opening and before closing braces in `<template>`
 since: v7.0.0
 ---
 # vue/object-curly-newline
 
-> enforce consistent line breaks after opening and before closing braces in `<template>`
+> Enforce consistent line breaks after opening and before closing braces in `<template>`
 
 - :wrench: The `--fix` option on the [command line](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
@@ -28,4 +28,4 @@ This rule was introduced in eslint-plugin-vue v7.0.0
 - [Rule source](https://github.com/vuejs/eslint-plugin-vue/blob/master/lib/rules/object-curly-newline.js)
 - [Test source](https://github.com/vuejs/eslint-plugin-vue/blob/master/tests/lib/rules/object-curly-newline.js)
 
-<sup>Taken with ❤️ [from ESLint core](https://eslint.org/docs/rules/object-curly-newline)</sup>
+<sup>Taken with ❤️ [from ESLint core](https://eslint.org/docs/latest/rules/object-curly-newline)</sup>

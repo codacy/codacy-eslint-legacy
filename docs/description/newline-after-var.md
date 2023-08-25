@@ -1,8 +1,11 @@
-# newline-after-var
+---
+title: newline-after-var
+rule_type: layout
+---
 
-Requires or disallows an empty line after variable declarations.
 
-This rule was **deprecated** in ESLint v4.0.0 and replaced by the [padding-line-between-statements](padding-line-between-statements.md) rule.
+
+This rule was **deprecated** in ESLint v4.0.0 and replaced by the [padding-line-between-statements](padding-line-between-statements) rule.
 
 As of today there is no consistency in separating variable declarations from the rest of the code. Some developers leave an empty line between var statements and the rest of the code like:
 
@@ -39,6 +42,8 @@ This rule has a string option:
 
 Examples of **incorrect** code for this rule with the default `"always"` option:
 
+::: incorrect
+
 ```js
 /*eslint newline-after-var: ["error", "always"]*/
 /*eslint-env es6*/
@@ -60,9 +65,13 @@ var name = "world";
 // var name = require("world");
 console.log(greet, name);
 ```
+
+:::
 
 Examples of **correct** code for this rule with the default `"always"` option:
 
+::: correct
+
 ```js
 /*eslint newline-after-var: ["error", "always"]*/
 /*eslint-env es6*/
@@ -88,11 +97,15 @@ var name = "world";
 
 console.log(greet, name);
 ```
+
+:::
 
 ### never
 
 Examples of **incorrect** code for this rule with the `"never"` option:
 
+::: incorrect
+
 ```js
 /*eslint newline-after-var: ["error", "never"]*/
 /*eslint-env es6*/
@@ -118,9 +131,13 @@ var name = "world";
 
 console.log(greet, name);
 ```
+
+:::
 
 Examples of **correct** code for this rule with the `"never"` option:
 
+::: correct
+
 ```js
 /*eslint newline-after-var: ["error", "never"]*/
 /*eslint-env es6*/
@@ -142,3 +159,5 @@ var name = "world";
 // var name = require("world");
 console.log(greet, name);
 ```
+
+:::

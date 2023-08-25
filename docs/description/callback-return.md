@@ -1,8 +1,15 @@
-# callback-return
+---
+title: callback-return
+rule_type: suggestion
+related_rules:
+- handle-callback-err
+further_reading:
+- https://github.com/maxogden/art-of-node#callbacks
+- https://web.archive.org/web/20171224042620/https://docs.nodejitsu.com/articles/errors/what-are-the-error-conventions/
+---
 
-Enforces return after callback.
 
-This rule was **deprecated** in ESLint v7.0.0. Please use the corresponding rule in [`eslint-plugin-node`](https://github.com/mysticatea/eslint-plugin-node).
+This rule was **deprecated** in ESLint v7.0.0. Please use the corresponding rule in [`eslint-plugin-n`](https://github.com/eslint-community/eslint-plugin-n).
 
 The callback pattern is at the heart of most I/O and event-driven programming
  in JavaScript.
@@ -34,6 +41,8 @@ The rule takes a single option - an array of possible callback names - which may
 
 Examples of **incorrect** code for this rule with the default `["callback", "cb", "next"]` option:
 
+:::incorrect
+
 ```js
 /*eslint callback-return: "error"*/
 
@@ -45,7 +54,11 @@ function foo(err, callback) {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule with the default `["callback", "cb", "next"]` option:
+
+:::correct
 
 ```js
 /*eslint callback-return: "error"*/
@@ -58,9 +71,13 @@ function foo(err, callback) {
 }
 ```
 
+:::
+
 ### Supplied callback names
 
 Examples of **incorrect** code for this rule with the option `["done", "send.error", "send.success"]`:
+
+:::incorrect
 
 ```js
 /*eslint callback-return: ["error", ["done", "send.error", "send.success"]]*/
@@ -80,7 +97,11 @@ function bar(err, send) {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule with the option `["done", "send.error", "send.success"]`:
+
+:::correct
 
 ```js
 /*eslint callback-return: ["error", ["done", "send.error", "send.success"]]*/
@@ -99,6 +120,8 @@ function bar(err, send) {
     send.success();
 }
 ```
+
+:::
 
 ## Known Limitations
 
@@ -166,12 +189,3 @@ function foo(err, callback) {
 There are some cases where you might want to call a callback function more than once. In those cases this rule
  may lead to incorrect behavior. In those cases you may want to reserve a special name for those callbacks and
  not include that in the list of callbacks that trigger warnings.
-
-## Related Rules
-
-* [handle-callback-err](handle-callback-err.md)
-
-## Further Reading
-
-* [The Art Of Node: Callbacks](https://github.com/maxogden/art-of-node#callbacks)
-* [Nodejitsu: What are the error conventions?](https://docs.nodejitsu.com/articles/errors/what-are-the-error-conventions/)

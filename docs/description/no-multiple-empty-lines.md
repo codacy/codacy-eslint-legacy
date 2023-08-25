@@ -1,6 +1,9 @@
-# no-multiple-empty-lines
+---
+title: no-multiple-empty-lines
+rule_type: layout
+---
 
-Disallows multiple empty lines.
+
 
 Some developers prefer to have multiple blank lines removed, while others feel that it helps improve readability. Whitespace is useful for separating logical sections of code, but excess whitespace takes up more of the screen.
 
@@ -20,6 +23,8 @@ This rule has an object option:
 
 Examples of **incorrect** code for this rule with the default `{ "max": 2 }` option:
 
+::: incorrect
+
 ```js
 /*eslint no-multiple-empty-lines: "error"*/
 
@@ -29,9 +34,13 @@ var foo = 5;
 
 var bar = 3;
 ```
+
+:::
 
 Examples of **correct** code for this rule with the default `{ "max": 2 }` option:
 
+::: correct
+
 ```js
 /*eslint no-multiple-empty-lines: "error"*/
 
@@ -40,11 +49,15 @@ var foo = 5;
 
 var bar = 3;
 ```
+
+:::
 
 ### maxEOF
 
 Examples of **incorrect** code for this rule with the `{ max: 2, maxEOF: 0 }` options:
 
+::: incorrect
+
 ```js
 /*eslint no-multiple-empty-lines: ["error", { "max": 2, "maxEOF": 0 }]*/
 
@@ -55,9 +68,13 @@ var bar = 3;
 
 
 ```
+
+:::
 
 Examples of **correct** code for this rule with the `{ max: 2, maxEOF: 0 }` options:
 
+::: correct
+
 ```js
 /*eslint no-multiple-empty-lines: ["error", { "max": 2, "maxEOF": 0 }]*/
 
@@ -66,37 +83,49 @@ var foo = 5;
 
 var bar = 3;
 ```
+
+:::
 
 **Note**: Although this ensures zero empty lines at the EOF, most editors will still show one empty line at the end if the file ends with a line break, as illustrated below. There is no empty line at the end of a file after the last `\n`, although editors may show an additional line. A true additional line would be represented by `\n\n`.
 
 **Incorrect**:
 
+::: incorrect
+
 ```js
-1    /*eslint no-multiple-empty-lines: ["error", { "max": 2, "maxEOF": 0 }]*/⏎
-2    ⏎
-3    var foo = 5;⏎
-4    ⏎
-5    ⏎
-6    var bar = 3;⏎
-7    ⏎
-8
+/*eslint no-multiple-empty-lines: ["error", { "max": 2, "maxEOF": 0 }]*/⏎
+⏎
+var foo = 5;⏎
+⏎
+⏎
+var bar = 3;⏎
+⏎
+
 ```
+
+:::
 
 **Correct**:
 
+::: correct
+
 ```js
-1    /*eslint no-multiple-empty-lines: ["error", { "max": 2, "maxEOF": 0 }]*/⏎
-2    ⏎
-3    var foo = 5;⏎
-4    ⏎
-5    ⏎
-6    var bar = 3;⏎
-7
+/*eslint no-multiple-empty-lines: ["error", { "max": 2, "maxEOF": 0 }]*/⏎
+⏎
+var foo = 5;⏎
+⏎
+⏎
+var bar = 3;⏎
+
 ```
+
+:::
 
 ### maxBOF
 
 Examples of **incorrect** code for this rule with the `{ max: 2, maxBOF: 1 }` options:
+
+::: incorrect
 
 ```js
 /*eslint no-multiple-empty-lines: ["error", { "max": 2, "maxBOF": 1 }]*/
@@ -108,7 +137,11 @@ var foo = 5;
 var bar = 3;
 ```
 
+:::
+
 Examples of **correct** code for this rule with the `{ max: 2, maxBOF: 1 }` options:
+
+::: correct
 
 ```js
 /*eslint no-multiple-empty-lines: ["error", { "max": 2, "maxBOF": 1}]*/
@@ -118,6 +151,8 @@ var foo = 5;
 
 var bar = 3;
 ```
+
+:::
 
 ## When Not To Use It
 

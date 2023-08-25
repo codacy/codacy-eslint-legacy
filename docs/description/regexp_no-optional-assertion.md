@@ -7,15 +7,17 @@ since: "v0.9.0"
 ---
 # regexp/no-optional-assertion
 
-> disallow optional assertions
+💼 This rule is enabled in the ✅ `plugin:regexp/recommended` config.
 
-- :gear: This rule is included in `"plugin:regexp/recommended"`.
+<!-- end auto-generated rule header -->
+
+> disallow optional assertions
 
 ## :book: Rule Details
 
 Assertions that are quantified (directly or indirectly) can be considered optional if the quantifier has a minimum of zero.
 
-A simple example is the following pattern: `/a(?:$)*b/`. The `$` assertion will reject but if that happens, it will simply be ignored because of the `*` quantifier. The assertion is optional, serving no function whatsoever.
+A simple example is the following pattern: `/a(?:$)*b/`. The `$` assertion will reject, but if that happens it will simply be ignored because of the `*` quantifier. The assertion is optional, serving no function whatsoever.
 
 More generally, an assertion is optional, if there exists a parent quantifier with a minimum of zero such that all possible paths of the quantified element that contain the assertion do not consume characters.
 
@@ -46,7 +48,7 @@ Nothing.
 
 ## :heart: Compatibility
 
-This rule was taken from [eslint-plugin-clean-regex].  
+This rule was taken from [eslint-plugin-clean-regex].\
 This rule is compatible with [clean-regex/no-optional-assertion] rule.
 
 [eslint-plugin-clean-regex]: https://github.com/RunDevelopment/eslint-plugin-clean-regex

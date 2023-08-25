@@ -2,14 +2,14 @@
 pageClass: rule-details
 sidebarDepth: 0
 title: vue/no-setup-props-destructure
-description: disallow destructuring of `props` passed to `setup`
+description: disallow usages that lose the reactivity of `props` passed to `setup`
 since: v7.0.0
 ---
 # vue/no-setup-props-destructure
 
-> disallow destructuring of `props` passed to `setup`
+> disallow usages that lose the reactivity of `props` passed to `setup`
 
-- :gear: This rule is included in all of `"plugin:vue/vue3-essential"`, `"plugin:vue/vue3-strongly-recommended"` and `"plugin:vue/vue3-recommended"`.
+- :no_entry_sign: This rule was **deprecated** and replaced by [vue/no-setup-props-reactivity-loss](no-setup-props-reactivity-loss.md) rule.
 
 ## :book: Rule Details
 
@@ -22,7 +22,7 @@ This rule reports the destructuring of `props` passed to `setup` causing the val
 export default {
   /* ✓ GOOD */
   setup(props) {
-    watch(() => {
+    watch(() => props.count, () => {
       console.log(props.count)
     })
 
@@ -45,8 +45,8 @@ Destructuring the `props` passed to `setup` will cause the value to lose reactiv
 export default {
   /* ✗ BAD */
   setup({ count }) {
-    watch(() => {
-      console.log(count) // not going to detect changes
+    watch(() => count, () => { // not going to detect changes
+      console.log(count)
     })
 
     return () => {
@@ -70,7 +70,7 @@ export default {
     /* ✗ BAD */
     const { count } = props
 
-    watch(() => {
+    watch(() => props.count, () => {
       /* ✓ GOOD */
       const { count } = props
       console.log(count)
@@ -94,7 +94,7 @@ Nothing.
 
 ## :books: Further Reading
 
-- [Guide - Composition API - Setup](https://v3.vuejs.org/guide/composition-api-setup.html)
+- [Guide - Composition API - Setup](https://vuejs.org/api/composition-api-setup.html)
 - [Vue RFCs - 0013-composition-api](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0013-composition-api.md)
 
 ## :rocket: Version

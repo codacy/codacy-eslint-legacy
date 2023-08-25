@@ -1,6 +1,9 @@
-# no-self-assign
+---
+title: no-self-assign
+rule_type: problem
+---
 
-Disallows assignments where both sides are exactly the same.
+
 
 Self assignments have no effect, so probably those are an error due to incomplete refactoring.
 Those indicate that what you should do is still remaining.
@@ -15,6 +18,8 @@ foo = foo;
 This rule is aimed at eliminating self assignments.
 
 Examples of **incorrect** code for this rule:
+
+::: incorrect
 
 ```js
 /*eslint no-self-assign: "error"*/
@@ -32,7 +37,11 @@ foo ||= foo;
 foo ??= foo;
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-self-assign: "error"*/
@@ -65,6 +74,8 @@ obj[a + b] = obj[a + b];
 obj["a" + "b"] = obj["a" + "b"];
 ```
 
+:::
+
 ## Options
 
 This rule has the option to check properties as well.
@@ -81,6 +92,8 @@ This rule has the option to check properties as well.
 
 Examples of **correct** code with the `{ "props": false }` option:
 
+::: correct
+
 ```js
 /*eslint no-self-assign: ["error", {"props": false}]*/
 
@@ -90,6 +103,8 @@ obj.a.b = obj.a.b;
 obj["a"] = obj["a"];
 obj[a] = obj[a];
 ```
+
+:::
 
 ## When Not To Use It
 

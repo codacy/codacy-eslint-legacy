@@ -1,6 +1,11 @@
-# no-cond-assign
+---
+title: no-cond-assign
+rule_type: problem
+related_rules:
+- no-extra-parens
+---
 
-Disallows assignment operators in conditional statements.
+
 
 In conditional statements, it is very easy to mistype a comparison operator (such as `==`) as an assignment operator (such as `=`). For example:
 
@@ -28,6 +33,8 @@ This rule has a string option:
 
 Examples of **incorrect** code for this rule with the default `"except-parens"` option:
 
+::: incorrect
+
 ```js
 /*eslint no-cond-assign: "error"*/
 
@@ -46,7 +53,11 @@ function setHeight(someNode) {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule with the default `"except-parens"` option:
+
+::: correct
 
 ```js
 /*eslint no-cond-assign: "error"*/
@@ -73,11 +84,15 @@ function setHeight(someNode) {
     } while ((someNode = someNode.parentNode) !== null);
 }
 ```
+
+:::
 
 ### always
 
 Examples of **incorrect** code for this rule with the `"always"` option:
 
+::: incorrect
+
 ```js
 /*eslint no-cond-assign: ["error", "always"]*/
 
@@ -112,7 +127,11 @@ function setHeight(someNode) {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule with the `"always"` option:
+
+::: correct
 
 ```js
 /*eslint no-cond-assign: ["error", "always"]*/
@@ -124,6 +143,4 @@ if (x === 0) {
 }
 ```
 
-## Related Rules
-
-* [no-extra-parens](no-extra-parens.md)
+:::

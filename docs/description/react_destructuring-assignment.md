@@ -1,6 +1,11 @@
-# Enforce consistent usage of destructuring assignment of props, state, and context (react/destructuring-assignment)
+# Enforce consistent usage of destructuring assignment of props, state, and context (`react/destructuring-assignment`)
+
+🔧 This rule is automatically fixable by the [`--fix` CLI option](https://eslint.org/docs/latest/user-guide/command-line-interface#--fix).
+
+<!-- end auto-generated rule header -->
 
 Rule can be set to either of `always` or `never`;
+
 ```js
 "react/destructuring-assignment": [<enabled>, 'always']
 ```

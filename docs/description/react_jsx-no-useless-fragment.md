@@ -1,8 +1,10 @@
-# Disallow unnecessary fragments (react/jsx-no-useless-fragment)
+# Disallow unnecessary fragments (`react/jsx-no-useless-fragment`)
+
+🔧 This rule is automatically fixable by the [`--fix` CLI option](https://eslint.org/docs/latest/user-guide/command-line-interface#--fix).
+
+<!-- end auto-generated rule header -->
 
 A fragment is redundant if it contains only one child, or if it is the child of a html element, and is not a [keyed fragment](https://reactjs.org/docs/fragments.html#keyed-fragments).
-
-**Fixable:** This rule is sometimes automatically fixable using the `--fix` flag on the command line.
 
 ## Rule Details
 
@@ -27,11 +29,17 @@ Examples of **incorrect** code for this rule:
     <div />
   </>
 </section>
+
+{showFullName ? <>{fullName}</> : <>{firstName}</>}
 ```
 
 Examples of **correct** code for this rule:
 
 ```jsx
+{foo}
+
+<Foo />
+
 <>
   <Foo />
   <Bar />
@@ -51,7 +59,11 @@ const cat = <>meow</>
 </SomeComponent>
 
 <Fragment key={item.id}>{item.value}</Fragment>
+
+{showFullName ? fullName : firstName}
 ```
+
+## Rule Options
 
 ### `allowExpressions`
 

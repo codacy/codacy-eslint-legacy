@@ -1,6 +1,13 @@
-# valid-typeof
+---
+title: valid-typeof
+rule_type: problem
+further_reading:
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof
+---
 
-Enforces comparing `typeof` expressions against valid strings.
+
+
+
 
 For a vast majority of use cases, the result of the `typeof` operator is one of the following string literals: `"undefined"`, `"object"`, `"boolean"`, `"number"`, `"string"`, `"function"`, `"symbol"`, and `"bigint"`. It is usually a typing mistake to compare the result of a `typeof` operator to other string literals.
 
@@ -16,6 +23,8 @@ This rule has an object option:
 
 Examples of **incorrect** code for this rule:
 
+::: incorrect
+
 ```js
 /*eslint valid-typeof: "error"*/
 
@@ -25,7 +34,11 @@ typeof bar != "nunber"
 typeof bar !== "fucntion"
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint valid-typeof: "error"*/
@@ -36,7 +49,11 @@ typeof foo === baz
 typeof bar === typeof qux
 ```
 
+:::
+
 Examples of **incorrect** code with the `{ "requireStringLiterals": true }` option:
+
+::: incorrect
 
 ```js
 /*eslint valid-typeof: ["error", { "requireStringLiterals": true }]*/
@@ -49,7 +66,11 @@ typeof baz === anotherVariable
 typeof foo == 5
 ```
 
+:::
+
 Examples of **correct** code with the `{ "requireStringLiterals": true }` option:
+
+::: correct
 
 ```js
 /*eslint valid-typeof: ["error", { "requireStringLiterals": true }]*/
@@ -60,10 +81,8 @@ typeof baz === "string"
 typeof bar === typeof qux
 ```
 
+:::
+
 ## When Not To Use It
 
 You may want to turn this rule off if you will be using the `typeof` operator on host objects.
-
-## Further Reading
-
-* [MDN: `typeof` documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof)

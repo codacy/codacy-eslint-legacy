@@ -1,8 +1,14 @@
-# no-native-reassign
+---
+title: no-native-reassign
+rule_type: suggestion
+related_rules:
+- no-extend-native
+- no-redeclare
+- no-shadow
+---
 
-Disallows reassignment of native objects.
 
-This rule was **deprecated** in ESLint v3.3.0 and replaced by the [no-global-assign](no-global-assign.md) rule.
+This rule was **deprecated** in ESLint v3.3.0 and replaced by the [no-global-assign](no-global-assign) rule.
 
 JavaScript environments contain a number of built-in global variables, such as `window` in browsers and `process` in Node.js. In almost all cases, you don't want to assign a value to these global variables as doing so could result in losing access to important functionality. For example, you probably don't want to do this in browser code:
 
@@ -18,10 +24,12 @@ This rule disallows modifications to read-only global variables.
 
 ESLint has the capability to configure global variables as read-only.
 
-* [Specifying Environments](../user-guide/configuring#specifying-environments)
-* [Specifying Globals](../user-guide/configuring#specifying-globals)
+* [Specifying Environments](../use/configure#specifying-environments)
+* [Specifying Globals](../use/configure#specifying-globals)
 
 Examples of **incorrect** code for this rule:
+
+::: incorrect
 
 ```js
 /*eslint no-native-reassign: "error"*/
@@ -29,6 +37,10 @@ Examples of **incorrect** code for this rule:
 Object = null
 undefined = 1
 ```
+
+:::
+
+::: incorrect
 
 ```js
 /*eslint no-native-reassign: "error"*/
@@ -39,6 +51,10 @@ length = 1
 top = 1
 ```
 
+:::
+
+::: incorrect
+
 ```js
 /*eslint no-native-reassign: "error"*/
 /*global a:readonly*/
@@ -46,7 +62,11 @@ top = 1
 a = 1
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-native-reassign: "error"*/
@@ -56,6 +76,10 @@ var b = 1
 b = 2
 ```
 
+:::
+
+::: correct
+
 ```js
 /*eslint no-native-reassign: "error"*/
 /*eslint-env browser*/
@@ -63,12 +87,18 @@ b = 2
 onload = function() {}
 ```
 
+:::
+
+::: correct
+
 ```js
 /*eslint no-native-reassign: "error"*/
 /*global a:writable*/
 
 a = 1
 ```
+
+:::
 
 ## Options
 
@@ -85,9 +115,3 @@ This rule accepts an `exceptions` option, which can be used to specify a list of
 ## When Not To Use It
 
 If you are trying to override one of the native objects.
-
-## Related Rules
-
-* [no-extend-native](no-extend-native.md)
-* [no-redeclare](no-redeclare.md)
-* [no-shadow](no-shadow.md)

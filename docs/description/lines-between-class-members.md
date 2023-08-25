@@ -1,6 +1,12 @@
-# lines-between-class-members
+---
+title: lines-between-class-members
+rule_type: layout
+related_rules:
+- padded-blocks
+- padding-line-between-statements
+---
 
-Requires or disallows an empty line between class members.
+
 
 This rule improves readability by enforcing lines between class members. It will not check empty lines before the first member and after the last member, since that is already taken care of by padded-blocks.
 
@@ -8,6 +14,8 @@ This rule improves readability by enforcing lines between class members. It will
 
 Examples of **incorrect** code for this rule:
 
+::: incorrect
+
 ```js
 /* eslint lines-between-class-members: ["error", "always"]*/
 class MyClass {
@@ -20,9 +28,13 @@ class MyClass {
   }
 }
 ```
+
+:::
 
 Examples of **correct** code for this rule:
 
+::: correct
+
 ```js
 /* eslint lines-between-class-members: ["error", "always"]*/
 class MyClass {
@@ -38,7 +50,11 @@ class MyClass {
 }
 ```
 
+:::
+
 Examples of additional **correct** code for this rule:
+
+::: correct
 
 ```js
 /* eslint lines-between-class-members: ["error", "always"]*/
@@ -48,6 +64,8 @@ class MyClass {
   ;in = 2
 }
 ```
+
+:::
 
 ### Options
 
@@ -65,6 +83,8 @@ Object option:
 
 Examples of **incorrect** code for this rule with the string option:
 
+::: incorrect
+
 ```js
 /* eslint lines-between-class-members: ["error", "always"]*/
 class Foo{
@@ -82,9 +102,13 @@ class Foo{
   baz(){}
 }
 ```
+
+:::
 
 Examples of **correct** code for this rule with the string option:
 
+::: correct
+
 ```js
 /* eslint lines-between-class-members: ["error", "always"]*/
 class Foo{
@@ -103,7 +127,11 @@ class Foo{
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule with the object option:
+
+::: correct
 
 ```js
 /* eslint lines-between-class-members: ["error", "always", { "exceptAfterSingleLine": true }]*/
@@ -118,14 +146,11 @@ class Foo{
 }
 ```
 
+:::
+
 ## When Not To Use It
 
 If you don't want to enforce empty lines between class members, you can disable this rule.
-
-## Related Rules
-
-* [padded-blocks](padded-blocks.md)
-* [padding-line-between-statements](padding-line-between-statements.md)
 
 ## Compatibility
 

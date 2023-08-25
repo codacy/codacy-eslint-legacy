@@ -1,8 +1,10 @@
-# Validate closing tag location in JSX (react/jsx-closing-tag-location)
+# Enforce closing tag location for multiline JSX (`react/jsx-closing-tag-location`)
+
+🔧 This rule is automatically fixable by the [`--fix` CLI option](https://eslint.org/docs/latest/user-guide/command-line-interface#--fix).
+
+<!-- end auto-generated rule header -->
 
 Enforce the closing tag location for multiline JSX elements.
-
-**Fixable:** This rule is automatically fixable using the `--fix` flag on the command line.
 
 ## Rule Details
 

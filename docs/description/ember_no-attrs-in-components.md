@@ -1,6 +1,8 @@
-# no-attrs-in-components
+# ember/no-attrs-in-components
 
-✅ The `"extends": "plugin:ember/recommended"` property in a configuration file enables this rule.
+💼 This rule is enabled in the ✅ `recommended` [config](https://github.com/ember-cli/eslint-plugin-ember#-configurations).
+
+<!-- end auto-generated rule header -->
 
 Do not use `this.attrs`.
 
@@ -25,4 +27,4 @@ const name = this._name;
 
 ## Further Reading
 
-* <https://locks.svbtle.com/to-attrs-or-not-to-attrs>
+- <https://locks.svbtle.com/to-attrs-or-not-to-attrs>

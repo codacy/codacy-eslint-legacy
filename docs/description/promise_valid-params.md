@@ -1,4 +1,8 @@
-# Ensures the proper number of arguments are passed to Promise functions (valid-params)
+# Enforces the proper number of arguments are passed to Promise functions (`promise/valid-params`)
+
+⚠️ This rule _warns_ in the ✅ `recommended` config.
+
+<!-- end auto-generated rule header -->
 
 Calling a Promise function with the incorrect number of arguments can lead to
 unexpected behavior or hard to spot bugs.
@@ -41,11 +45,11 @@ Promise.reject(Error())
 Promise.reject(referenceToError)
 
 // Promise.then() requires 1 or 2 arguments
-somePromise().then(value => doSomething(value))
+somePromise().then((value) => doSomething(value))
 somePromise().then(successCallback, errorCallback)
 
 // Promise.catch() requires 1 argument
-somePromise().catch(error => {
+somePromise().catch((error) => {
   handleError(error)
 })
 somePromise().catch(console.error)

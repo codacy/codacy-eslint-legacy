@@ -1,6 +1,8 @@
-# no-warning-comments
+---
+title: no-warning-comments
+rule_type: suggestion
+---
 
-Disallows specified warning terms in comments.
 
 Developers often add comments to code which is not complete or needs review. Most likely you want to fix or review the code, and then remove the comment, before you consider the code to be production ready.
 
@@ -17,14 +19,20 @@ This rule reports comments that include any of the predefined terms specified in
 
 This rule has an options object literal:
 
-* `"terms"`: optional array of terms to match. Defaults to `["todo", "fixme", "xxx"]`. Terms are matched case-insensitive and as whole words: `fix` would match `FIX` but not `fixing`. Terms can consist of multiple words: `really bad idea`.
-* `"location"`: optional string that configures where in your comments to check for matches. Defaults to `"start"`. The other value is match `anywhere` in comments.
+* `"terms"`: optional array of terms to match. Defaults to `["todo", "fixme", "xxx"]`. Terms are matched case-insensitively and as whole words: `fix` would match `FIX` but not `fixing`. Terms can consist of multiple words: `really bad idea`.
+* `"location"`: optional string that configures where in your comments to check for matches. Defaults to `"start"`. The start is from the first non-decorative character, ignoring whitespace, new lines and characters specified in `decoration`. The other value is match `anywhere` in comments.
+* `"decoration"`: optional array of characters that are ignored at the start of a comment, when location is `"start"`. Defaults to `[]`. Any sequence of whitespace or the characters from this property are ignored. This option is ignored when location is `"anywhere"`.
 
 Example of **incorrect** code for the default `{ "terms": ["todo", "fixme", "xxx"], "location": "start" }` options:
+
+::: incorrect
 
 ```js
 /*eslint no-warning-comments: "error"*/
 
+/*
+FIXME
+*/
 function callback(err, results) {
   if (err) {
     console.error(err);
@@ -34,7 +42,11 @@ function callback(err, results) {
 }
 ```
 
+:::
+
 Example of **correct** code for the default `{ "terms": ["todo", "fixme", "xxx"], "location": "start" }` options:
+
+::: correct
 
 ```js
 /*eslint no-warning-comments: "error"*/
@@ -49,9 +61,13 @@ function callback(err, results) {
 }
 ```
 
+:::
+
 ### terms and location
 
 Examples of **incorrect** code for the `{ "terms": ["todo", "fixme", "any other term"], "location": "anywhere" }` options:
+
+::: incorrect
 
 ```js
 /*eslint no-warning-comments: ["error", { "terms": ["todo", "fixme", "any other term"], "location": "anywhere" }]*/
@@ -59,14 +75,18 @@ Examples of **incorrect** code for the `{ "terms": ["todo", "fixme", "any other 
 // TODO: this
 // todo: this too
 // Even this: TODO
-/* /*
+/*
  * The same goes for this TODO comment
  * Or a fixme
  * as well as any other term
  */
 ```
 
+:::
+
 Examples of **correct** code for the `{ "terms": ["todo", "fixme", "any other term"], "location": "anywhere" }` options:
+
+::: correct
 
 ```js
 /*eslint no-warning-comments: ["error", { "terms": ["todo", "fixme", "any other term"], "location": "anywhere" }]*/
@@ -80,6 +100,56 @@ Examples of **correct** code for the `{ "terms": ["todo", "fixme", "any other te
  * or fix me this
  */
 ```
+
+:::
+
+### Decoration Characters
+
+Examples of **incorrect** code for the `{ "decoration": ["*"] }` options:
+
+::: incorrect
+
+```js
+/*eslint no-warning-comments: ["error", { "decoration": ["*"] }]*/
+
+//***** todo decorative asterisks are ignored *****//
+/**
+ * TODO new lines and asterisks are also ignored in block comments.
+ */
+```
+
+:::
+
+Examples of **incorrect** code for the `{ "decoration": ["/", "*"] }` options:
+
+::: incorrect
+
+```js
+/*eslint no-warning-comments: ["error", { "decoration": ["/", "*"] }]*/
+
+////// TODO decorative slashes and whitespace are ignored //////
+//***** todo decorative asterisks are also ignored *****//
+/**
+ * TODO new lines are also ignored in block comments.
+ */
+```
+
+:::
+
+Examples of **correct** code for the `{ "decoration": ["/", "*"] }` options:
+
+::: correct
+
+```js
+/*eslint no-warning-comments: ["error", { "decoration": ["/", "*"] }]*/
+
+//!TODO preceded by non-decoration character
+/**
+ *!TODO preceded by non-decoration character in a block comment
+ */
+```
+
+:::
 
 ## When Not To Use It
 

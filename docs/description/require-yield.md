@@ -1,6 +1,11 @@
-# require-yield
+---
+title: require-yield
+rule_type: suggestion
+related_rules:
+- require-await
+---
 
-Disallows generator functions that do not have `yield`.
+
 
 ## Rule Details
 
@@ -9,6 +14,8 @@ This rule generates warnings for generator functions that do not have the `yield
 ## Examples
 
 Examples of **incorrect** code for this rule:
+
+::: incorrect
 
 ```js
 /*eslint require-yield: "error"*/
@@ -19,7 +26,11 @@ function* foo() {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint require-yield: "error"*/
@@ -38,10 +49,8 @@ function foo() {
 function* foo() { }
 ```
 
+:::
+
 ## When Not To Use It
 
 If you don't want to notify generator functions that have no `yield` expression, then it's safe to disable this rule.
-
-## Related Rules
-
-* [require-await](require-await.md)

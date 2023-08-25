@@ -1,4 +1,6 @@
-# Prefer exact proptype definitions (react/prefer-exact-props)
+# Prefer exact proptype definitions (`react/prefer-exact-props`)
+
+<!-- end auto-generated rule header -->
 
 Recommends options to ensure only exact prop definitions are used when writing components. This recommends solutions for PropTypes or for Flow types.
 
@@ -38,7 +40,7 @@ In this case, one could instead enforce only the exact props being used by using
 class Foo extends React.Component {
   props: {|
     bar: string
-  }|
+  |}
 
   render() {
     return <p>{this.props.bar}</p>;

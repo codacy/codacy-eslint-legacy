@@ -1,8 +1,15 @@
-# no-unexpected-multiline
+---
+title: no-unexpected-multiline
+rule_type: problem
+related_rules:
+- func-call-spacing
+- semi
+- space-unary-ops
+---
 
-Disallows confusing multiline expressions.
 
-Semicolons are usually optional in JavaScript, because of automatic semicolon insertion (ASI). You can require or disallow semicolons with the [semi](./semi.md) rule.
+
+Semicolons are usually optional in JavaScript, because of automatic semicolon insertion (ASI). You can require or disallow semicolons with the [semi](./semi) rule.
 
 The rules for ASI are relatively straightforward: As once described by Isaac Schlueter, a newline character always ends a statement, just like a semicolon, **except** where one of the following is true:
 
@@ -18,6 +25,8 @@ In the exceptions where a newline does **not** end a statement, a typing mistake
 This rule disallows confusing multiline expressions where a newline looks like it is ending a statement, but is not.
 
 Examples of **incorrect** code for this rule:
+
+::: incorrect
 
 ```js
 /*eslint no-unexpected-multiline: "error"*/
@@ -39,7 +48,11 @@ let x = foo
 /regex/g.test(bar)
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-unexpected-multiline: "error"*/
@@ -63,14 +76,10 @@ let tag = function() {}
 tag `hello`
 ```
 
+:::
+
 ## When Not To Use It
 
 You can turn this rule off if you are confident that you will not accidentally introduce code like this.
 
-Note that the patterns considered problems are **not** flagged by the [semi](semi.md) rule.
-
-## Related Rules
-
-* [func-call-spacing](func-call-spacing.md)
-* [semi](semi.md)
-* [space-unary-ops](space-unary-ops.md)
+Note that the patterns considered problems are **not** flagged by the [semi](semi) rule.

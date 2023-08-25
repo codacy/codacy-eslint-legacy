@@ -7,16 +7,21 @@ since: "v0.1.0"
 ---
 # regexp/no-invisible-character
 
-> disallow invisible raw character
+💼 This rule is enabled in the ✅ `plugin:regexp/recommended` config.
 
-- :gear: This rule is included in `"plugin:regexp/recommended"`.
-- :wrench: The `--fix` option on the [command line](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+🔧 This rule is automatically fixable by the [`--fix` CLI option](https://eslint.org/docs/latest/user-guide/command-line-interface#--fix).
+
+<!-- end auto-generated rule header -->
+
+> disallow invisible raw character
 
 ## :book: Rule Details
 
 This rule disallows using invisible characters other than SPACE (`U+0020`) without using escapes.
 
 <eslint-code-block fix>
+
+<!-- markdownlint-disable no-hard-tabs -->
 
 ```js
 /* eslint regexp/no-invisible-character: "error" */
@@ -34,6 +39,8 @@ var foo = //;
 var foo = //;
 var foo = /　/;
 ```
+
+<!-- markdownlint-enable no-hard-tabs -->
 
 </eslint-code-block>
 

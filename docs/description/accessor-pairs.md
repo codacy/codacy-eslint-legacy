@@ -1,6 +1,15 @@
-# accessor-pairs
+---
+title: accessor-pairs
+rule_type: suggestion
+related_rules:
+- no-dupe-keys
+- no-dupe-class-members
+further_reading:
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects
+---
 
-Enforces getter/setter pairs in objects and classes.
 
 It's a common mistake in JavaScript to create an object with just a setter for a property but never have a corresponding getter defined for it. Without a getter, you cannot read the property, so it ends up not being used.
 
@@ -13,6 +22,7 @@ var o = {
         this.val = value;
     }
 };
+
 
 // Good
 var o = {
@@ -46,6 +56,8 @@ This rule always checks object literals and property descriptors. By default, it
 
 Examples of **incorrect** code for the default `{ "setWithoutGet": true }` option:
 
+:::incorrect
+
 ```js
 /*eslint accessor-pairs: "error"*/
 
@@ -55,6 +67,7 @@ var o = {
     }
 };
 
+
 var o = {d: 1};
 Object.defineProperty(o, 'c', {
     set: function(value) {
@@ -63,7 +76,11 @@ Object.defineProperty(o, 'c', {
 });
 ```
 
+:::
+
 Examples of **correct** code for the default `{ "setWithoutGet": true }` option:
+
+:::correct
 
 ```js
 /*eslint accessor-pairs: "error"*/
@@ -88,11 +105,15 @@ Object.defineProperty(o, 'c', {
 });
 
 ```
+
+:::
 
 ### getWithoutSet
 
 Examples of **incorrect** code for the `{ "getWithoutSet": true }` option:
 
+:::incorrect
+
 ```js
 /*eslint accessor-pairs: ["error", { "getWithoutSet": true }]*/
 
@@ -122,9 +143,13 @@ Object.defineProperty(o, 'c', {
     }
 });
 ```
+
+:::
 
 Examples of **correct** code for the `{ "getWithoutSet": true }` option:
 
+:::correct
+
 ```js
 /*eslint accessor-pairs: ["error", { "getWithoutSet": true }]*/
 var o = {
@@ -147,6 +172,8 @@ Object.defineProperty(o, 'c', {
 });
 
 ```
+
+:::
 
 ### enforceForClassMembers
 
@@ -156,6 +183,8 @@ When `enforceForClassMembers` is set to `true` (default):
 * `"setWithoutGet": true` will also warn for setters without getters in classes.
 
 Examples of **incorrect** code for `{ "getWithoutSet": true, "enforceForClassMembers": true }`:
+
+:::incorrect
 
 ```js
 /*eslint accessor-pairs: ["error", { "getWithoutSet": true, "enforceForClassMembers": true }]*/
@@ -182,7 +211,11 @@ const Baz = class {
 }
 ```
 
+:::
+
 Examples of **incorrect** code for `{ "setWithoutGet": true, "enforceForClassMembers": true }`:
+
+:::incorrect
 
 ```js
 /*eslint accessor-pairs: ["error", { "setWithoutGet": true, "enforceForClassMembers": true }]*/
@@ -200,9 +233,13 @@ const Bar = class {
 }
 ```
 
+:::
+
 When `enforceForClassMembers` is set to `false`, this rule ignores classes.
 
 Examples of **correct** code for `{ "getWithoutSet": true, "setWithoutGet": true, "enforceForClassMembers": false }`:
+
+:::correct
 
 ```js
 /*eslint accessor-pairs: ["error", {
@@ -233,6 +270,8 @@ const Quux = class {
     }
 }
 ```
+
+:::
 
 ## Known Limitations
 
@@ -275,21 +314,10 @@ var o = {
 
 The code above creates an object with just a setter for the property `"a"`.
 
-See [no-dupe-keys](no-dupe-keys.md) if you also want to disallow duplicate keys in object literals.
+See [no-dupe-keys](no-dupe-keys) if you also want to disallow duplicate keys in object literals.
 
-See [no-dupe-class-members](no-dupe-class-members.md) if you also want to disallow duplicate names in class definitions.
+See [no-dupe-class-members](no-dupe-class-members) if you also want to disallow duplicate names in class definitions.
 
 ## When Not To Use It
 
 You can turn this rule off if you are not concerned with the simultaneous presence of setters and getters on objects.
-
-## Related Rules
-
-* [no-dupe-keys](no-dupe-keys.md)
-* [no-dupe-class-members](no-dupe-class-members.md)
-
-## Further Reading
-
-* [Object Setters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set)
-* [Object Getters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get)
-* [Working with Objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects)

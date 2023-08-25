@@ -1,6 +1,9 @@
-# no-prototype-builtins
+---
+title: no-prototype-builtins
+rule_type: problem
+---
 
-Disallows calling some `Object.prototype` methods directly on objects.
+
 
 In ECMAScript 5.1, `Object.create` was added, which enables the creation of objects with a specified `[[Prototype]]`. `Object.create(null)` is a common pattern used to create objects that will be used as a Map. This can lead to errors when it is assumed that objects will have properties from `Object.prototype`. This rule prevents calling some `Object.prototype` methods directly from an object.
 
@@ -14,6 +17,8 @@ This rule disallows calling some `Object.prototype` methods directly on object i
 
 Examples of **incorrect** code for this rule:
 
+::: incorrect
+
 ```js
 /*eslint no-prototype-builtins: "error"*/
 
@@ -24,7 +29,11 @@ var isPrototypeOfBar = foo.isPrototypeOf(bar);
 var barIsEnumerable = foo.propertyIsEnumerable("bar");
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-prototype-builtins: "error"*/
@@ -35,6 +44,8 @@ var isPrototypeOfBar = Object.prototype.isPrototypeOf.call(foo, bar);
 
 var barIsEnumerable = {}.propertyIsEnumerable.call(foo, "bar");
 ```
+
+:::
 
 ## When Not To Use It
 

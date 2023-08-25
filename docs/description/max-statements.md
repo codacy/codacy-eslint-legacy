@@ -1,6 +1,16 @@
-# max-statements
+---
+title: max-statements
+rule_type: suggestion
+related_rules:
+- complexity
+- max-depth
+- max-len
+- max-lines
+- max-lines-per-function
+- max-nested-callbacks
+- max-params
+---
 
-Enforces a maximum number of statements allowed in function blocks.
 
 The `max-statements` rule allows you to specify the maximum number of statements allowed in a function.
 
@@ -31,6 +41,8 @@ This rule has an object option:
 ### max
 
 Examples of **incorrect** code for this rule with the default `{ "max": 10 }` option:
+
+::: incorrect
 
 ```js
 /*eslint max-statements: ["error", 10]*/
@@ -67,7 +79,11 @@ let foo = () => {
 };
 ```
 
+:::
+
 Examples of **correct** code for this rule with the default `{ "max": 10 }` option:
+
+::: correct
 
 ```js
 /*eslint max-statements: ["error", 10]*/
@@ -114,9 +130,13 @@ let foo = () => {
 }
 ```
 
+:::
+
 Note that this rule does not apply to class static blocks, and that statements in class static blocks do not count as statements in the enclosing function.
 
 Examples of **correct** code for this rule with `{ "max": 2 }` option:
+
+::: correct
 
 ```js
 /*eslint max-statements: ["error", 2]*/
@@ -138,9 +158,13 @@ function foo() {
 }
 ```
 
+:::
+
 ### ignoreTopLevelFunctions
 
 Examples of additional **correct** code for this rule with the `{ "max": 10 }, { "ignoreTopLevelFunctions": true }` options:
+
+::: correct
 
 ```js
 /*eslint max-statements: ["error", 10, { "ignoreTopLevelFunctions": true }]*/
@@ -160,12 +184,4 @@ function foo() {
 }
 ```
 
-## Related Rules
-
-* [complexity](complexity.md)
-* [max-depth](max-depth.md)
-* [max-len](max-len.md)
-* [max-lines](max-lines.md)
-* [max-lines-per-function](max-lines-per-function.md)
-* [max-nested-callbacks](max-nested-callbacks.md)
-* [max-params](max-params.md)
+:::

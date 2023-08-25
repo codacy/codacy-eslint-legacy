@@ -1,6 +1,9 @@
-# no-unsafe-optional-chaining
+---
+title: no-unsafe-optional-chaining
+rule_type: problem
+---
 
-Disallows use of optional chaining in contexts where the `undefined` value is not allowed.
+
 
 The optional chaining (`?.`) expression can short-circuit with a return value of `undefined`. Therefore, treating an evaluated optional chaining expression as a function, object, number, etc., can cause TypeError or unexpected results. For example:
 
@@ -28,6 +31,8 @@ var obj = undefined;
 This rule aims to detect some cases where the use of optional chaining doesn't prevent runtime errors. In particular, it flags optional chaining expressions in positions where short-circuiting to `undefined` causes throwing a TypeError afterward.
 
 Examples of **incorrect** code for this rule:
+
+::: incorrect
 
 ```js
 /*eslint no-unsafe-optional-chaining: "error"*/
@@ -81,7 +86,11 @@ async function foo () {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-unsafe-optional-chaining: "error"*/
@@ -113,6 +122,8 @@ async function foo () {
 }
 ```
 
+:::
+
 ## Options
 
 This rule has an object option:
@@ -128,6 +139,8 @@ With this option set to `true` the rule is enforced for:
 * Assignment operators: `+=`, `-=`, `/=`, `*=`, `%=`, `**=`
 
 Examples of additional **incorrect** code for this rule with the `{ "disallowArithmeticOperators": true }` option:
+
+::: incorrect
 
 ```js
 /*eslint no-unsafe-optional-chaining: ["error", { "disallowArithmeticOperators": true }]*/
@@ -155,3 +168,5 @@ async function foo () {
   baz += await obj?.foo;
 }
 ```
+
+:::

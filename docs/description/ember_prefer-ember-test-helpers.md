@@ -1,14 +1,16 @@
-# prefer-ember-test-helpers
+# ember/prefer-ember-test-helpers
 
-✅ The `"extends": "plugin:ember/recommended"` property in a configuration file enables this rule.
+💼 This rule is enabled in the ✅ `recommended` [config](https://github.com/ember-cli/eslint-plugin-ember#-configurations).
+
+<!-- end auto-generated rule header -->
 
 This rule ensures the correct Ember test helper is imported when using methods that have a native window counterpart.
 
 There are currently 3 Ember test helper methods that have a native window counterpart:
 
-* blur
-* find
-* focus
+- blur
+- find
+- focus
 
 If these methods are not properly imported from Ember's test-helpers suite, and the native window method version is used instead, any intended asynchronous functions won't work as intended, which can cause tests to fail silently.
 
@@ -62,5 +64,5 @@ test('foo', async (assert) => {
 
 ## References
 
-* [Web API Window Methods](https://developer.mozilla.org/en-US/docs/Web/API/Window#Methods)
-* [Ember Test Helpers API Methods](https://github.com/emberjs/ember-test-helpers/blob/master/API.md)
+- [Web API Window Methods](https://developer.mozilla.org/en-US/docs/Web/API/Window#Methods)
+- [Ember Test Helpers API Methods](https://github.com/emberjs/ember-test-helpers/blob/master/API.md)

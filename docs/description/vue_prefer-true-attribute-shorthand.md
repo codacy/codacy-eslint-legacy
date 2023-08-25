@@ -54,7 +54,7 @@ export default {
 <MyComponent bool bool-or-string string-or-bool />
 ```
 
-```plain
+```txt
 bool: true (boolean)
 boolOrString: true (boolean)
 stringOrBool: "" (string)
@@ -66,7 +66,7 @@ stringOrBool: "" (string)
 <MyComponent :bool="true" :bool-or-string="true" :string-or-bool="true" />
 ```
 
-```plain
+```txt
 bool: true (boolean)
 boolOrString: true (boolean)
 stringOrBool: true (boolean)
@@ -107,6 +107,7 @@ Default options is `"always"`.
 ## :couple: Related Rules
 
 - [vue/no-boolean-default](./no-boolean-default.md)
+- [vue/prefer-prop-type-boolean-first](./prefer-prop-type-boolean-first.md)
 
 ## :rocket: Version
 

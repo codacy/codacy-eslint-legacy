@@ -7,10 +7,13 @@ since: "v0.4.0"
 ---
 # regexp/prefer-range
 
-> enforce using character class range
+💼 This rule is enabled in the ✅ `plugin:regexp/recommended` config.
 
-- :gear: This rule is included in `"plugin:regexp/recommended"`.
-- :wrench: The `--fix` option on the [command line](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+🔧 This rule is automatically fixable by the [`--fix` CLI option](https://eslint.org/docs/latest/user-guide/command-line-interface#--fix).
+
+<!-- end auto-generated rule header -->
+
+> enforce using character class range
 
 ## :book: Rule Details
 
@@ -48,7 +51,7 @@ This option can be used to override the [allowedCharacterRanges] setting.
 
 It allows all values that the [allowedCharacterRanges] setting allows.
 
-[allowedCharacterRanges]: ../settings/README.md#allowedCharacterRanges
+[allowedCharacterRanges]: ../settings/index.md#allowedCharacterRanges
 
 ### `"target": "alphanumeric"`
 

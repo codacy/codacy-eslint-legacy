@@ -1,6 +1,8 @@
-# init-declarations
+---
+title: init-declarations
+rule_type: suggestion
+---
 
-Requires or disallows initialization in variable declarations.
 
 In JavaScript, variables can be assigned during declaration, or at any point afterwards using an assignment statement. For example, in the following code, `foo` is initialized during declaration, while `bar` is initialized later.
 
@@ -65,6 +67,8 @@ Variables must not be initialized at declaration, except in for loops, where it 
 
 Examples of **incorrect** code for the default `"always"` option:
 
+::: incorrect
+
 ```js
 /*eslint init-declarations: ["error", "always"]*/
 /*eslint-env es6*/
@@ -75,7 +79,11 @@ function foo() {
 }
 ```
 
+:::
+
 Examples of **correct** code for the default `"always"` option:
+
+::: correct
 
 ```js
 /*eslint init-declarations: ["error", "always"]*/
@@ -88,9 +96,13 @@ function foo() {
 }
 ```
 
+:::
+
 ### never
 
 Examples of **incorrect** code for the `"never"` option:
+
+::: incorrect
 
 ```js
 /*eslint init-declarations: ["error", "never"]*/
@@ -104,7 +116,11 @@ function foo() {
 }
 ```
 
+:::
+
 Examples of **correct** code for the `"never"` option:
+
+::: correct
 
 ```js
 /*eslint init-declarations: ["error", "never"]*/
@@ -117,16 +133,22 @@ function foo() {
 }
 ```
 
+:::
+
 The `"never"` option ignores `const` variable initializations.
 
 ### ignoreForLoopInit
 
 Examples of **correct** code for the `"never", { "ignoreForLoopInit": true }` options:
 
+::: correct
+
 ```js
 /*eslint init-declarations: ["error", "never", { "ignoreForLoopInit": true }]*/
 for (var i = 0; i < 1; i++) {}
 ```
+
+:::
 
 ## When Not To Use It
 

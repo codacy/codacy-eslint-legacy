@@ -1,6 +1,11 @@
-# prefer-arrow-callback
+---
+title: prefer-arrow-callback
+rule_type: suggestion
+further_reading:
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
+---
 
-Requires using arrow functions for callbacks.
+
 
 Arrow functions can be an attractive alternative to function expressions for callbacks or function arguments.
 
@@ -96,7 +101,3 @@ someArray.map(function(item) { return this.doSomething(item); }, someObject);
 * In environments that have not yet adopted ES6 language features (ES3/5).
 
 * In ES6+ environments that allow the use of function expressions when describing callbacks or function arguments.
-
-## Further Reading
-
-* [More on ES6 arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)

@@ -30,11 +30,12 @@ describe("convertResults", () => {
               source: null,
             },
           ],
+          fatalErrorCount: 0,
           errorCount: 2,
           warningCount: 0,
           fixableErrorCount: 0,
           fixableWarningCount: 0,
-          usedDeprecatedRules: [],
+          usedDeprecatedRules: []
         },
       ],
       errorCount: 2,

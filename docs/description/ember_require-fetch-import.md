@@ -1,4 +1,6 @@
-# require-fetch-import
+# ember/require-fetch-import
+
+<!-- end auto-generated rule header -->
 
 Using `fetch()` without importing it causes the browser to use the native,
 non-wrapped `window.fetch()`. This is generally fine, but makes testing harder
@@ -29,10 +31,10 @@ const result = fetch('/something');
 
 ## Migration
 
-* Add `import fetch from 'fetch';` to all files that need it
+- Add `import fetch from 'fetch';` to all files that need it
 
 ## References
 
-* [@ember/test-waiters](https://github.com/emberjs/ember-test-waiters) addon
+- [@ember/test-waiters](https://github.com/emberjs/ember-test-waiters) addon
 
 [ember-fetch]: https://github.com/ember-cli/ember-fetch/

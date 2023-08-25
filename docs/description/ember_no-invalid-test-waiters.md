@@ -1,6 +1,8 @@
-# no-invalid-test-waiters
+# ember/no-invalid-test-waiters
 
-✅ The `"extends": "plugin:ember/recommended"` property in a configuration file enables this rule.
+💼 This rule is enabled in the ✅ `recommended` [config](https://github.com/ember-cli/eslint-plugin-ember#-configurations).
+
+<!-- end auto-generated rule header -->
 
 Prevents invalid usage of test waiters.
 
@@ -8,8 +10,8 @@ Prevents invalid usage of test waiters.
 
 The new test waiters APIs, found in the [ember-test-waiters](https://github.com/emberjs/ember-test-waiters) addon, have recommended best practices that ensure you are successful with their usage. This rule ensures that all usages are adhering to recommended best practices:
 
-* Used in module scope
-* Assigned to a variable
+- Used in module scope
+- Assigned to a variable
 
 ## Examples
 

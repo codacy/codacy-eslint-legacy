@@ -1,6 +1,13 @@
-# space-in-parens
+---
+title: space-in-parens
+rule_type: layout
+related_rules:
+- array-bracket-spacing
+- object-curly-spacing
+- computed-property-spacing
+---
 
-Disallows or enforce spaces inside of parentheses.
+
 
 Some style guides require or disallow spaces inside of parentheses:
 
@@ -35,6 +42,8 @@ Depending on your coding conventions, you can choose either option by specifying
 
 Examples of **incorrect** code for this rule with the default `"never"` option:
 
+::: incorrect
+
 ```js
 /*eslint space-in-parens: ["error", "never"]*/
 
@@ -50,7 +59,11 @@ var foo = ( 1 + 2 ) * 3;
 ( function () { return 'bar'; }() );
 ```
 
+:::
+
 Examples of **correct** code for this rule with the default `"never"` option:
+
+::: correct
 
 ```js
 /*eslint space-in-parens: ["error", "never"]*/
@@ -64,11 +77,15 @@ foo(/* bar */);
 var foo = (1 + 2) * 3;
 (function () { return 'bar'; }());
 ```
+
+:::
 
 ### "always"
 
 Examples of **incorrect** code for this rule with the `"always"` option:
 
+::: incorrect
+
 ```js
 /*eslint space-in-parens: ["error", "always"]*/
 
@@ -82,7 +99,11 @@ var foo = (1 + 2) * 3;
 (function () { return 'bar'; }());
 ```
 
+:::
+
 Examples of **correct** code for this rule with the `"always"` option:
+
+::: correct
 
 ```js
 /*eslint space-in-parens: ["error", "always"]*/
@@ -97,6 +118,8 @@ foo( /* bar */ );
 var foo = ( 1 + 2 ) * 3;
 ( function () { return 'bar'; }() );
 ```
+
+:::
 
 ### Exceptions
 
@@ -119,6 +142,8 @@ Empty parens exception and behavior:
 
 Examples of **incorrect** code for this rule with the `"never", { "exceptions": ["{}"] }` option:
 
+::: incorrect
+
 ```js
 /*eslint space-in-parens: ["error", "never", { "exceptions": ["{}"] }]*/
 
@@ -126,7 +151,11 @@ foo({bar: 'baz'});
 foo(1, {bar: 'baz'});
 ```
 
+:::
+
 Examples of **correct** code for this rule with the `"never", { "exceptions": ["{}"] }` option:
+
+::: correct
 
 ```js
 /*eslint space-in-parens: ["error", "never", { "exceptions": ["{}"] }]*/
@@ -135,7 +164,11 @@ foo( {bar: 'baz'} );
 foo(1, {bar: 'baz'} );
 ```
 
+:::
+
 Examples of **incorrect** code for this rule with the `"always", { "exceptions": ["{}"] }` option:
+
+::: incorrect
 
 ```js
 /*eslint space-in-parens: ["error", "always", { "exceptions": ["{}"] }]*/
@@ -144,7 +177,11 @@ foo( {bar: 'baz'} );
 foo( 1, {bar: 'baz'} );
 ```
 
+:::
+
 Examples of **correct** code for this rule with the `"always", { "exceptions": ["{}"] }` option:
+
+::: correct
 
 ```js
 /*eslint space-in-parens: ["error", "always", { "exceptions": ["{}"] }]*/
@@ -153,7 +190,11 @@ foo({bar: 'baz'});
 foo( 1, {bar: 'baz'});
 ```
 
+:::
+
 Examples of **incorrect** code for this rule with the `"never", { "exceptions": ["[]"] }` option:
+
+::: incorrect
 
 ```js
 /*eslint space-in-parens: ["error", "never", { "exceptions": ["[]"] }]*/
@@ -162,7 +203,11 @@ foo([bar, baz]);
 foo([bar, baz], 1);
 ```
 
+:::
+
 Examples of **correct** code for this rule with the `"never", { "exceptions": ["[]"] }` option:
+
+::: correct
 
 ```js
 /*eslint space-in-parens: ["error", "never", { "exceptions": ["[]"] }]*/
@@ -171,7 +216,11 @@ foo( [bar, baz] );
 foo( [bar, baz], 1);
 ```
 
+:::
+
 Examples of **incorrect** code for this rule with the `"always", { "exceptions": ["[]"] }` option:
+
+::: incorrect
 
 ```js
 /*eslint space-in-parens: ["error", "always", { "exceptions": ["[]"] }]*/
@@ -180,7 +229,11 @@ foo( [bar, baz] );
 foo( [bar, baz], 1 );
 ```
 
+:::
+
 Examples of **correct** code for this rule with the `"always", { "exceptions": ["[]"] }` option:
+
+::: correct
 
 ```js
 /*eslint space-in-parens: ["error", "always", { "exceptions": ["[]"] }]*/
@@ -189,7 +242,11 @@ foo([bar, baz]);
 foo([bar, baz], 1 );
 ```
 
+:::
+
 Examples of **incorrect** code for this rule with the `"never", { "exceptions": ["()"] }]` option:
+
+::: incorrect
 
 ```js
 /*eslint space-in-parens: ["error", "never", { "exceptions": ["()"] }]*/
@@ -199,7 +256,11 @@ foo((1 + 2), 1);
 foo(bar());
 ```
 
+:::
+
 Examples of **correct** code for this rule with the `"never", { "exceptions": ["()"] }]` option:
+
+::: correct
 
 ```js
 /*eslint space-in-parens: ["error", "never", { "exceptions": ["()"] }]*/
@@ -209,7 +270,11 @@ foo( (1 + 2), 1);
 foo(bar() );
 ```
 
+:::
+
 Examples of **incorrect** code for this rule with the `"always", { "exceptions": ["()"] }]` option:
+
+::: incorrect
 
 ```js
 /*eslint space-in-parens: ["error", "always", { "exceptions": ["()"] }]*/
@@ -218,7 +283,11 @@ foo( ( 1 + 2 ) );
 foo( ( 1 + 2 ), 1 );
 ```
 
+:::
+
 Examples of **correct** code for this rule with the `"always", { "exceptions": ["()"] }]` option:
+
+::: correct
 
 ```js
 /*eslint space-in-parens: ["error", "always", { "exceptions": ["()"] }]*/
@@ -227,25 +296,37 @@ foo(( 1 + 2 ));
 foo(( 1 + 2 ), 1 );
 ```
 
+:::
+
 The `"empty"` exception concerns empty parentheses, and works the same way as the other exceptions, inverting the first option.
 
 Example of **incorrect** code for this rule with the `"never", { "exceptions": ["empty"] }]` option:
 
+::: incorrect
+
 ```js
 /*eslint space-in-parens: ["error", "never", { "exceptions": ["empty"] }]*/
 
 foo();
 ```
+
+:::
 
 Example of **correct** code for this rule with the `"never", { "exceptions": ["empty"] }]` option:
 
+::: correct
+
 ```js
 /*eslint space-in-parens: ["error", "never", { "exceptions": ["empty"] }]*/
 
 foo( );
 ```
 
+:::
+
 Example of **incorrect** code for this rule with the `"always", { "exceptions": ["empty"] }]` option:
+
+::: incorrect
 
 ```js
 /*eslint space-in-parens: ["error", "always", { "exceptions": ["empty"] }]*/
@@ -253,17 +334,25 @@ Example of **incorrect** code for this rule with the `"always", { "exceptions": 
 foo( );
 ```
 
+:::
+
 Example of **correct** code for this rule with the `"always", { "exceptions": ["empty"] }]` option:
+
+::: correct
 
 ```js
 /*eslint space-in-parens: ["error", "always", { "exceptions": ["empty"] }]*/
 
 foo();
 ```
+
+:::
 
 You can include multiple entries in the `"exceptions"` array.
 
 Examples of **incorrect** code for this rule with the `"always", { "exceptions": ["{}", "[]"] }]` option:
+
+::: incorrect
 
 ```js
 /*eslint space-in-parens: ["error", "always", { "exceptions": ["{}", "[]"] }]*/
@@ -273,7 +362,11 @@ baz( 1, [1,2] );
 foo( {bar: 'baz'}, [1, 2] );
 ```
 
+:::
+
 Examples of **correct** code for this rule with the `"always", { "exceptions": ["{}", "[]"] }]` option:
+
+::: correct
 
 ```js
 /*eslint space-in-parens: ["error", "always", { "exceptions": ["{}", "[]"] }]*/
@@ -283,12 +376,8 @@ baz( 1, [1,2]);
 foo({bar: 'baz'}, [1, 2]);
 ```
 
+:::
+
 ## When Not To Use It
 
 You can turn this rule off if you are not concerned with the consistency of spacing between parentheses.
-
-## Related Rules
-
-* [array-bracket-spacing](array-bracket-spacing.md)
-* [object-curly-spacing](object-curly-spacing.md)
-* [computed-property-spacing](computed-property-spacing.md)

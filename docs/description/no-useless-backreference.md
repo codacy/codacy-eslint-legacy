@@ -1,6 +1,15 @@
-# no-useless-backreference
+---
+title: no-useless-backreference
+rule_type: problem
+related_rules:
+- no-control-regex
+- no-empty-character-class
+- no-invalid-regexp
+further_reading:
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
+---
 
-Disallows useless backreferences in regular expressions.
+
 
 In JavaScript regular expressions, it's syntactically valid to define a backreference to a group that belongs to another alternative part of the pattern, a backreference to a group that appears after the backreference, a backreference to a group that contains that backreference, or a backreference to a group that is inside a negative lookaround. However, by the specification, in any of these cases the backreference always ends up matching only zero-length (the empty string), regardless of the context in which the backreference and the group appear.
 
@@ -43,6 +52,8 @@ This might be surprising to developers coming from other languages where some of
 
 Examples of **incorrect** code for this rule:
 
+::: incorrect
+
 ```js
 /*eslint no-useless-backreference: "error"*/
 
@@ -75,7 +86,11 @@ new RegExp('(\\1)'); // nested reference to (\1)
 /(?<!(a))b\1/; // reference to (a) into a negative lookbehind
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-useless-backreference: "error"*/
@@ -107,9 +122,13 @@ new RegExp('(.)\\1'); // reference to (.)
 /(?<!\1(a))b/; // reference to (a), correct as it's from within the same negative lookbehind
 ```
 
+:::
+
 Please note that this rule does not aim to detect and disallow a potentially erroneous use of backreference syntax in regular expressions, like the use in character classes or an attempt to reference a group that doesn't exist. Depending on the context, a `\1`...`\9` sequence that is not a syntactically valid backreference may produce syntax error, or be parsed as something else (e.g., as a legacy octal escape sequence).
 
 Examples of additional **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint no-useless-backreference: "error"*/
@@ -121,12 +140,4 @@ Examples of additional **correct** code for this rule:
 /^(a)\1\2$/.test("aa\x02"); // true. In this case, \1 is a backreference, \2 is an octal escape sequence.
 ```
 
-## Related Rules
-
-* [no-control-regex](no-control-regex.md)
-* [no-empty-character-class](no-empty-character-class.md)
-* [no-invalid-regexp](no-invalid-regexp.md)
-
-## Further Reading
-
-* [MDN: Regular Expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)
+:::

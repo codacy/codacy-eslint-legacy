@@ -1,6 +1,10 @@
-# prefer-rest-params
+---
+title: prefer-rest-params
+rule_type: suggestion
+related_rules:
+- prefer-spread
+---
 
-Suggests using rest parameters instead of `arguments`.
 
 There are rest parameters in ES2015.
 We can use that feature for variadic functions instead of the `arguments` variable.
@@ -14,6 +18,8 @@ This rule is aimed to flag usage of `arguments` variables.
 ## Examples
 
 Examples of **incorrect** code for this rule:
+
+::: incorrect
 
 ```js
 /*eslint prefer-rest-params: "error"*/
@@ -33,7 +39,11 @@ function foo(action) {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint prefer-rest-params: "error"*/
@@ -56,12 +66,10 @@ function foo() {
 }
 ```
 
+:::
+
 ## When Not To Use It
 
 This rule should not be used in ES3/5 environments.
 
 In ES2015 (ES6) or later, if you don't want to be notified about `arguments` variables, then it's safe to disable this rule.
-
-## Related Rules
-
-* [prefer-spread](prefer-spread.md)

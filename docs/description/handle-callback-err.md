@@ -1,8 +1,13 @@
-# handle-callback-err
+---
+title: handle-callback-err
+rule_type: suggestion
+further_reading:
+- https://github.com/maxogden/art-of-node#callbacks
+- https://web.archive.org/web/20171224042620/https://docs.nodejitsu.com/articles/errors/what-are-the-error-conventions/
+---
 
-Enforces callback error handling.
 
-This rule was **deprecated** in ESLint v7.0.0. Please use the corresponding rule in [`eslint-plugin-node`](https://github.com/mysticatea/eslint-plugin-node).
+This rule was **deprecated** in ESLint v7.0.0. Please use the corresponding rule in [`eslint-plugin-n`](https://github.com/eslint-community/eslint-plugin-n).
 
 In Node.js, a common pattern for dealing with asynchronous behavior is called the callback pattern.
 This pattern expects an `Error` object or `null` as the first argument of the callback.
@@ -24,6 +29,8 @@ The rule takes a single string option: the name of the error parameter. The defa
 
 Examples of **incorrect** code for this rule with the default `"err"` parameter name:
 
+::: incorrect
+
 ```js
 /*eslint handle-callback-err: "error"*/
 
@@ -33,7 +40,11 @@ function loadData (err, data) {
 
 ```
 
+:::
+
 Examples of **correct** code for this rule with the default `"err"` parameter name:
+
+::: correct
 
 ```js
 /*eslint handle-callback-err: "error"*/
@@ -50,7 +61,11 @@ function generateError (err) {
 }
 ```
 
+:::
+
 Examples of **correct** code for this rule with a sample `"error"` parameter name:
+
+::: correct
 
 ```js
 /*eslint handle-callback-err: ["error", "error"]*/
@@ -62,6 +77,8 @@ function loadData (error, data) {
     doSomething();
 }
 ```
+
+:::
 
 ### regular expression
 
@@ -78,8 +95,3 @@ If the configured name of the error variable begins with a `^` it is considered 
 
 There are cases where it may be safe for your application to ignore errors, however only ignore errors if you are
 confident that some other form of monitoring will help you catch the problem.
-
-## Further Reading
-
-* [The Art Of Node: Callbacks](https://github.com/maxogden/art-of-node#callbacks)
-* [Nodejitsu: What are the error conventions?](https://docs.nodejitsu.com/articles/errors/what-are-the-error-conventions/)

@@ -1,4 +1,8 @@
-# Avoid wrapping values in `Promise.resolve` or `Promise.reject` when not needed (no-return-wrap)
+# Disallow wrapping values in `Promise.resolve` or `Promise.reject` when not needed (`promise/no-return-wrap`)
+
+💼 This rule is enabled in the ✅ `recommended` config.
+
+<!-- end auto-generated rule header -->
 
 Ensure that inside a `then()` or a `catch()` we always `return` or `throw` a raw
 value instead of wrapping in `Promise.resolve` or `Promise.reject`
@@ -6,10 +10,10 @@ value instead of wrapping in `Promise.resolve` or `Promise.reject`
 #### Valid
 
 ```js
-myPromise.then(function(val) {
+myPromise.then(function (val) {
   return val * 2
 })
-myPromise.then(function(val) {
+myPromise.then(function (val) {
   throw 'bad thing'
 })
 ```
@@ -17,10 +21,10 @@ myPromise.then(function(val) {
 #### Invalid
 
 ```js
-myPromise.then(function(val) {
+myPromise.then(function (val) {
   return Promise.resolve(val * 2)
 })
-myPromise.then(function(val) {
+myPromise.then(function (val) {
   return Promise.reject('bad thing')
 })
 ```

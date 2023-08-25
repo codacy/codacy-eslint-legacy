@@ -1,6 +1,8 @@
-# new-cap
+---
+title: new-cap
+rule_type: suggestion
+---
 
-Requires constructor names to begin with a capital letter.
 
 The `new` operator in JavaScript creates a new instance of a particular type of object. That type of object is represented by a constructor function. Since constructor functions are just regular functions, the only defining characteristic is that `new` is being used as part of the call. Native JavaScript functions begin with an uppercase letter to distinguish those functions that are to be used as constructors from functions that are not. Many style guides recommend following this pattern to more easily determine which functions are to be used as constructors.
 
@@ -22,8 +24,11 @@ This rule requires constructor names to begin with a capital letter. Certain bui
 * `RegExp`
 * `String`
 * `Symbol`
+* `BigInt`
 
 Examples of **correct** code for this rule:
+
+::: correct
 
 ```js
 /*eslint new-cap: "error"*/
@@ -32,6 +37,8 @@ function foo(arg) {
     return Boolean(arg);
 }
 ```
+
+:::
 
 ## Options
 
@@ -52,13 +59,19 @@ This rule has an object option:
 
 Examples of **incorrect** code for this rule with the default `{ "newIsCap": true }` option:
 
+::: incorrect
+
 ```js
 /*eslint new-cap: ["error", { "newIsCap": true }]*/
 
 var friend = new person();
 ```
 
+:::
+
 Examples of **correct** code for this rule with the default `{ "newIsCap": true }` option:
+
+::: correct
 
 ```js
 /*eslint new-cap: ["error", { "newIsCap": true }]*/
@@ -66,7 +79,11 @@ Examples of **correct** code for this rule with the default `{ "newIsCap": true 
 var friend = new Person();
 ```
 
+:::
+
 Examples of **correct** code for this rule with the `{ "newIsCap": false }` option:
+
+::: correct
 
 ```js
 /*eslint new-cap: ["error", { "newIsCap": false }]*/
@@ -74,9 +91,13 @@ Examples of **correct** code for this rule with the `{ "newIsCap": false }` opti
 var friend = new person();
 ```
 
+:::
+
 ### capIsNew
 
 Examples of **incorrect** code for this rule with the default `{ "capIsNew": true }` option:
+
+::: incorrect
 
 ```js
 /*eslint new-cap: ["error", { "capIsNew": true }]*/
@@ -84,7 +105,11 @@ Examples of **incorrect** code for this rule with the default `{ "capIsNew": tru
 var colleague = Person();
 ```
 
+:::
+
 Examples of **correct** code for this rule with the default `{ "capIsNew": true }` option:
+
+::: correct
 
 ```js
 /*eslint new-cap: ["error", { "capIsNew": true }]*/
@@ -92,7 +117,11 @@ Examples of **correct** code for this rule with the default `{ "capIsNew": true 
 var colleague = new Person();
 ```
 
+:::
+
 Examples of **correct** code for this rule with the `{ "capIsNew": false }` option:
+
+::: correct
 
 ```js
 /*eslint new-cap: ["error", { "capIsNew": false }]*/
@@ -100,9 +129,13 @@ Examples of **correct** code for this rule with the `{ "capIsNew": false }` opti
 var colleague = Person();
 ```
 
+:::
+
 ### newIsCapExceptions
 
 Examples of additional **correct** code for this rule with the `{ "newIsCapExceptions": ["events"] }` option:
+
+::: correct
 
 ```js
 /*eslint new-cap: ["error", { "newIsCapExceptions": ["events"] }]*/
@@ -112,9 +145,13 @@ var events = require('events');
 var emitter = new events();
 ```
 
+:::
+
 ### newIsCapExceptionPattern
 
 Examples of additional **correct** code for this rule with the `{ "newIsCapExceptionPattern": "^person\\.." }` option:
+
+::: correct
 
 ```js
 /*eslint new-cap: ["error", { "newIsCapExceptionPattern": "^person\\.." }]*/
@@ -124,7 +161,11 @@ var friend = new person.acquaintance();
 var bestFriend = new person.friend();
 ```
 
+:::
+
 Examples of additional **correct** code for this rule with the `{ "newIsCapExceptionPattern": "\\.bar$" }` option:
+
+::: correct
 
 ```js
 /*eslint new-cap: ["error", { "newIsCapExceptionPattern": "\\.bar$" }]*/
@@ -132,9 +173,13 @@ Examples of additional **correct** code for this rule with the `{ "newIsCapExcep
 var friend = new person.bar();
 ```
 
+:::
+
 ### capIsNewExceptions
 
 Examples of additional **correct** code for this rule with the `{ "capIsNewExceptions": ["Person"] }` option:
+
+::: correct
 
 ```js
 /*eslint new-cap: ["error", { "capIsNewExceptions": ["Person"] }]*/
@@ -144,9 +189,13 @@ function foo(arg) {
 }
 ```
 
+:::
+
 ### capIsNewExceptionPattern
 
 Examples of additional **correct** code for this rule with the `{ "capIsNewExceptionPattern": "^person\\.." }` option:
+
+::: correct
 
 ```js
 /*eslint new-cap: ["error", { "capIsNewExceptionPattern": "^person\\.." }]*/
@@ -155,7 +204,11 @@ var friend = person.Acquaintance();
 var bestFriend = person.Friend();
 ```
 
+:::
+
 Examples of additional **correct** code for this rule with the `{ "capIsNewExceptionPattern": "\\.Bar$" }` option:
+
+::: correct
 
 ```js
 /*eslint new-cap: ["error", { "capIsNewExceptionPattern": "\\.Bar$" }]*/
@@ -163,7 +216,11 @@ Examples of additional **correct** code for this rule with the `{ "capIsNewExcep
 foo.Bar();
 ```
 
+:::
+
 Examples of additional **correct** code for this rule with the `{ "capIsNewExceptionPattern": "^Foo" }` option:
+
+::: correct
 
 ```js
 /*eslint new-cap: ["error", { "capIsNewExceptionPattern": "^Foo" }]*/
@@ -175,9 +232,13 @@ var y = Foobar(42);
 var z = Foo.Bar(42);
 ```
 
+:::
+
 ### properties
 
 Examples of **incorrect** code for this rule with the default `{ "properties": true }` option:
+
+::: incorrect
 
 ```js
 /*eslint new-cap: ["error", { "properties": true }]*/
@@ -185,7 +246,11 @@ Examples of **incorrect** code for this rule with the default `{ "properties": t
 var friend = new person.acquaintance();
 ```
 
+:::
+
 Examples of **correct** code for this rule with the default `{ "properties": true }` option:
+
+::: correct
 
 ```js
 /*eslint new-cap: ["error", { "properties": true }]*/
@@ -193,13 +258,19 @@ Examples of **correct** code for this rule with the default `{ "properties": tru
 var friend = new person.Acquaintance();
 ```
 
+:::
+
 Examples of **correct** code for this rule with the `{ "properties": false }` option:
+
+::: correct
 
 ```js
 /*eslint new-cap: ["error", { "properties": false }]*/
 
 var friend = new person.acquaintance();
 ```
+
+:::
 
 ## When Not To Use It
 

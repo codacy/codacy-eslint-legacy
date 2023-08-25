@@ -1,4 +1,6 @@
-# Prevent usage of setState in componentDidUpdate (react/no-did-update-set-state)
+# Disallow usage of setState in componentDidUpdate (`react/no-did-update-set-state`)
+
+<!-- end auto-generated rule header -->
 
 Updating the state after a component update will trigger a second `render()` call and can lead to property/layout thrashing.
 

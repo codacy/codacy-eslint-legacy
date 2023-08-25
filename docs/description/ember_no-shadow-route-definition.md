@@ -1,12 +1,14 @@
-# no-shadow-route-definition
+# ember/no-shadow-route-definition
 
-✅ The `"extends": "plugin:ember/recommended"` property in a configuration file enables this rule.
+💼 This rule is enabled in the ✅ `recommended` [config](https://github.com/ember-cli/eslint-plugin-ember#-configurations).
+
+<!-- end auto-generated rule header -->
 
 Enforce no route path definition shadowing in Router.
 
 ## Rule Details
 
-This rule disallows defining shadowing route definitions.
+This rule disallows defining shadowing route definitions. Shadowing will result in the router failing to resolve the path of the shadowed route, leading to undesirable and incomprehensible behavior (e.g. hooks of the shadowed route not firing even though the URL matches its path).
 
 ## Examples
 

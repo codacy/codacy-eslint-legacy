@@ -1,17 +1,22 @@
-# Configure the position of the first property (react/jsx-first-prop-new-line)
+# Enforce proper position of the first property in JSX (`react/jsx-first-prop-new-line`)
+
+🔧 This rule is automatically fixable by the [`--fix` CLI option](https://eslint.org/docs/latest/user-guide/command-line-interface#--fix).
+
+<!-- end auto-generated rule header -->
 
 Ensure correct position of the first property.
 
-**Fixable:** This rule is automatically fixable using the `--fix` flag on the command line. However, fix does not include indentation. Please rerun lint to correct those errors.
+Note: The fixer does not include indentation. Please rerun lint to correct those errors.
 
 ## Rule Details
 
 This rule checks whether the first property of all JSX elements is correctly placed. There are the possible configurations:
 
-* `always`: The first property should always be placed on a new line.
-* `never` : The first property should never be placed on a new line, e.g. should always be on the same line as the Component opening tag.
-* `multiline`: The first property should always be placed on a new line when the JSX tag takes up multiple lines.
-* `multiline-multiprop`: The first property should always be placed on a new line if the JSX tag takes up multiple lines and there are multiple properties. This is the `default` value.
+- `always`: The first property should always be placed on a new line.
+- `never` : The first property should never be placed on a new line, e.g. should always be on the same line as the Component opening tag.
+- `multiline`: The first property should always be placed on a new line when the JSX tag takes up multiple lines.
+- `multiprop`: The first property should never be placed on a new line unless there are multiple properties.
+- `multiline-multiprop`: The first property should always be placed on a new line if the JSX tag takes up multiple lines and there are multiple properties. This is the `default` value.
 
 Examples of **incorrect** code for this rule, when configured with `"always"`:
 
@@ -102,7 +107,7 @@ Examples of **correct** code for this rule, when configured with `"multiline-mul
 ## Rule Options
 
 ```jsx
-"react/jsx-first-prop-new-line": `"always" | "never" | "multiline" | "multiline-multiprop"`
+"react/jsx-first-prop-new-line": `"always" | "never" | "multiline" | "multiprop" | "multiline-multiprop"`
 ```
 
 ## When Not To Use It

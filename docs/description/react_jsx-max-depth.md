@@ -1,4 +1,6 @@
-# Validate JSX maximum depth (react/jsx-max-depth)
+# Enforce JSX maximum depth (`react/jsx-max-depth`)
+
+<!-- end auto-generated rule header -->
 
 This option validates a specific depth for JSX.
 

@@ -1,6 +1,14 @@
-# no-void
+---
+title: no-void
+rule_type: suggestion
+related_rules:
+- no-undef-init
+- no-undefined
+further_reading:
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void
+- https://oreilly.com/javascript/excerpts/javascript-good-parts/bad-parts.html
+---
 
-Disallows use of the void operator.
 
 The `void` operator takes an operand and returns `undefined`: `void expression` will evaluate `expression` and return `undefined`. It can be used to ignore any side effects `expression` may produce:
 
@@ -52,6 +60,8 @@ This rule aims to eliminate use of void operator.
 
 Examples of **incorrect** code for this rule:
 
+::: incorrect
+
 ```js
 /*eslint no-void: "error"*/
 
@@ -63,6 +73,8 @@ function baz() {
     return void 0;
 }
 ```
+
+:::
 
 ## Options
 
@@ -76,6 +88,8 @@ When `allowAsStatement` is set to true, the rule will not error on cases that th
 
 Examples of **incorrect** code for `{ "allowAsStatement": true }`:
 
+::: incorrect
+
 ```js
 /*eslint no-void: ["error", { "allowAsStatement": true }]*/
 
@@ -85,7 +99,11 @@ function baz() {
 }
 ```
 
+:::
+
 Examples of **correct** code for `{ "allowAsStatement": true }`:
+
+::: correct
 
 ```js
 /*eslint no-void: ["error", { "allowAsStatement": true }]*/
@@ -94,16 +112,8 @@ void foo;
 void someFunction();
 ```
 
+:::
+
 ## When Not To Use It
 
 If you intentionally use the `void` operator then you can disable this rule.
-
-## Related Rules
-
-* [no-undef-init](no-undef-init.md)
-* [no-undefined](no-undefined.md)
-
-## Further Reading
-
-* [Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void)
-* [Bad Parts: Appendix B - JavaScript: The Good Parts by Douglas Crockford](https://oreilly.com/javascript/excerpts/javascript-good-parts/bad-parts.html)
